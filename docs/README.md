@@ -1,6 +1,4 @@
 ![Spamfilter Logo](https://raw.githubusercontent.com/mags0ft/spamfilter/master/docs/assets/icon.png)
-
-# spamfilter
 **Delivering streamlined, customizable spam mitigations into any environment.**
 
 ---

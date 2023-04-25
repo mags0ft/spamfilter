@@ -1,3 +1,26 @@
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
+
+[project]
+name = "spamfilter"
+version = "0.0.1"
+description = "Create spam mitigation models with ease using fully-customizable, object oriented components."
+readme = "README.md"
+authors = [{ name = "Magnus Schlinsog", email = "magnusschlinsog@gmail.com" }]
+license = { file = "LICENSE" }
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+]
+keywords = ["spam", "spamfilter", "spam protection", "spam filter", "spam mitigation", "anti spam"]
+dependencies = []
+requires-python = ">=3.9
+
+[project.optional-dependencies]
+dev = ["pip-tools", "pytest"]
+
+[project.urls]
+GitHub = "https://github.com/realpython/reader"
+Homepage = "https://mags0ft.github.io/spamfilter/"

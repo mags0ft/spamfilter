@@ -5,3 +5,5 @@ It's object-oriented and makes a quick, yet concise approach to remove spam very
 
 from machines import Machine
 from premade import chat
+
+__version__ = "v0.0.1"
