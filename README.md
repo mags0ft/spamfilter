@@ -18,7 +18,7 @@ from spamfilter import Machine
 
 m = Machine([
    Length(min_length=10, max_length=200, mode="crop"),
-   Symbols(mode="normal")`\
+   Symbols(mode="normal")
 ])
 
 TEST_STRING = "This is a test string."
