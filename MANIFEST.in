@@ -1,0 +1,14 @@
+exclude tests/*.*
+exclude tests/*
+exclude tests/
+exclude docs/
+exclude docs/assets/
+exclude docs/*
+exclude docs/assets/*
+exclude docs/assets/*.*
+exclude .vscode/
+exclude .vscode/*
+exclude .pytest_cache/
+exclude .pytest_cache/*
+exclude .pytest_cache/*.*
+exclude TODO
