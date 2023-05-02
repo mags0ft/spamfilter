@@ -1,5 +1,5 @@
-from machines import Machine
-from filters import (
+from ..machines import Machine
+from ..filters import (
     Length,
     WorldLength,
     Symbols,

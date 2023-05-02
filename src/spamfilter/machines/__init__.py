@@ -1,4 +1,4 @@
-from result import Result
+from ..result import Result
 
 POSSIBLE_MODES = [
     "normal",

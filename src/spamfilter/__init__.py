@@ -3,7 +3,4 @@ The spamfilter module is a lightweight, fast and straightforward way to build yo
 It's object-oriented and makes a quick, yet concise approach to remove spam very easy.
 """
 
-from machines import Machine
-from premade import chat
-
-__version__ = "v0.0.1"
+__version__ = "v0.0.2"

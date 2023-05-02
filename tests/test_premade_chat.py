@@ -1,5 +1,4 @@
-import premade.chat as chat
-import filters.capitals
+from src.spamfilter.premade import chat
 
 m = chat.create_machine()
 

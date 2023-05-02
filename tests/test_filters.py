@@ -1,4 +1,4 @@
-import filters
+from src.spamfilter import filters
 
 def test_empty_inputs():
     for filter in filters.FILTERS:
