@@ -5,7 +5,7 @@
 The spamfilter module is a lightweight, concise way to protect applications against text spam when processing user-generated content.
 
 ---
-### [**👉 Get started**](./get_started.md) | [**👩‍💻 Install**](./installation.md) | [**😸 GitHub**](https://github.com/mags0ft/spamfilter)
+### [**👉 Get started**](./get_started.md) | [**📕 Documentation**](./documentation.md) | [**👩‍💻 Install**](./installation.md) | [**😸 GitHub**](https://github.com/mags0ft/spamfilter)
 ---
 
 ### How spamfilter is built
