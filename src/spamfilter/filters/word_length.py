@@ -9,13 +9,13 @@ POSSIBLE_MODES = [
 class WorldLength(Filter):
     """
     Checks if the words in a string match given length requirements.
-    `Length.max`: The inclusive maximum length of a single word.
-    `Length.max_abs_population`: The maximum amount of too long words to make the string fail.
-    `Length.max_perc_population`: The maximum percentage of too long words to make the string fail.
-    `Length.mode`: How to detect failing strings.
+    `WordLength.max`: The inclusive maximum length of a single word.
+    `WordLength.max_abs_population`: The maximum amount of too long words to make the string fail.
+    `WordLength.max_perc_population`: The maximum percentage of too long words to make the string fail.
+    `WordLength.mode`: How to detect failing strings.
         `absolute`: Fail the string if there are too many words that are too long, specified in `max_abs_population` as a max int.
         `percentage`: Fail the string if there more too long words than the specified percentage in `max_perc_population` as a percentage float.
-    `Length.split_regex`: The regex used to split into standalone words.
+    `WordLength.split_regex`: The regex used to split into standalone words.
     """
     def __init__(self, max_length : int = 20, mode : str = "absolute", max_abs_population : int = 1, max_perc_population : float = 0.1):
         if not mode in POSSIBLE_MODES:
