@@ -48,7 +48,7 @@ The tuple is built as following:
 
 ---
 
-### `filters.Filter`
+## filters.Filter
 **Base class. No functionality.**
 
 `filters.Filter(mode : str = "default")`
@@ -61,7 +61,7 @@ The `Filter` class is the class all other filters inherit from. It does not cont
  - `default`: default mode, no functionality.
 
 ---
-### `filters.Capitals`
+## filters.Capitals
 **Filters out texts with too many capital letters.**
 
 `filters.Capitals(percentage : float = 0.3, mode : str = "normal")`
@@ -77,7 +77,7 @@ Check if a string contains too much capitals.
  - `crop`: crop all letters to lowercase if the string is - too capital, makes it **always pass** (!)
 
 ---
-### `filters.Length`
+## filters.Length
 **Filters out too short/long texts.**
 
 `filters.Length(min_length : int = 10, max_length : int = 200, padding : str = " ", mode : str = "normal")`
@@ -99,7 +99,7 @@ Checks if a string matches given length requirements.
  - `crop`: Shorten too long strings and fill too short strings up using `Length.padding`.
 
 ---
-### `filters.Symbols`
+## filters.Symbols
 **Filters for too many symbols.**
 
 `filters.Symbols(percentage : float = 0.15, mode : str = "normal", symboldef : str = "explicit", abs_safe_min : int = 3)`
@@ -124,7 +124,7 @@ Check if a string contains too many symbols.
 `Capitals.abs_safe_min`: absolute amount of symbols that are always okay to use.
 
 ---
-### `filters.WordLength`
+## filters.WordLength
 **Filters for too long, standalone words.**
 
 `filters.WordLength(max_length : int = 20, mode : str = "absolute", max_abs_population : int = 1, max_perc_population : float = 0.1)`
@@ -147,7 +147,7 @@ Checks if the words in a string match given length requirements.
 `Length.split_regex`: The regex used to split into standalone words.
 
 ---
-### `filters.PersonalInformation`
+## filters.PersonalInformation
 **Personal information detection base class.**
 
 `filters.PersonalInformation(regex : str, mode : str = "normal", replacement: str = r"***")`
@@ -166,7 +166,7 @@ Base class other filters for personal information inherit from.
 `PersonalInformation.replacement`: what regex to replace info with.
 
 ---
-### `filters.Email`
+## filters.Email
 **Filters for accidentally exposed email addresses in texts to filter them out before they reach the public.**
 
 `filters.Email(regex : str = r"([a-zA-Z0-9+._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9_-]+)", mode : str = "normal", replacement: str = r"***")`
@@ -185,7 +185,7 @@ Check if a string contains an email address.
 `Email.replacement`: what regex to replace email addresses with.
 
 ---
-### `filters.BypassDetector`
+## filters.BypassDetector
 **Detects fraudulently constructed strings which try to bypass the filters using spaces between the characters.**
 
 `filters.BypassDetector(percentage = 0.4, max_findings = 5)`
@@ -202,7 +202,7 @@ The safe characters are called "isles" and defined as a list of characters in `B
 `BypassDetector.max_findings`: absolute number of suspicious adjacencies needed to fail.
 
 ---
-### `filters.Blocklist`
+## filters.Blocklist
 **Filters for words in a string using a black-/blocklist.**
 
 `filters.Blocklist(blocklist : set, mode : str = "normal")`
@@ -225,7 +225,7 @@ Filter text for blocked words. Works better in combination with `BypassDetector`
 `Blocklist.profanity_replacement`: what to replace profanity with.
 
 ---
-### `filters.BlocklistFromJSON`
+## filters.BlocklistFromJSON
 **Filters for words in a string using a black-/blocklist loaded from a JSON file list.**
 
 `filters.BlocklistFromJSON(file : str, mode : str = "normal")`

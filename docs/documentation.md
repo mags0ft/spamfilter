@@ -10,7 +10,7 @@ General information page links:
  - [Installation](./installation.md)
 
 Code documentation links:
- - [`spamfilter.filters`](./filters.md)
- - [`spamfilter.machines`](./machines.md)
+ - [spamfilter.filters](./filters.md)
+ - [spamfilter.machines](./machines.md)
 
 If you're missing some documentation, feel free to reach out to the contributor(s) via GitHub!
