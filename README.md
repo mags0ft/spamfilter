@@ -6,7 +6,7 @@ The spamfilter module is a lightweight, fast and straightforward way to build yo
 It's object-oriented and makes a quick, yet concise approach to remove spam easy.
 
 ## Installation
-You can install spamfilter by cloning the GitHub repository or using pip:
+You can install spamfilter by cloning the GitHub repository, downloading it from the GitHub page or using pip:
 
 `pip install spamfilter`
 
@@ -14,7 +14,7 @@ You can install spamfilter by cloning the GitHub repository or using pip:
 Define a machine using several spam filters stacked onto each other.
 
 ```from spamfilter.filters import Length, Symbols
-from spamfilter import Machine
+from spamfilter.machines import Machine
 
 m = Machine([
    Length(min_length=10, max_length=200, mode="crop"),
