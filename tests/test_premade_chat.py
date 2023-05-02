@@ -39,4 +39,4 @@ def test_symbol_spam():
 
 def test_bypass_detect():
     assert m.check("I want to b y p a s s the f i l t e r.").passed == False
-    assert m.check("This is a fairly long text, but it does still contain some, let's say, s u s p i c i o u s string of text in it!")
+    assert m.check("This is a fairly long text, but it does still contain some, let's say, s u s p i c i o u s string of text in it!").passed == False
