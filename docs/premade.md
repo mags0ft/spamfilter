@@ -38,6 +38,7 @@ Filters built in:
 This machine does already pretty good to block awful spam from your environment. It is also set to be running in `normal-quick` machine mode, meaning it cancels out any additional checks and sanitation as soon as a filter marks the string as failed.
 
 ### Using premade.chat
+Create a Machine that is pre-made to be used in fast-paced, internet chatting environments.
 
 **If you want to fine-tune your machine with `create_machine`, you are free to adjust these arguments:**
 
@@ -67,4 +68,37 @@ c = chat.create_machine(
 from spamfilter.premade import chat
 
 c = chat.ChatMachine
+```
+
+### Using premade.article
+Create a Machine that is pre-made to be used in high-quality, demanding writing platforms.
+
+**If you want to fine-tune your machine with `create_machine`, you are free to adjust these arguments:**
+
+```
+from spamfilter.premade import article
+
+c = article.create_machine(
+    bypass_protection : bool = True,
+    length_filter : bool = True,
+    min_length : int = 400,
+    max_length : int = 300_000,
+    wordlength_filter : bool = True,
+    max_word_length: int = 50,
+    max_num_too_long_words: int = 3,
+    capitals_filter : bool = True,
+    capitals_percentage : float = 0.4,
+    capitals_mode : str = "normal",
+    symbols_filter : bool = True,
+    profanity_filter : bool = False,
+    profanity_blocklist_filepath : str = ""
+)
+```
+
+**If you want to use a default, no-setup and maybe less optimized machine, go for:**
+
+```
+from spamfilter.premade import article
+
+c = chat.ArticleMachine
 ```

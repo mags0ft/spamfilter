@@ -8,7 +8,6 @@ If you should find any concerning security issue, please do not hesitate to cont
 
 ## HOW TO report a vulnerability
 
-Please **immediately** report the security problem [HERE](https://github.com/mags0ft/spamfilter/security/advisories/new) via GitHub. If you encounter problems or you're not signed it,
-[MESSAGE](mailto:magnusschlinsog@gmail.com) directly.
+Please **immediately** report the security problem [HERE](https://github.com/mags0ft/spamfilter/security/advisories/new) via GitHub.
 
 **It is extremely important to disclose any vulnerabilities as soon as possible to mitigate any further damage! Don't hesitate!**
