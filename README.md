@@ -5,6 +5,14 @@ The spamfilter module is a lightweight, fast and straightforward way to build yo
 
 It's object-oriented and makes a quick, yet concise approach to remove spam easy.
 
+---
+**Important links**
+ - [🌎 GitHub page](https://mags0ft.github.io/spamfilter/)
+ - [🔓 Report a security vulnerability](https://github.com/mags0ft/spamfilter/security/advisories/new)
+ - [🚩 Create a new issue](https://github.com/mags0ft/spamfilter/issues/new/choose)
+ - [👩‍💻 How to contribute](./CONTRIBUTING.md)
+---
+
 ## Installation
 You can install spamfilter by cloning the GitHub repository, downloading it from the GitHub page or using pip:
 

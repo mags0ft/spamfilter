@@ -8,6 +8,7 @@ Here you will find classes, concepts and methods explained hat high-level detail
 General information page links:
  - [Get started](./get_started.md)
  - [Installation](./installation.md)
+ - [How to contribute](./CONTRIBUTING.md)
 
 Code documentation links:
  - [spamfilter.filters](./filters.md)
