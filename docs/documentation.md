@@ -1,4 +1,4 @@
-# Documentation
+# 📕 Documentation
 
 Welcome to the `spamfilter` module's documentation!
 
@@ -12,5 +12,7 @@ General information page links:
 Code documentation links:
  - [spamfilter.filters](./filters.md)
  - [spamfilter.machines](./machines.md)
+ - [spamfilter.results](./results.md)
+ - [spamfilter.premade](./premade.md)
 
 If you're missing some documentation, feel free to reach out to the contributor(s) via GitHub!

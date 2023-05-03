@@ -32,7 +32,7 @@ from spamfilter.filters import *
 ## All filters explained
 Generally, all filters are stacked onto each other using a machine object which will then check them one after each other.
 
-Generally, you construct a filter like this:
+You construct a filter like this:
 ```
 Filter(**options, mode = "normal")
 ```
@@ -143,6 +143,7 @@ Checks if the words in a string match given length requirements.
 
  - `absolute`: Fail the string if there are too many words that are too long, specified in `max_abs_population` as a max int.
  - `percentage`: Fail the string if there more too long words than the specified percentage in `max_perc_population` as a percentage float.
+ - `hybrid`: Fail the string if not both of the above conditions are met.
 
 `Length.split_regex`: The regex used to split into standalone words.
 

@@ -3,7 +3,8 @@ import re
 
 POSSIBLE_MODES = [
     "absolute",
-    "percentage"
+    "percentage",
+    "hybrid"
 ]
 
 class WorldLength(Filter):
@@ -15,6 +16,7 @@ class WorldLength(Filter):
     `WordLength.mode`: How to detect failing strings.
         `absolute`: Fail the string if there are too many words that are too long, specified in `max_abs_population` as a max int.
         `percentage`: Fail the string if there more too long words than the specified percentage in `max_perc_population` as a percentage float.
+        `hybrid`: Fail the string if not both of the above conditions are met.
     `WordLength.split_regex`: The regex used to split into standalone words.
     """
     def __init__(self, max_length : int = 20, mode : str = "absolute", max_abs_population : int = 1, max_perc_population : float = 0.1):
@@ -38,9 +40,14 @@ class WorldLength(Filter):
             if len(word) > self.max:
                 fails += 1
         
+        passes_abs = fails < self.max_abs_population
+        passes_rel = (fails / len(split_string)) > self.max_perc_population if len(split_string) > 0 else True
+
         if self.mode == "absolute":
-            passes = fails < self.max_abs_population
+            passes = passes_abs
+        elif self.mode == "hybrid":
+            passes = passes_abs and passes_rel
         else:
-            passes = (fails / len(split_string)) > self.max_perc_population if len(split_string) > 0 else True
+            passes = passes_rel
 
         return (passes, string)

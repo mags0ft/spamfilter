@@ -13,14 +13,9 @@ from spamfilter.machines import Machine
 ## Machines explained
 Generally, all filters are stacked onto each other using a machine object which will then check them one after each other.
 
-A machine also has a `check(string: str)` method which accepts a string as an input and will return the filter's assesment of it using the options given at construction as a tuple.
+A machine also has a `check(string: str)` method which accepts a string as an input and will return a [`results.Result`](./results.md) object. This object contains info about the filtering run.
 
-The tuple is built as following:
-```
-(passed: int, output_string: str)
-```
- - **passed** indicated whether the string did complete the check successfully and therefore wasn't indicated as spam.
- - **output_string** is the string returned by the filter as it might do corrections on it like lower-casing all letters in case it's too much capital.
+Check the [documentation for `results.Result`](./results.md) for more information.
 
 ---
 
