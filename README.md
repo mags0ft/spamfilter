@@ -21,7 +21,8 @@ You can install spamfilter by cloning the GitHub repository, downloading it from
 ## Usage
 Define a machine using several spam filters stacked onto each other.
 
-```from spamfilter.filters import Length, Symbols
+```
+from spamfilter.filters import Length, Symbols
 from spamfilter.machines import Machine
 
 m = Machine([
