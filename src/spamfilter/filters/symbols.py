@@ -9,14 +9,14 @@ POSSIBLE_MODES = [
 class Symbols(Filter):
     """
     Check if a string contains too many symbols.
-    `Capitals.percentage`: how many percent of the text need to be symbols for it to fail.
-    `Capitals.mode`: how to handle a failing string.
+    `Symbols.percentage`: how many percent of the text need to be symbols for it to fail.
+    `Symbols.mode`: how to handle a failing string.
         `normal`: fail the string if it contains too many symbols
         `crop`: remove all symbols from the string if it would fail, but then make the string pass.
-    `Capitals.symboldef`: what to identify as a symbol
-        `explicit`: everything that matches `Capitals.SYMBOLSET`.
-        `implicit`: everything that does not match `Capitals.CHARSET`.
-    `Capitals.abs_safe_min`: absolute amount of symbols that are always okay to use.
+    `Symbols.symboldef`: what to identify as a symbol
+        `explicit`: everything that matches `Symbols.SYMBOLSET`.
+        `implicit`: everything that does not match `Symbols.CHARSET`.
+    `Symbols.abs_safe_min`: absolute amount of symbols that are always okay to use.
     """
     def __init__(self, percentage : float = 0.15, mode : str = "normal", symboldef : str = "explicit", abs_safe_min : int = 3):
         if not mode in POSSIBLE_MODES:
