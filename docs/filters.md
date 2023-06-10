@@ -108,20 +108,20 @@ Check if a string contains too many symbols.
 
 **args**:
 
-`Capitals.percentage`: how many percent of the text need to be symbols for it to fail.
+`Symbols.percentage`: how many percent of the text need to be symbols for it to fail.
 
-`Capitals.mode`: how to handle a failing string.
+`Symbols.mode`: how to handle a failing string.
 
  - `normal`: fail the string if it contains too many symbols
  - `crop`: remove all symbols from the string if it would fail, but then make the string pass.
 
-`Capitals.symboldef`: what to identify as a symbol
+`Symbols.symboldef`: what to identify as a symbol
 
  - `explicit`: everything that matches `Capitals.SYMBOLSET`.
  - `implicit`: everything that does not match `Capitals.CHARSET`.
  - ⚠ **WARNING!** Use `implicit` with caution. Explicit is better than implicit. Non-latin characters may unfortunately be detected as a symbol in implicit mode. `explicit` is way more safe to use.
 
-`Capitals.abs_safe_min`: absolute amount of symbols that are always okay to use.
+`Symbols.abs_safe_min`: absolute amount of symbols that are always okay to use.
 
 ---
 ## filters.WordLength
