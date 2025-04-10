@@ -44,10 +44,10 @@ It's the core mechanism to filter potential spam strings.
 
 `Machine.mode`: can either be `"normal"`, `"tolerant`" or `"zero-tolerance"`.
 
- - `"normal"` lets filters change the string itself and will make strings fail if a filter says so.
- - `"normal-quick"` is like normal, but stops execution as soon as a fail happens.
- - `"tolerant`" passes strings, no matter what filters say, and does not stop execution of them on fail.
- - `"zero-tolerance"` does not accept any changes to a string and fails it as soon as a filter registers something.
+- `"normal"` lets filters change the string itself and will make strings fail if a filter says so.
+- `"normal-quick"` is like normal, but stops execution as soon as a fail happens.
+- `"tolerant`" passes strings, no matter what filters say, and does not stop execution of them on fail.
+- `"zero-tolerance"` does not accept any changes to a string and fails it as soon as a filter registers something.
 
 ---
 ### An example

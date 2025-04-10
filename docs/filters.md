@@ -16,7 +16,8 @@ from spamfilter.filters import Filter
 ```
 
 *For several filters:*
-```
+
+```python
 from spamfilter.filters import (
     Capitals,
     Length,
@@ -25,7 +26,8 @@ from spamfilter.filters import (
 ```
 
 *For **all** filters*
-```
+
+```python
 from spamfilter.filters import *
 ```
 
@@ -33,18 +35,21 @@ from spamfilter.filters import *
 Generally, all filters are stacked onto each other using a machine object which will then check them one after each other.
 
 You construct a filter like this:
-```
+
+```python
 Filter(**options, mode = "normal")
 ```
 
 Each filter also has a `check(string: str)` method which accepts a string as an input and will return the filter's assesment of it using the options given at construction as a tuple.
 
 The tuple is built as following:
-```
+
+```python
 (passed: int, output_string: str)
 ```
- - **passed** indicated whether the string did complete the check successfully and therefore wasn't indicated as spam.
- - **output_string** is the string returned by the filter as it might do corrections on it like lower-casing all letters in case it's too much capital.
+
+- **passed** indicated whether the string did complete the check successfully and therefore wasn't indicated as spam.
+- **output_string** is the string returned by the filter as it might do corrections on it like lower-casing all letters in case it's too much capital.
 
 ---
 
@@ -58,7 +63,7 @@ The `Filter` class is the class all other filters inherit from. It does not cont
 **args**:
 
 `Filter.mode`: the mode of the filter.
- - `default`: default mode, no functionality.
+- `default`: default mode, no functionality.
 
 ---
 ## filters.Capitals
@@ -73,8 +78,8 @@ Check if a string contains too much capitals.
 `Capitals.percentage`: how many percent of the text need to be in capital for it to fail.
 
 `Capitals.mode`: how to handle a failing string.
- - `normal`: fail the string 
- - `crop`: crop all letters to lowercase if the string is - too capital, makes it **always pass** (!)
+- `normal`: fail the string 
+- `crop`: crop all letters to lowercase if the string is - too capital, makes it **always pass** (!)
 
 ---
 ## filters.Length
@@ -95,8 +100,8 @@ Checks if a string matches given length requirements.
 
 `Length.mode`: How to handle failing strings.
 
- - `normal`: Fail too short or too long strings.
- - `crop`: Shorten too long strings and fill too short strings up using `Length.padding`.
+- `normal`: Fail too short or too long strings.
+- `crop`: Shorten too long strings and fill too short strings up using `Length.padding`.
 
 ---
 ## filters.Symbols
@@ -112,13 +117,13 @@ Check if a string contains too many symbols.
 
 `Symbols.mode`: how to handle a failing string.
 
- - `normal`: fail the string if it contains too many symbols
- - `crop`: remove all symbols from the string if it would fail, but then make the string pass.
+- `normal`: fail the string if it contains too many symbols
+- `crop`: remove all symbols from the string if it would fail, but then make the string pass.
 
 `Symbols.symboldef`: what to identify as a symbol
 
- - `explicit`: everything that matches `Symbols.SYMBOLSET`.
- - `implicit`: everything that does not match `Symbols.CHARSET`.
+- `explicit`: everything that matches `Symbols.SYMBOLSET`.
+- `implicit`: everything that does not match `Symbols.CHARSET`.
  - ⚠ **WARNING!** Use `implicit` with caution. Explicit is better than implicit. Non-latin characters may unfortunately be detected as a symbol in implicit mode. `explicit` is way more safe to use.
 
 `Symbols.abs_safe_min`: absolute amount of symbols that are always okay to use.
@@ -141,9 +146,9 @@ Checks if the words in a string match given length requirements.
 
 `Length.mode`: How to detect failing strings.
 
- - `absolute`: Fail the string if there are too many words that are too long, specified in `max_abs_population` as a max int.
- - `percentage`: Fail the string if there more too long words than the specified percentage in `max_perc_population` as a percentage float.
- - `hybrid`: Fail the string if not both of the above conditions are met.
+- `absolute`: Fail the string if there are too many words that are too long, specified in `max_abs_population` as a max int.
+- `percentage`: Fail the string if there more too long words than the specified percentage in `max_perc_population` as a percentage float.
+- `hybrid`: Fail the string if not both of the above conditions are met.
 
 `Length.split_regex`: The regex used to split into standalone words.
 
@@ -159,8 +164,8 @@ Base class other filters for personal information inherit from.
 
 `PersonalInformation.mode`: how to handle a failing string.
 
- - `normal`: fail the string.
- - `censor`: censor the information.
+- `normal`: fail the string.
+- `censor`: censor the information.
 
 `PersonalInformation.regex`: the regex used to check for info.
 
@@ -178,8 +183,8 @@ Check if a string contains an email address.
 
 `Email.mode`: how to handle a failing string.
 
- - `normal`: fail the string.
- - `censor`: censor the information.
+- `normal`: fail the string.
+- `censor`: censor the information.
 
 `Email.regex`: the regex used to check for email addresses.
 
@@ -214,10 +219,10 @@ Filter text for blocked words. Works better in combination with `BypassDetector`
 
 `Blocklist.mode`: How to handle incoming text.
 
- - `normal`: search for profane words adjacent to punctuation or spaces.
- - `strict`: search for any occurence of a profane word.\
+- `normal`: search for profane words adjacent to punctuation or spaces.
+- `strict`: search for any occurence of a profane word.\
 **WARNING**: this might detect words like "classic" as they contain parts of a profane words.
- - `tolerant`: simply replace the problematic words.
+- `tolerant`: simply replace the problematic words.
 
 `Blocklist.blocklist`: a python `set()` with words as `str` objects that shall be blocked.
 

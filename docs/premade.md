@@ -28,12 +28,12 @@ You can now use the functions of machines you know, such as `check`.
 **For chatroom environments.**
 
 Filters built in:
- - `Length`,
- - `WorldLength`,
- - `Symbols`,
- - `Capitals`,
- - `BypassDetector`,
- - `BlocklistFromJSON` (inactive by default)
+- `Length`,
+- `WorldLength`,
+- `Symbols`,
+- `Capitals`,
+- `BypassDetector`,
+- `BlocklistFromJSON` (inactive by default)
 
 This machine does already pretty good to block awful spam from your environment. It is also set to be running in `normal-quick` machine mode, meaning it cancels out any additional checks and sanitation as soon as a filter marks the string as failed.
 
