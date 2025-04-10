@@ -1,0 +1,7 @@
+[MASTER]
+
+[MESSAGES CONTROL]
+disable=too-few-public-methods,super-init-not-called,too-many-arguments,too-many-positional-arguments,too-many-locals
+
+[FORMAT]
+max-line-length=79

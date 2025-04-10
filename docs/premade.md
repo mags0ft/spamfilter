@@ -10,7 +10,7 @@ To use a pre-made machine, do the following (this example is using the `chat` ma
 from spamfilter.premade import chat
 
 c1 = chat.create_machine(...args)
-c2 = chat.ChatMachine
+c2 = chat.chatMachine
 ```
 
 `c1` is a machine created using `create_machine`, a function that accepts arguments depending on the pre-made machines you chose.
@@ -67,7 +67,7 @@ c = chat.create_machine(
 ```
 from spamfilter.premade import chat
 
-c = chat.ChatMachine
+c = chat.chatMachine
 ```
 
 ### Using premade.article
@@ -100,5 +100,5 @@ c = article.create_machine(
 ```
 from spamfilter.premade import article
 
-c = chat.ArticleMachine
+c = chat.articleMachine
 ```

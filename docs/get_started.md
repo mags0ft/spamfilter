@@ -9,7 +9,7 @@ You can then validate if the install was successful by running the Python consol
 ```
 >>> import spamfilter
 >>> spamfilter.__version__
-'v0.0.2'
+'v1.0.0'
 >>> 
 ```
 

@@ -1,10 +1,13 @@
-from .personal_information import PersonalInformation
-import re
+"""
+Module for the email information filter.
 
-POSSIBLE_MODES = [
-    "normal",
-    "censor"
-]
+More information about this filter can be found in its Class docstring.
+"""
+
+from .personal_information import PersonalInformation
+
+POSSIBLE_MODES = ["normal", "censor"]
+
 
 class Email(PersonalInformation):
     """
@@ -15,5 +18,11 @@ class Email(PersonalInformation):
     `Email.regex`: the regex used to check for email addresses.
     `Email.replacement`: what regex to replace email addresses with.
     """
-    def __init__(self, regex : str = r"([a-zA-Z0-9+._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9_-]+)", mode : str = "normal", replacement: str = r"***"):
+
+    def __init__(
+        self,
+        regex: str = r"([a-zA-Z0-9+._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9_-]+)",
+        mode: str = "normal",
+        replacement: str = r"***",
+    ):
         super().__init__(regex, mode, replacement)

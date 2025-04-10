@@ -1,10 +1,15 @@
-from .filter import Filter
+"""
+Base module for the personal information base filter class.
+"""
+
 import re
 
-POSSIBLE_MODES = [
-    "normal",
-    "censor"
-]
+from .check_modes import perform_mode_check
+from .filter import Filter
+
+
+POSSIBLE_MODES = ["normal", "censor"]
+
 
 class PersonalInformation(Filter):
     """
@@ -15,22 +20,26 @@ class PersonalInformation(Filter):
     `PersonalInformation.regex`: the regex used to check for info.
     `PersonalInformation.replacement`: what regex to replace info with.
     """
-    def __init__(self, regex : str, mode : str = "normal", replacement: str = r"***"):
-        if not mode in POSSIBLE_MODES:
-            raise ValueError(
-                "Mode not accepted. This filter's mode must be one of those: %s." % ", ".join(POSSIBLE_MODES)
-            )
-        
+
+    def __init__(
+        self, regex: str, mode: str = "normal", replacement: str = r"***"
+    ):
+        perform_mode_check(mode, POSSIBLE_MODES)
+
         self.regex = regex
         self.mode = mode
         self.replacement = replacement
 
         self._regex_compiled = re.compile(self.regex)
 
-    def check(self, string : str):
+    def check(self, string: str):
         passed = not self._regex_compiled.search(string)
 
         return (
             (True if self.mode == "censor" else passed),
-            (re.sub(self.regex, self.replacement, string) if self.mode == "censor" else string)
+            (
+                re.sub(self.regex, self.replacement, string)
+                if self.mode == "censor"
+                else string
+            ),
         )

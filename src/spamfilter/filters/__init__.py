@@ -1,3 +1,10 @@
+"""
+The base filter module that includes a collection of all the available filter
+types.
+"""
+
+from typing import Type
+from .filter import Filter
 from .length import Length
 from .blocklist import Blocklist
 from .symbols import Symbols
@@ -8,7 +15,7 @@ from .word_length import WorldLength
 from .personal_information import PersonalInformation
 from .email import Email
 
-FILTERS = [
+FILTERS: "list[Type[Filter]]" = [
     Length,
     Blocklist,
     Symbols,
@@ -17,5 +24,5 @@ FILTERS = [
     BlocklistFromJSON,
     WorldLength,
     PersonalInformation,
-    Email
+    Email,
 ]

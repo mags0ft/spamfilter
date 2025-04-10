@@ -122,8 +122,8 @@ Check if a string contains too many symbols.
 
 `Symbols.symboldef`: what to identify as a symbol
 
-- `explicit`: everything that matches `Symbols.SYMBOLSET`.
-- `implicit`: everything that does not match `Symbols.CHARSET`.
+- `explicit`: everything that matches `Symbols.symbolset`.
+- `implicit`: everything that does not match `Symbols.charset`.
  - ⚠ **WARNING!** Use `implicit` with caution. Explicit is better than implicit. Non-latin characters may unfortunately be detected as a symbol in implicit mode. `explicit` is way more safe to use.
 
 `Symbols.abs_safe_min`: absolute amount of symbols that are always okay to use.
