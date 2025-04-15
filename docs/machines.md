@@ -22,7 +22,7 @@ Check the [documentation for `results.Result`](./results.md) for more informatio
 ### `machines.Machine`
 **The main class used to stack/wrap filters.**
 
-`machines.Machine(filters : list = [], mode : str = "normal")`
+`machines.Machine(filters: list = [], mode: str = "normal")`
 
 A machine is an object that accepts several filters and passes strings through these.
 

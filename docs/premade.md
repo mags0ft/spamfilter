@@ -46,19 +46,19 @@ Create a Machine that is pre-made to be used in fast-paced, internet chatting en
 from spamfilter.premade import chat
 
 c = chat.create_machine(
-    bypass_protection : bool = True,
-    length_filter : bool = True,
-    min_length : int = 1,
-    max_length : int = 200,
-    wordlength_filter : bool = True,
+    bypass_protection: bool = True,
+    length_filter: bool = True,
+    min_length: int = 1,
+    max_length: int = 200,
+    wordlength_filter: bool = True,
     max_word_length: int = 20,
     max_num_too_long_words: int = 1,
-    capitals_filter : bool = True,
-    capitals_percentage : float = 0.3,
-    capitals_mode : str = "crop",
-    symbols_filter : bool = True,
-    profanity_filter : bool = False,
-    profanity_blocklist_filepath : str = ""
+    capitals_filter: bool = True,
+    capitals_percentage: float = 0.3,
+    capitals_mode: str = "crop",
+    symbols_filter: bool = True,
+    profanity_filter: bool = False,
+    profanity_blocklist_filepath: str = ""
 )
 ```
 
@@ -79,19 +79,19 @@ Create a Machine that is pre-made to be used in high-quality, demanding writing 
 from spamfilter.premade import article
 
 c = article.create_machine(
-    bypass_protection : bool = True,
-    length_filter : bool = True,
-    min_length : int = 400,
-    max_length : int = 300_000,
-    wordlength_filter : bool = True,
+    bypass_protection: bool = True,
+    length_filter: bool = True,
+    min_length: int = 400,
+    max_length: int = 300_000,
+    wordlength_filter: bool = True,
     max_word_length: int = 50,
     max_num_too_long_words: int = 3,
-    capitals_filter : bool = True,
-    capitals_percentage : float = 0.4,
-    capitals_mode : str = "normal",
-    symbols_filter : bool = True,
-    profanity_filter : bool = False,
-    profanity_blocklist_filepath : str = ""
+    capitals_filter: bool = True,
+    capitals_percentage: float = 0.4,
+    capitals_mode: str = "normal",
+    symbols_filter: bool = True,
+    profanity_filter: bool = False,
+    profanity_blocklist_filepath: str = ""
 )
 ```
 
