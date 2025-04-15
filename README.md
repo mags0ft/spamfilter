@@ -16,7 +16,9 @@ It's object-oriented and makes a quick, yet concise approach to remove spam easy
 ## Installation
 You can install spamfilter by cloning the GitHub repository, downloading it from the GitHub page or using pip:
 
-`pip install spamfilter`
+```bash
+$ pip install spamfilter
+```
 
 ## Usage
 Define a machine using several spam filters stacked onto each other.
