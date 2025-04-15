@@ -12,3 +12,4 @@ exclude .pytest_cache/
 exclude .pytest_cache/*
 exclude .pytest_cache/*.*
 exclude TODO
+exclude .pylintrc
