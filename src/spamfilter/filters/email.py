@@ -12,11 +12,11 @@ POSSIBLE_MODES = ["normal", "censor"]
 class Email(PersonalInformation):
     """
     Check if a string contains an email address.
-    `Email.mode`: how to handle a failing string.
-        `normal`: fail the string.
-        `censor`: censor the information.
-    `Email.regex`: the regex used to check for email addresses.
-    `Email.replacement`: what regex to replace email addresses with.
+    - `Email.mode`: how to handle a failing string.
+        - `normal`: fail the string.
+        - `censor`: censor the information.
+    - `Email.regex`: the regex used to check for email addresses.
+    - `Email.replacement`: what regex to replace email addresses with.
     """
 
     def __init__(

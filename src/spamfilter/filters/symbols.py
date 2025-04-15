@@ -42,7 +42,7 @@ class Symbols(Filter):
         self.percentage = percentage
         self.mode = mode
         self.symboldef = symboldef
-        self.symbolset = list(punctuation)
+        self.symbolset = list(punctuation + "§")
         self.charset = list(ascii_letters)
         self.abs_safe_min = abs_safe_min
 
@@ -66,7 +66,7 @@ class Symbols(Filter):
         def clean_string(string: str):
             if self.symboldef == "explicit":
                 res = string
-                for symbol in self.symboldef:
+                for symbol in self.symbolset:
                     res = res.replace(symbol, "")
             else:
                 res = ""

@@ -14,11 +14,11 @@ POSSIBLE_MODES = ["normal", "censor"]
 class PersonalInformation(Filter):
     """
     Check if a string contains personal information.
-    `PersonalInformation.mode`: how to handle a failing string.
-        `normal`: fail the string.
-        `censor`: censor the information.
-    `PersonalInformation.regex`: the regex used to check for info.
-    `PersonalInformation.replacement`: what regex to replace info with.
+    - `PersonalInformation.mode`: how to handle a failing string.
+        - `normal`: fail the string.
+        - `censor`: censor the information.
+    - `PersonalInformation.regex`: the regex used to check for info.
+    - `PersonalInformation.replacement`: what regex to replace info with.
     """
 
     def __init__(

@@ -14,7 +14,7 @@ class BlocklistFromJSON(Blocklist):
     Behaves just like the `Blocklist` class. Reads a JSON list and inserts it's
     content into the `Blocklist.blocklist` property.
 
-    `BlocklistFromJSON.file`: filename of JSON file.
+    - `BlocklistFromJSON.file`: filename of JSON file.
     """
 
     def __init__(

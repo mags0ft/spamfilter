@@ -40,7 +40,7 @@ class WorldLength(Filter):
     ):
         perform_mode_check(mode, POSSIBLE_MODES)
 
-        self.max = max_length
+        self.max_length = max_length
         self.mode = mode
         self.split_regex = r",|;|\.| |:|-|_|\!|\?|\(|\)"
         self.max_abs_population = max_abs_population
@@ -51,7 +51,7 @@ class WorldLength(Filter):
 
         fails = 0
         for word in split_string:
-            if len(word) > self.max:
+            if len(word) > self.max_length:
                 fails += 1
 
         passes_abs = fails < self.max_abs_population
