@@ -56,7 +56,7 @@ The tuple is built as following:
 ## filters.Filter
 **Base class. No functionality.**
 
-`filters.Filter(mode : str = "default")`
+`filters.Filter(mode: str = "default")`
 
 The `Filter` class is the class all other filters inherit from. It does not contain any further functionality and will always return the string it was given as input, marked as **passed**.
 
@@ -69,7 +69,7 @@ The `Filter` class is the class all other filters inherit from. It does not cont
 ## filters.Capitals
 **Filters out texts with too many capital letters.**
 
-`filters.Capitals(percentage : float = 0.3, mode : str = "normal")`
+`filters.Capitals(percentage: float = 0.3, mode: str = "normal", abs_safe_min: int = 3)`
 
 Check if a string contains too much capitals.
 
@@ -81,11 +81,13 @@ Check if a string contains too much capitals.
 - `normal`: fail the string 
 - `crop`: crop all letters to lowercase if the string is - too capital, makes it **always pass** (!)
 
+- `Capitals.abs_safe_min`: the absolute amound of capital characters that are always okay. Set to -1 to deactivate.
+
 ---
 ## filters.Length
 **Filters out too short/long texts.**
 
-`filters.Length(min_length : int = 10, max_length : int = 200, padding : str = " ", mode : str = "normal")`
+`filters.Length(min_length: int = 10, max_length: int = 200, padding: str = " ", mode: str = "normal")`
 
 Checks if a string matches given length requirements.
 
@@ -107,7 +109,7 @@ Checks if a string matches given length requirements.
 ## filters.Symbols
 **Filters for too many symbols.**
 
-`filters.Symbols(percentage : float = 0.15, mode : str = "normal", symboldef : str = "explicit", abs_safe_min : int = 3)`
+`filters.Symbols(percentage: float = 0.15, mode: str = "normal", symboldef: str = "explicit", abs_safe_min: int = 3)`
 
 Check if a string contains too many symbols.
 
@@ -126,13 +128,13 @@ Check if a string contains too many symbols.
 - `implicit`: everything that does not match `Symbols.charset`.
  - ⚠ **WARNING!** Use `implicit` with caution. Explicit is better than implicit. Non-latin characters may unfortunately be detected as a symbol in implicit mode. `explicit` is way more safe to use.
 
-`Symbols.abs_safe_min`: absolute amount of symbols that are always okay to use.
+`Symbols.abs_safe_min`: absolute amount of symbols that are always okay to use. Set to -1 to deactivate.
 
 ---
 ## filters.WordLength
 **Filters for too long, standalone words.**
 
-`filters.WordLength(max_length : int = 20, mode : str = "absolute", max_abs_population : int = 1, max_perc_population : float = 0.1)`
+`filters.WordLength(max_length: int = 20, mode: str = "absolute", max_abs_population: int = 1, max_perc_population: float = 0.1)`
 
 Checks if the words in a string match given length requirements.
 
@@ -156,7 +158,7 @@ Checks if the words in a string match given length requirements.
 ## filters.PersonalInformation
 **Personal information detection base class.**
 
-`filters.PersonalInformation(regex : str, mode : str = "normal", replacement: str = r"***")`
+`filters.PersonalInformation(regex: str, mode: str = "normal", replacement: str = r"***")`
 
 Base class other filters for personal information inherit from.
 
@@ -175,7 +177,7 @@ Base class other filters for personal information inherit from.
 ## filters.Email
 **Filters for accidentally exposed email addresses in texts to filter them out before they reach the public.**
 
-`filters.Email(regex : str = r"([a-zA-Z0-9+._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9_-]+)", mode : str = "normal", replacement: str = r"***")`
+`filters.Email(regex: str = r"([a-zA-Z0-9+._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9_-]+)", mode: str = "normal", replacement: str = r"***")`
 
 Check if a string contains an email address.
 
@@ -211,7 +213,7 @@ The safe characters are called "isles" and defined as a list of characters in `B
 ## filters.Blocklist
 **Filters for words in a string using a black-/blocklist.**
 
-`filters.Blocklist(blocklist : set, mode : str = "normal")`
+`filters.Blocklist(blocklist: set, mode: str = "normal")`
 
 Filter text for blocked words. Works better in combination with `BypassDetector`.
 
@@ -234,7 +236,7 @@ Filter text for blocked words. Works better in combination with `BypassDetector`
 ## filters.BlocklistFromJSON
 **Filters for words in a string using a black-/blocklist loaded from a JSON file list.**
 
-`filters.BlocklistFromJSON(file : str, mode : str = "normal")`
+`filters.BlocklistFromJSON(file: str, mode: str = "normal")`
 
 Behaves just like the `Blocklist` class. Reads a JSON list and inserts it's content into the `Blocklist.blocklist` property.
 

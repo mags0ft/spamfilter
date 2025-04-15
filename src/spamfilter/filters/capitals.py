@@ -16,13 +16,20 @@ class Capitals(Filter):
     Check if a string contains too much capitals.
     - `Capitals.percentage`: how many percent of the text need to be in capital
     for it to fail.
+    - `Capitals.abs_safe_min`: the absolute amound of capital characters that
+    are always okay. Set to -1 to deactivate.
     - `Capitals.mode`: how to handle a failing string.
         - `normal`: fail the string
         - `crop`: crop all letters to lowercase if the string is too capital,
         makes it always pass
     """
 
-    def __init__(self, percentage: float = 0.3, mode: str = "normal"):
+    def __init__(
+        self,
+        percentage: float = 0.3,
+        mode: str = "normal",
+        abs_safe_min: int = 3,
+    ):
         if mode not in POSSIBLE_MODES:
             raise ValueError(
                 f"Mode not accepted. This filter's mode must be one of those: \
@@ -31,9 +38,10 @@ class Capitals(Filter):
 
         self.percentage = percentage
         self.mode = mode
+        self.abs_safe_min = abs_safe_min
 
     def check(self, string: str):
-        def get_capital_percentage(string: str):
+        def analyse_capitals(string: str):
             letters = 0
             capitals = 0
 
@@ -51,9 +59,13 @@ class Capitals(Filter):
                 (capitals / letters)
                 if (len(string) > 0 and letters > 0)
                 else 0
-            )
+            ), capitals
 
-        is_too_capital = self.percentage <= get_capital_percentage(string)
+        capital_percentage, total_capitals = analyse_capitals(string)
+        is_too_capital = (
+            self.percentage <= capital_percentage
+            and total_capitals > self.abs_safe_min
+        )
 
         return (
             (True if self.mode == "crop" else (not is_too_capital)),
