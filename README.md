@@ -1,17 +1,26 @@
-![Spamfilter Logo](https://raw.githubusercontent.com/mags0ft/spamfilter/master/docs/assets/icon.png)
+<p align="center">
+    <img src="docs/assets/icon.png" alt="Spamfilter logo" width=250>
+</p>
 
 # spamfilter
+
+<p align="center">
+    <img alt="PyPI - Downloads" src="https://img.shields.io/pypi/dm/spamfilter?style=for-the-badge&logo=pypi&labelColor=%231e1e1e" />
+    <img alt="GitHub Actions Workflow Status" src="https://img.shields.io/github/actions/workflow/status/mags0ft/spamfilter/python-package.yml?style=for-the-badge&logo=python&labelColor=%231e1e1e" />
+    <img alt="PyPI - License" src="https://img.shields.io/pypi/l/spamfilter?style=for-the-badge&labelColor=%231e1e1e" />
+</p>
+
 The spamfilter module is a lightweight, fast and straightforward way to build your own spam filtering machines in order to keep applications using user-generated content clean.
 
 It's object-oriented and makes a quick, yet concise approach to remove spam easy.
 
 ---
+
 **Important links**
- - [🌎 GitHub page](https://mags0ft.github.io/spamfilter/)
- - [🔓 Report a security vulnerability](https://github.com/mags0ft/spamfilter/security/advisories/new)
- - [🚩 Create a new issue](https://github.com/mags0ft/spamfilter/issues/new/choose)
- - [👩‍💻 How to contribute](./CONTRIBUTING.md)
----
+- [🌎 GitHub page](https://mags0ft.github.io/spamfilter/)
+- [🔓 Report a security vulnerability](https://github.com/mags0ft/spamfilter/security/advisories/new)
+- [🚩 Create a new issue](https://github.com/mags0ft/spamfilter/issues/new/choose)
+- [👩‍💻 How to contribute](./CONTRIBUTING.md)
 
 ## Installation
 You can install spamfilter by cloning the GitHub repository, downloading it from the GitHub page or using pip:
@@ -28,8 +37,8 @@ from spamfilter.filters import Length, Symbols
 from spamfilter.machines import Machine
 
 m = Machine([
-   Length(min_length=10, max_length=200, mode="crop"),
-   Symbols(mode="normal")
+    Length(min_length=10, max_length=200, mode="crop"),
+    Symbols(mode="normal")
 ])
 
 TEST_STRING = "This is a test string."
