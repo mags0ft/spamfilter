@@ -1,6 +1,6 @@
 """
 The module containing the Result class, a data structure to manage the output
-of Machines.
+of Pipelines.
 """
 
 from typing import Type, Union
@@ -11,12 +11,12 @@ from ..filters.filter import Filter
 class Result:
     """
     Class to determine a result of a string running through a filtering
-    machine.
+    pipeline.
 
     - `Result.passed`: bool whether the text passed the filters.
     - `Result.result`: resulting, sanitized string.
     - `Result.original`: the string before getting passed through the filtering
-    machines.
+    pipelines.
     - `Result.changes_made`: how many changes have been commited to the string
     by the filters.
     - `Result.failed_filters`: the filters that made the string fail if it did.

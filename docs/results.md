@@ -1,12 +1,12 @@
 # 🔎 Results
 
-The `spamfilter` module is highly object-oriented and therefore encapsulates results of filtering runs in a `Result` object which will be constructed once a machine is done filtering a string.
+The `spamfilter` module is highly object-oriented and therefore encapsulates results of filtering runs in a `Result` object which will be constructed once a pipeline is done filtering a string.
 
-The Result object is made to unify returned data by machines and is very easy to use.
+The Result object is made to unify returned data by pipelines and is very easy to use.
 
 ## The `Result` object
 
-Class to determine a result of a string running through a filtering machine.
+Class to determine a result of a string running through a filtering pipeline.
 
 `results.Result(passed = True, res_string = "", original_string = "", changes = 0, failed_filters = [])`
 
@@ -14,7 +14,7 @@ Class to determine a result of a string running through a filtering machine.
 
 `Result.result`: resulting, sanitized string.
 
-`Result.original`: the string before getting passed through the filtering machines.
+`Result.original`: the string before getting passed through the filtering pipelines.
 
 `Result.changes_made`: how many changes have been commited to the string by the filters.
 

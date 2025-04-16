@@ -12,7 +12,7 @@ General information page links:
 
 Code documentation links:
  - [spamfilter.filters](./filters.md)
- - [spamfilter.machines](./machines.md)
+ - [spamfilter.pipelines](./pipelines.md)
  - [spamfilter.results](./results.md)
  - [spamfilter.premade](./premade.md)
 

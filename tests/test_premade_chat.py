@@ -4,7 +4,7 @@ Test cases for the pre-made chat filtering mechanisms.
 
 from spamfilter.premade import chat
 
-m = chat.create_machine()
+m = chat.create_pipeline()
 
 
 def test_capitals():

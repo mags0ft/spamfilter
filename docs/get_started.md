@@ -13,12 +13,12 @@ You can then validate if the install was successful by running the Python consol
 >>> 
 ```
 
-You may also try to play around with the built-in, premade machines to test how good `spamfilter` keeps user-generated content clean. Create a new file and paste the following code:
+You may also try to play around with the built-in, premade pipelines to test how good `spamfilter` keeps user-generated content clean. Create a new file and paste the following code:
 
 ```
 from spamfilter.premade import chat
 
-c = chat.create_machine()
+c = chat.create_pipeline()
 
 INPUT_STRING = "This is a test string."
 print(c.check(INPUT_STRING).passed)

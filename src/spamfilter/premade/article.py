@@ -1,14 +1,14 @@
 """
-The module containing a pre-made Machine class for spam filtering article-like
+The module containing a pre-made Pipeline class for spam filtering article-like
 texts.
 """
 
-from .construct_machine import construct_filter_list
+from .construct_pipeline import construct_filter_list
 
-from ..machines import Machine
+from ..pipelines import Pipeline
 
 
-def create_machine(
+def create_pipeline(
     bypass_protection: bool = True,
     length_filter: bool = True,
     min_length: int = 400,
@@ -24,16 +24,16 @@ def create_machine(
     profanity_blocklist_filepath: str = "",
 ):
     """
-    Create a Machine that is pre-made to be used in high-quality, demanding
+    Create a Pipeline that is pre-made to be used in high-quality, demanding
     writing platforms.
     """
 
     # pylint: disable=unused-argument
 
-    return Machine(
+    return Pipeline(
         construct_filter_list(**locals()),
         mode="zero-tolerance",
     )
 
 
-articleMachine = create_machine()
+articlePipeline = create_pipeline()

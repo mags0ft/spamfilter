@@ -10,7 +10,7 @@
     <img alt="PyPI - License" src="https://img.shields.io/pypi/l/spamfilter?style=for-the-badge&labelColor=%231e1e1e" />
 </p>
 
-The spamfilter module is a lightweight, fast and straightforward way to build your own spam filtering machines in order to keep applications using user-generated content clean.
+The spamfilter module is a lightweight, fast and straightforward way to build your own spam filtering pipelines in order to keep applications using user-generated content clean.
 
 It's object-oriented and makes a quick, yet concise approach to remove spam easy.
 
@@ -30,13 +30,13 @@ pip install spamfilter
 ```
 
 ## Usage
-Define a machine using several spam filters stacked onto each other.
+Define a pipeline using several spam filters stacked onto each other.
 
 ```python
 from spamfilter.filters import Length, Symbols
-from spamfilter.machines import Machine
+from spamfilter.pipelines import Pipeline
 
-m = Machine([
+m = Pipeline([
     Length(min_length=10, max_length=200, mode="crop"),
     Symbols(mode="normal")
 ])
@@ -49,4 +49,4 @@ print(m.check(TEST_STRING).passed)
 This project is licensed under the MIT License as found in the `LICENSE` file.
 
 ## Contributing
-Feel free to contribute to the project using the GitHub repository. Additions to the spam filters, machines and documentation are always welcome!
+Feel free to contribute to the project using the GitHub repository. Additions to the spam filters, pipelines and documentation are always welcome!

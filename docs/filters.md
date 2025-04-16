@@ -32,7 +32,7 @@ from spamfilter.filters import *
 ```
 
 ## All filters explained
-Generally, all filters are stacked onto each other using a machine object which will then check them one after each other.
+Generally, all filters are stacked onto each other using a pipeline object which will then check them one after each other.
 
 You construct a filter like this:
 
@@ -246,4 +246,4 @@ Behaves just like the `Blocklist` class. Reads a JSON list and inserts it's cont
 
 ## Incorporating these filters
 
-If you want to use these filters, please don't use them roughly as `Filter` instance but rather wrapped into a `Machine` object.
+If you want to use these filters, please don't use them roughly as `Filter` instance but rather wrapped into a `Pipeline` object.

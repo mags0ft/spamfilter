@@ -1,12 +1,12 @@
 """
-The module containing a pre-made Machine class for chat message filtering.
+The module containing a pre-made Pipeline class for chat message filtering.
 """
 
-from .construct_machine import construct_filter_list
-from ..machines import Machine
+from .construct_pipeline import construct_filter_list
+from ..pipelines import Pipeline
 
 
-def create_machine(
+def create_pipeline(
     bypass_protection: bool = True,
     length_filter: bool = True,
     min_length: int = 1,
@@ -22,16 +22,16 @@ def create_machine(
     profanity_blocklist_filepath: str = "",
 ):
     """
-    Create a Machine that is pre-made to be used in fast-paced, internet
+    Create a Pipeline that is pre-made to be used in fast-paced, internet
     chatting environments.
     """
 
     # pylint: disable=unused-argument
 
-    return Machine(
+    return Pipeline(
         construct_filter_list(**locals()),
         mode="normal-quick",
     )
 
 
-chatMachine = create_machine()
+chatPipeline = create_pipeline()

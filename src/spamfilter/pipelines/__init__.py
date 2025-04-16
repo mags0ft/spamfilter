@@ -1,7 +1,7 @@
 """
-The machines module handles the core mechanism of spamfilter's spam detection
-pipeline: Machine objects. For info on how to use them, consult the docstring
-of the `machines.Machine` class.
+The pipelines module handles the core mechanism of spamfilter's spam detection
+pipeline: Pipeline objects. For info on how to use them, consult the docstring
+of the `pipelines.Pipeline` class.
 """
 
 from typing import Type, Union
@@ -14,14 +14,14 @@ from ..filters.check_modes import perform_mode_check
 POSSIBLE_MODES = ["normal", "tolerant", "zero-tolerance", "normal-quick"]
 
 
-class Machine:
+class Pipeline:
     """
-    A machine is an object that accepts several filters and passes strings
+    A pipeline is an object that accepts several filters and passes strings
     through these. It's the core mechanism to filter potential spam strings.
 
-    - `Machine.filters`: this property is a list of all filters in a machine.
+    - `Pipeline.filters`: this property is a list of all filters in a pipeline.
     The order is kept.
-    - `Machine.mode`: can either be `"normal"`, `"tolerant`" or
+    - `Pipeline.mode`: can either be `"normal"`, `"tolerant`" or
     `"zero-tolerance"`.
         - `"normal"` lets filters change the string itself and will make
         strings fail if a filter says so.
@@ -39,7 +39,7 @@ class Machine:
         mode: str = "normal",
     ):
         """
-        Initializes the Machine object for later use. Filters do not need to be
+        Initializes the Pipeline object for later use. Filters do not need to be
         passed at this stage, they can be added later on.
 
         Modes `normal`, `normal-quick`, `tolerant` and `zero-tolerance` are
@@ -56,7 +56,7 @@ class Machine:
 
     def check(self, string: str) -> Result:
         """
-        Checks a given string against the filters inside the Machine. Returns a
+        Checks a given string against the filters inside the Pipeline. Returns a
         `Result` object.
         """
 
