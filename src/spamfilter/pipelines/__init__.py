@@ -39,8 +39,8 @@ class Pipeline:
         mode: str = "normal",
     ):
         """
-        Initializes the Pipeline object for later use. Filters do not need to be
-        passed at this stage, they can be added later on.
+        Initializes the Pipeline object for later use. Filters do not need to
+        be passed at this stage, they can be added later on.
 
         Modes `normal`, `normal-quick`, `tolerant` and `zero-tolerance` are
         supported.
@@ -56,8 +56,8 @@ class Pipeline:
 
     def check(self, string: str) -> Result:
         """
-        Checks a given string against the filters inside the Pipeline. Returns a
-        `Result` object.
+        Checks a given string against the filters inside the Pipeline. Returns
+        a `Result` object.
         """
 
         changed_string: str = string
