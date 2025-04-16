@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="docs/assets/icon.png" alt="Spamfilter logo" width=250>
+    <img src="docs/assets/icon-white-box.png" alt="Spamfilter logo" width=250>
 </p>
 
 # spamfilter
