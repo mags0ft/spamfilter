@@ -4,6 +4,7 @@ types.
 """
 
 from typing import Type
+
 from .filter import Filter
 from .length import Length
 from .blocklist import Blocklist
@@ -14,6 +15,7 @@ from .blocklist_from_json import BlocklistFromJSON
 from .word_length import WorldLength
 from .personal_information import PersonalInformation
 from .email import Email
+from .api import API
 
 FILTERS: "list[Type[Filter]]" = [
     Length,
@@ -25,4 +27,5 @@ FILTERS: "list[Type[Filter]]" = [
     WorldLength,
     PersonalInformation,
     Email,
+    API,
 ]

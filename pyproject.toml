@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "spamfilter"
-version = "1.0.0"
+version = "2.0.0"
 description = "Create spam mitigation models with ease using fully-customizable, object oriented components."
 readme = "README.md"
 authors = [{ name = "Magnus Schlinsog", email = "magnusschlinsog@gmail.com" }]
@@ -19,7 +19,8 @@ dependencies = []
 requires-python = ">=3.9"
 
 [project.optional-dependencies]
-dev = ["pip-tools", "pytest"]
+dev = ["pip-tools", "pytest", "spamfilter[api]"]
+api = ["requests"]
 
 [project.urls]
 GitHub = "https://github.com/mags0ft/spamfilter"
