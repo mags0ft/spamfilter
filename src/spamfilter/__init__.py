@@ -5,4 +5,4 @@ user-generated content clean. It's object-oriented and makes a quick, yet
 concise approach to remove spam easy.
 """
 
-__version__ = "v1.0.0"
+__version__ = "v2.0.0"
