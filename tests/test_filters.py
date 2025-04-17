@@ -16,6 +16,7 @@ def test_empty_inputs() -> None:
             filters.Blocklist,
             filters.BlocklistFromJSON,
             filters.PersonalInformation,
+            filters.API
         ]:
             continue
         print(filter_)
