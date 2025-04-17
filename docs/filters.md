@@ -244,6 +244,50 @@ Behaves just like the `Blocklist` class. Reads a JSON list and inserts it's cont
 
 `BlocklistFromJSON.file`: filename of JSON file.
 
+---
+## filters.API
+**Calls an API over the network to retrieve information about a string.**
+
+```python
+filters.API(
+    url: str,
+    headers: dict[str, Any],
+    method: Literal["get", "post"],
+    payload_func: Callable[[str], dict[str, Any]],
+    interpretation_func: Callable[[dict[str, Any]], tuple[bool, str]],
+    timeout: float = 3.0,
+    mode: str = "normal",
+)
+```
+
+JSON API-based, synchronous spam filter.
+
+**IMPORTANT**: Requires installation with the optional API dependencies: 
+
+```
+pip install spamfilter[api]
+```
+
+**args** and **attributes**:
+
+- `API.url`: API URL to call.
+- `API.headers`: dictionary of headers to pass to the API
+- `API.method`: whether to use GET (`get`) or POST (`post`)
+- `API.payload_func`: function called before the request to the API is
+sent; needs to convert the passed argument, the text string, to a
+dictionary with the correct payload format used by your API of choice.
+- `API.interpretation_func`: function called after the response arrives;
+gets the JSON response passed to it and needs to figure out if the filter
+shall pass. Needs to return a tuple of a boolean and the modified string.
+- `API.timeout`: After how many seconds the request to the API shall time
+out.
+- `API.mode`: currently, only "normal" is supported.
+
+**methods**:
+
+- `API.check(string: str)`: send this string to the API and check the
+response JSON against the provided
+
 ## Incorporating these filters
 
 If you want to use these filters, please don't use them roughly as `Filter` instance but rather wrapped into a `Pipeline` object.
