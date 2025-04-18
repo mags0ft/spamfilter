@@ -93,8 +93,8 @@ class Pipeline:
 
         return Result(
             passed=passed,
-            res_string=changed_string,  # type: ignore
-            original_string=string,
-            changes=changes,
+            result=changed_string,  # type: ignore
+            original=string,
+            changes_made=changes,
             failed_filters=failed,
         )

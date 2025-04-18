@@ -14,12 +14,12 @@ classifiers = [
     "Programming Language :: Python",
     "Programming Language :: Python :: 3",
 ]
-keywords = ["spam", "spamfilter", "spam protection", "spam filter", "spam mitigation", "anti spam"]
+keywords = ["spam", "spam protection", "spam filter", "spam mitigation", "anti spam"]
 dependencies = []
 requires-python = ">=3.9"
 
 [project.optional-dependencies]
-dev = ["pip-tools", "pytest", "spamfilter[api]"]
+dev = ["pip-tools", "pytest"]
 api = ["requests"]
 
 [project.urls]

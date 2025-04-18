@@ -6,9 +6,9 @@ The Result object is made to unify returned data by pipelines and is very easy t
 
 ## The `Result` object
 
-Class to determine a result of a string running through a filtering pipeline.
+Dataclass to determine a result of a string running through a filtering pipeline.
 
-`results.Result(passed = True, res_string = "", original_string = "", changes = 0, failed_filters = [])`
+`results.Result(passed = True, result = "", original = "", changes_made = 0, failed_filters = [])`
 
 `Result.passed`: bool whether the text passed the filters.
 
