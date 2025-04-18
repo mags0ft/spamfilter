@@ -1,6 +1,6 @@
 ---
 name: Bug report
-about: Create a report to help us improve
+about: Report a bug to help spamfilter improve
 title: ''
 labels: ''
 assignees: ''
@@ -8,25 +8,21 @@ assignees: ''
 ---
 
 **Describe the bug**
-A clear and concise description of what the bug is.
+What happened? Where exactly does the bug occur, and which consequences does it have? Do you have any idea what might be causing it?
 
 **To Reproduce**
-Steps to reproduce the behavior:
-1. Go to '...'
-2. Click on '....'
-3. Scroll down to '....'
-4. See error
+Please explain what you did in order to face the described behavior.
 
 **Expected behavior**
-A clear and concise description of what you expected to happen.
+What did you actually expect to happen?
 
 **Screenshots**
-If applicable, add screenshots to help explain your problem.
+Feel free to add images in order to explain the phenomenon.
 
-**Desktop (please complete the following information):**
- - OS: [e.g. iOS]
- - Browser [e.g. chrome, safari]
- - Version [e.g. v1.0.0]
+**Please complete the following information:**
+- spamfilter version (can be acquired by printing `spamfilter.__version__`)
+- operating system
+- if related to optional feature sets of the spamfilter package, any other packages you have installed in your environment (can be acquired using `pip freeze`)
 
 **Additional context**
 Add any other context about the problem here.

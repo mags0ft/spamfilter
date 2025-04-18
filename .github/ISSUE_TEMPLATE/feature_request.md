@@ -1,6 +1,6 @@
 ---
 name: Feature request
-about: Suggest an idea for this project
+about: Suggest something to make spamfilter even better
 title: ''
 labels: ''
 assignees: ''
@@ -8,13 +8,13 @@ assignees: ''
 ---
 
 **Is your feature request related to a problem? Please describe.**
-A clear and concise description of what the problem is. Ex. I'm always frustrated when [...]
+Have you faced problems with the `spamfilter` package due to your requested feature missing before?
 
-**Describe the solution you'd like**
-A clear and concise description of what you want to happen.
+**Describe the solution you'd like.**
+What do you want to happen, and how could the solution look like in detail?
 
-**Describe alternatives you've considered**
-A clear and concise description of any alternative solutions or features you've considered.
+**Name, if applicable, any possible workarounds.**
+Have you found ways to achieve what you want using other methods already? How accessible are those?
 
 **Additional context**
 Add any other context or screenshots about the feature request here.

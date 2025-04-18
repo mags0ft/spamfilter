@@ -1,4 +1,7 @@
-![Spamfilter Logo](https://raw.githubusercontent.com/mags0ft/spamfilter/master/docs/assets/icon.png)
+<p align="center">
+    <img src="https://raw.githubusercontent.com/mags0ft/spamfilter/master/docs/assets/icon-white-box.png" alt="Spamfilter logo" width=350>
+</p>
+
 **Delivering streamlined, customizable spam mitigations into any environment.**
 
 ---
