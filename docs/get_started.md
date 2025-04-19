@@ -25,3 +25,5 @@ print(c.check(INPUT_STRING).passed)
 ```
 
 By running the file, you see how the pre-made model assessed the input string. `True` corresponds for the string to have **passed** and therefore not being spam according to the model. `False` corresponds for the string to have **failed** the filter and being spam.
+
+**Awesome!** You're all set. See the [documentation](./documentation.md) to continue.
