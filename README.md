@@ -45,6 +45,12 @@ TEST_STRING = "This is a test string."
 print(m.check(TEST_STRING).passed)
 ```
 
+Output:
+
+```
+True
+```
+
 ## License
 This project is licensed under the MIT License as found in the `LICENSE` file.
 
