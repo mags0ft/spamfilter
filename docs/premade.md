@@ -6,7 +6,7 @@ There are pre-made collections of usecase-optimized filters built into `spamfilt
 
 To use a pre-made pipeline, do the following (this example is using the `chat` pipeline):
 
-```
+```python
 from spamfilter.premade import chat
 
 c1 = chat.create_pipeline(...args)
@@ -42,7 +42,7 @@ Create a Pipeline that is pre-made to be used in fast-paced, internet chatting e
 
 **If you want to fine-tune your pipeline with `create_pipeline`, you are free to adjust these arguments:**
 
-```
+```python
 from spamfilter.premade import chat
 
 c = chat.create_pipeline(
@@ -64,7 +64,7 @@ c = chat.create_pipeline(
 
 **If you want to use a default, no-setup and maybe less optimized pipeline, go for:**
 
-```
+```python
 from spamfilter.premade import chat
 
 c = chat.chatPipeline
@@ -75,7 +75,7 @@ Create a Pipeline that is pre-made to be used in high-quality, demanding writing
 
 **If you want to fine-tune your pipeline with `create_pipeline`, you are free to adjust these arguments:**
 
-```
+```python
 from spamfilter.premade import article
 
 c = article.create_pipeline(
@@ -97,7 +97,7 @@ c = article.create_pipeline(
 
 **If you want to use a default, no-setup and maybe less optimized pipeline, go for:**
 
-```
+```python
 from spamfilter.premade import article
 
 c = chat.articlePipeline
