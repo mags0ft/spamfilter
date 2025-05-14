@@ -2,6 +2,13 @@
 The pipelines module handles the core mechanism of spamfilter's spam detection
 pipeline: Pipeline objects. For info on how to use them, consult the docstring
 of the `pipelines.Pipeline` class.
+
+Prior to `spamfilter` v2.0.0, the pipelines were called "machines". This is no
+longer the case, as we figured the term "machine" is not fully accurate for the
+way they work. The term "pipeline" is the new standard, as it describes the
+process of passing data through a series of filters. Thus, `spamfilter` v2.0.0
+is a breaking change and you will need to update your code if you used machines
+before.
 """
 
 from typing import Type, Union
@@ -31,6 +38,8 @@ class Pipeline:
         stop execution of them on fail.
         - `"zero-tolerance"` does not accept any changes to a string and fails
         it as soon as a filter registers something.
+
+    _Was called "Machine" prior to v2.0.0, which was a breaking change._
     """
 
     def __init__(
