@@ -2,7 +2,7 @@
 
 Pipelines in `spamfilter` allow you to customize own models that periodically work through the filters wrapped into them.
 
-**Please note**: Prior to `spamfilter` v2.0.0, the pipelines were called "machines". This is no longer the case, as we figured the term "machine" is not fully accurate for the way they work. The term "pipeline" is the new standard, as it describes the process of passing data through a series of filters. Thus, `spamfilter` v2.0.0* is a **breaking change** and you will need to update your code if you used machines before.
+**Please note**: Prior to `spamfilter` v2.0.0, the pipelines were called "machines". This is no longer the case, as we figured the term "machine" is not fully accurate for the way they work. The term "pipeline" is the new standard, as it describes the process of passing data through a series of filters. Thus, `spamfilter` v2.0.0 is a **breaking change** and you will need to update your code if you used machines before.
 
 ## How to import the pipeline class
 
