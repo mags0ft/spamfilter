@@ -11,11 +11,15 @@ You may install the module using `pip`, which is the easiest way to do it as `sp
 
 To achieve this, run
 
-`pip install spamfilter`
+```
+pip install spamfilter
+```
 
 in your terminal. If that doesn't work, for example due to `pip` not being added to your PATH, just try
 
-`python3 -m pip install spamfilter`
+```
+python3 -m pip install spamfilter
+```
 
 instead.
 
