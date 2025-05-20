@@ -16,7 +16,7 @@ def test_empty_inputs() -> None:
             filters.Blocklist,
             filters.BlocklistFromJSON,
             filters.PersonalInformation,
-            filters.API
+            filters.API,
         ]:
             continue
         print(filter_)
@@ -68,8 +68,12 @@ def test_capitals() -> None:
 
     f = filters.Capitals()
 
-    assert not f.check("AGGRESSIVELY SPAMMING CAPITALS")[0]
-    assert not f.check("AGGRESSIVELY SPAMMING capitals, but not fully")[0]
+    for message in [
+        "AGGRESSIVELY SPAMMING CAPITALS",
+        "AGGRESSIVELY SPAMMING capitals, but not fully",
+        "Teetering riiight on the BRINK OF IT.",
+    ]:
+        assert not f.check(message)[0]
 
     assert f.check("This is a perfectly reasonable PHRASE.")[0]
     assert f.check("I")[0]

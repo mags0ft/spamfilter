@@ -12,14 +12,18 @@ def test_capitals():
     Tests against a message with too many capital letters.
     """
 
-    message = "CAPITAL LETTER MESSAGE."
-    expected = message.lower()
+    for message in [
+        "CAPITAL LETTER MESSAGE.",
+        "I LOVE YOU ALL",
+        "Crazy? I WAS CRAZY once.",
+    ]:
+        expected = message.lower()
 
-    res = m.check(message)
+        res = m.check(message)
 
-    assert res.changes_made == 1
-    assert res.passed
-    assert res.result == expected
+        assert res.changes_made == 1
+        assert res.passed
+        assert res.result == expected
 
 
 def test_char_spam():
@@ -51,6 +55,9 @@ def test_symbol_spam():
         '?=&%()/)"(&%§?%)',
         ")/)(&/=)((%((>:>)",
         "[]}{}][]}{[ß]}",
+        "!!!!!!!!!!!!!!!!",
+        "huh?!?!??§)",
+        ";-; <3<3<3<3<3<3",
     ]
 
     for string in spam:
