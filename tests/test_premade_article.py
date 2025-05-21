@@ -3,6 +3,7 @@ Test cases for the pre-made article filtering mechanisms.
 """
 
 from spamfilter.premade import article
+from spamfilter.filters import BypassDetector, Symbols, Length
 
 m = article.create_pipeline()
 
@@ -42,12 +43,14 @@ def test_length():
 
     assert res.changes_made == 0
     assert not res.passed
+    assert any(isinstance(f, Length) for f in res.failed_filters)
 
     # Test for too short articles
     res = m.check(LEGITIMATE_ARTICLE[:64])
 
     assert res.changes_made == 0
     assert not res.passed
+    assert any(isinstance(f, Length) for f in res.failed_filters)
 
     # Test for legitimate articles
     res = m.check(LEGITIMATE_ARTICLE)
@@ -66,6 +69,8 @@ def test_symbol_spam():
     assert res.changes_made == 0
     assert not res.passed
 
+    assert any(isinstance(f, Symbols) for f in res.failed_filters)
+
 
 def test_bypass_protection():
     """
@@ -76,3 +81,5 @@ def test_bypass_protection():
 
     assert res.changes_made == 0
     assert not res.passed
+
+    assert any(isinstance(f, BypassDetector) for f in res.failed_filters)

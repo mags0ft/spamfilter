@@ -3,6 +3,7 @@ Test cases for the pre-made chat filtering mechanisms.
 """
 
 from spamfilter.premade import chat
+from spamfilter.filters import WorldLength, Symbols
 
 m = chat.create_pipeline()
 
@@ -42,7 +43,10 @@ def test_char_spam():
     ]
 
     for string in spam:
-        assert not m.check(string).passed
+        res = m.check(string)
+
+        assert not res.passed
+        assert any(isinstance(f, WorldLength) for f in res.failed_filters)
 
 
 def test_symbol_spam():
@@ -61,7 +65,10 @@ def test_symbol_spam():
     ]
 
     for string in spam:
+        res = m.check(string)
+
         assert not m.check(string).passed
+        assert any(isinstance(f, Symbols) for f in res.failed_filters)
 
 
 def test_bypass_detect():
