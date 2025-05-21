@@ -3,7 +3,7 @@ Test cases for the pre-made chat filtering mechanisms.
 """
 
 from spamfilter.premade import chat
-from spamfilter.filters import WorldLength, Symbols
+from spamfilter.filters import WorldLength, Symbols, BypassDetector
 
 m = chat.create_pipeline()
 
@@ -76,10 +76,14 @@ def test_bypass_detect():
     Tests the bypass detection filter.
     """
 
-    assert not m.check("I want to b y p a s s the f i l t e r.").passed
+    res = m.check("I want to b y p a s s the f i l t e r.")
+    assert not res.passed
+    assert any(isinstance(f, BypassDetector) for f in res.failed_filters)
+
     assert not (
         m.check(
             "This is a fairly long text, but it does still contain some, \
 let's say, s u s p i c i o u s string of text in it!"
         ).passed
     )
+    assert any(isinstance(f, BypassDetector) for f in res.failed_filters)
