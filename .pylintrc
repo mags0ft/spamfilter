@@ -1,7 +1,7 @@
 [MASTER]
 
 [MESSAGES CONTROL]
-disable=too-few-public-methods,super-init-not-called,too-many-arguments,too-many-positional-arguments,too-many-locals
+disable=too-few-public-methods,super-init-not-called,too-many-arguments,too-many-positional-arguments,too-many-locals,fixme
 
 [FORMAT]
 max-line-length=79
