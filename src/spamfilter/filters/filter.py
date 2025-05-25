@@ -20,6 +20,11 @@ class Filter:
         Returns a tuple containing a boolean (whether it passed) and optionally
         a string (modified version of the input string made by the filter to
         mitigate errors - might not be given, depending on the mode selected).
+
+        The base Filter class does not modify the string, so it always returns
+        `True` and the original string. Any other filter that inherits from
+        this class should override this method to implement its specific
+        filtering logic.
         """
 
         return (True, string)
