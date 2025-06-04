@@ -10,9 +10,9 @@
     <img alt="PyPI - License" src="https://img.shields.io/pypi/l/spamfilter?style=for-the-badge&labelColor=%231e1e1e" />
 </p>
 
-The spamfilter module is a lightweight, fast and straightforward way to build your own spam filtering pipelines in order to keep applications using user-generated content clean.
+The spamfilter module is a lightweight, fast and straightforward Python package that helps you to build your own spam filtering pipelines in order to keep  your applications featuring user-generated content clean.
 
-It's object-oriented and makes a quick, yet concise approach to remove spam easy.
+It's object-oriented and makes a quick, concise approach to remove spam easy.
 
 ---
 
