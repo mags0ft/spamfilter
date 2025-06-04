@@ -21,6 +21,7 @@ requires-python = ">=3.9"
 [project.optional-dependencies]
 dev = ["pip-tools", "pytest"]
 api = ["requests"]
+ollama = ["ollama"]
 
 [project.urls]
 GitHub = "https://github.com/mags0ft/spamfilter"
