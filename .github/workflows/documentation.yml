@@ -2,6 +2,9 @@
 
 name: Documentation deployment
 
+permissions:
+  contents: write
+
 on:
   push:
     branches:
@@ -9,8 +12,9 @@ on:
     paths:
       - "**.md"
       - "mkdocs.yml"
+      - ".github/workflows/documentation.yml"
   workflow_dispatch:
-  
+
 jobs:
   docs:
     runs-on: ubuntu-latest
