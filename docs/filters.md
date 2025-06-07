@@ -61,7 +61,7 @@ The tuple is built as following:
 :::spamfilter.filters.Blocklist
 :::spamfilter.filters.BlocklistFromJSON
 :::spamfilter.filters.API
-:::spamfilter.filters.PersonalInformation
+:::spamfilter.filters.Regex
 :::spamfilter.filters.Email
 :::spamfilter.filters.Ollama
 
