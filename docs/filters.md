@@ -50,7 +50,7 @@ The tuple is built as following:
 ```
 
 - **passed** indicated whether the string did complete the check successfully and therefore wasn't indicated as spam.
-- **output_string** is the string returned by the filter as it might do corrections on it like lower-casing all letters in case it's too much capital.
+- **output_string** is the string returned by the filter as it might do corrections on it like lower-casing all letters in case it contains too many capital letters.
 
 ---
 

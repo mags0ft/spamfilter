@@ -1,5 +1,5 @@
 """
-Base module for the personal information base filter class.
+Base module for the Regex base filter class.
 """
 
 import re
@@ -11,15 +11,18 @@ from .filter import Filter
 POSSIBLE_MODES = ["normal", "censor"]
 
 
-class PersonalInformation(Filter):
+class Regex(Filter):
     """
-    Check if a string contains personal information.
+    Check if a string matches a given regular expression.
 
-    - `PersonalInformation.mode`: how to handle a failing string.
+    - `Regex.mode`: how to handle a failing string.
         - `normal`: fail the string.
-        - `censor`: censor the information.
-    - `PersonalInformation.regex`: the regex used to check for info.
-    - `PersonalInformation.replacement`: what regex to replace info with.
+        - `censor`: censor the match.
+    - `Regex.regex`: the regex used to check for matches.
+    - `Regex.replacement`: what regex to replace matches with.
+
+    _Was called "PersonalInformation" prior to v2.0.0, which was a breaking
+    change._
     """
 
     def __init__(

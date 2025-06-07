@@ -15,7 +15,7 @@ def test_empty_inputs() -> None:
             filters.Length,
             filters.Blocklist,
             filters.BlocklistFromJSON,
-            filters.PersonalInformation,
+            filters.Regex,
             filters.API,
             filters.Ollama,
         ]:

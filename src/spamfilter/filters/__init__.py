@@ -13,7 +13,7 @@ from .capitals import Capitals
 from .bypass_detection import BypassDetector
 from .blocklist_from_json import BlocklistFromJSON
 from .word_length import WorldLength
-from .personal_information import PersonalInformation
+from .regex import Regex
 from .email import Email
 from .api import API
 from .ollama import Ollama
@@ -26,7 +26,7 @@ FILTERS: "list[Type[Filter]]" = [
     BypassDetector,
     BlocklistFromJSON,
     WorldLength,
-    PersonalInformation,
+    Regex,
     Email,
     API,
     Ollama,

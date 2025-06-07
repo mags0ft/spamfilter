@@ -4,12 +4,12 @@ Module for the email information filter.
 More information about this filter can be found in its Class docstring.
 """
 
-from .personal_information import PersonalInformation
+from .regex import Regex
 
 POSSIBLE_MODES = ["normal", "censor"]
 
 
-class Email(PersonalInformation):
+class Email(Regex):
     """
     Check if a string contains an email address.
 
