@@ -14,6 +14,7 @@ POSSIBLE_MODES = ["normal", "crop"]
 class Capitals(Filter):
     """
     Check if a string contains too much capitals.
+
     - `Capitals.percentage`: how many percent of the text need to be in capital
     for it to fail.
     - `Capitals.abs_safe_min`: the absolute amound of capital characters that

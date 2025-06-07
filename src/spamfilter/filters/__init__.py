@@ -16,6 +16,7 @@ from .word_length import WorldLength
 from .personal_information import PersonalInformation
 from .email import Email
 from .api import API
+from .ollama import Ollama
 
 FILTERS: "list[Type[Filter]]" = [
     Length,
@@ -28,4 +29,5 @@ FILTERS: "list[Type[Filter]]" = [
     PersonalInformation,
     Email,
     API,
+    Ollama,
 ]

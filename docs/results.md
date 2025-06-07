@@ -4,21 +4,7 @@ The `spamfilter` module is highly object-oriented and therefore encapsulates res
 
 The Result object is made to unify returned data by pipelines and is very easy to use.
 
-## The `Result` object
-
-Dataclass to determine a result of a string running through a filtering pipeline.
-
-`results.Result(passed = True, result = "", original = "", changes_made = 0, failed_filters = [])`
-
-`Result.passed`: bool whether the text passed the filters.
-
-`Result.result`: resulting, sanitized string.
-
-`Result.original`: the string before getting passed through the filtering pipelines.
-
-`Result.changes_made`: how many changes have been commited to the string by the filters.
-
-`Result.failed_filters`: the filter objects that made the string fail (if it did).
+:::spamfilter.result.Result
 
 ## Create your own result
 

@@ -24,10 +24,11 @@ You can now use the functions of pipelines you know, such as `check`.
 ⚠ **Warning!** Always extensively test pre-made pipelines for their accuracy as this might depend on your usecase. You want the least amount of spammy content to pass through them, so you might do some adjustments to the `create_pipeline` function instead of using the ready-to-go-options right away.
 
 ---
-## premade.chat
-**For chatroom environments.**
+
+:::spamfilter.premade.chat
 
 Filters built in:
+
 - `Length`,
 - `WorldLength`,
 - `Symbols`,
@@ -69,6 +70,10 @@ from spamfilter.premade import chat
 
 c = chat.chatPipeline
 ```
+
+---
+
+:::spamfilter.premade.article
 
 ### Using premade.article
 Create a Pipeline that is pre-made to be used in high-quality, demanding writing platforms.

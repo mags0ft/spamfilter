@@ -13,6 +13,7 @@ POSSIBLE_MODES = ["normal", "crop"]
 class Length(Filter):
     """
     Checks if a string matches given length requirements.
+
     - `Length.min`: The inclusive minimum length.
     - `Length.max`: The inclusive maximum length.
     - `Length.padding`: A character used to fill up strings that are too short

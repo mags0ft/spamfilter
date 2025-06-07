@@ -12,6 +12,7 @@ POSSIBLE_MODES = ["normal", "censor"]
 class Email(PersonalInformation):
     """
     Check if a string contains an email address.
+
     - `Email.mode`: how to handle a failing string.
         - `normal`: fail the string.
         - `censor`: censor the information.

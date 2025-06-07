@@ -14,6 +14,7 @@ POSSIBLE_MODES = ["normal", "censor"]
 class PersonalInformation(Filter):
     """
     Check if a string contains personal information.
+
     - `PersonalInformation.mode`: how to handle a failing string.
         - `normal`: fail the string.
         - `censor`: censor the information.
