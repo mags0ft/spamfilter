@@ -32,6 +32,7 @@ from spamfilter.filters import *
 ```
 
 ## All filters explained
+
 Generally, all filters are stacked onto each other using a pipeline object which will then check them one after each other.
 
 You construct a filter like this:

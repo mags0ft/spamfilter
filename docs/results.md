@@ -24,7 +24,7 @@ Dataclass to determine a result of a string running through a filtering pipeline
 
 Whenever you need to create your own `Result` object, just do as follows:
 
-```
+```python
 from spamfilter.results import Result
 
 r = Result(...args)

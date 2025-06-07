@@ -4,11 +4,15 @@
 
 **Delivering streamlined, customizable spam mitigations into any environment.**
 
+## Welcome to spamfilter!
+
 ---
 The spamfilter module is a lightweight, concise way to protect applications against text spam when processing user-generated content.
 
 ---
-### [**👉 Get started**](./get_started.md) | [**📕 Documentation**](./documentation.md) | [**👩‍💻 Install**](./installation.md) | [**😸 GitHub**](https://github.com/mags0ft/spamfilter)
+
+[**👉 Get started**](./get_started.md) | [**📕 Documentation**](./documentation.md) | [**👩‍💻 Install**](./installation.md) | [**😸 GitHub**](https://github.com/mags0ft/spamfilter)
+
 ---
 
 ### How spamfilter is built
@@ -19,3 +23,9 @@ The spamfilter module is a lightweight, concise way to protect applications agai
 - ⚙️ **Customizable spam handling** - you decide how spam should be handled. The spamfilter package can censor, mitigate or even dismiss spam on its own.
 - 🐍 **Built with typed, documented python** - written in highest, modern python standards, spamfilter is easy to understand for new users.
 - 💡 **Self-explanatory** - every class or method has docstrings attached to it, the variable names are held simple and the project is fully open-source.
+
+### Where to get started
+
+It's super easy to get started with spamfilter! The module is designed to be intuitive and user-friendly, so you can quickly implement it in your projects.
+
+Check out the [**Get started**](./get_started.md) guide to learn how to install and use it!

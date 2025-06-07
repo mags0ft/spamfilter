@@ -1,0 +1,72 @@
+site_name: spamfilter
+site_description: Documentation for the python spamfilter package
+site_author: Magnus Schlinsog and contributors
+
+nav:
+  - Home: index.md
+  - Install: installation.md
+  - Get Started: get_started.md
+  - Documentation:
+    - Overview: documentation.md
+    - Filters: filters.md
+    - Pipelines: pipelines.md
+    - Results: results.md
+    - Premade Pipelines: premade.md
+  - About:
+    - Contributing: contributing.md
+    - License: https://github.com/mags0ft/spamfilter/blob/master/LICENSE
+
+theme:
+  name: material
+  color_mode: dark
+  user_color_mode_toggle: true
+  locale: en
+  highlightjs: true
+  hljs_languages:
+    - python
+    - bash
+  palette:
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/brightness-7
+        name: Switch to light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-2
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: black
+      accent: indigo
+      toggle:
+        icon: material/brightness-6
+        name: Switch to system preference
+  favicon: assets/icon-material.png
+  icon:
+    logo: material/filter
+
+copyright: Copything &copy; 2025 <a href="https://github.com/mags0ft">Magnus Schlinsog</a> and <a href="https://github.com/mags0ft/spamfilter/graphs/contributors">GitHub contributors</a>
+
+markdown_extensions:
+  - attr_list
+  - def_list
+  - tables
+  - pymdownx.highlight:
+      use_pygments: true
+  - pymdownx.snippets
+  - pymdownx.superfences
+
+plugins:
+  - search
+  - mkdocstrings:
+      handlers:
+        python:
+          options:
+            docstring_section_style: list
+            members_order: source
+            show_root_heading: true
+            show_source: false
+            show_signature_annotations: true
