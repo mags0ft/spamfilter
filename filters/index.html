@@ -521,9 +521,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#spamfilter.filters.PersonalInformation" class="md-nav__link">
+  <a href="#spamfilter.filters.Regex" class="md-nav__link">
     <span class="md-ellipsis">
-      PersonalInformation
+      Regex
     </span>
   </a>
   
@@ -870,9 +870,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#spamfilter.filters.PersonalInformation" class="md-nav__link">
+  <a href="#spamfilter.filters.Regex" class="md-nav__link">
     <span class="md-ellipsis">
-      PersonalInformation
+      Regex
     </span>
   </a>
   
@@ -967,7 +967,7 @@ you don't need to import them at all, they are going to be imported into the mod
 </code></pre></div>
 <ul>
 <li><strong>passed</strong> indicated whether the string did complete the check successfully and therefore wasn't indicated as spam.</li>
-<li><strong>output_string</strong> is the string returned by the filter as it might do corrections on it like lower-casing all letters in case it's too much capital.</li>
+<li><strong>output_string</strong> is the string returned by the filter as it might do corrections on it like lower-casing all letters in case it contains too many capital letters.</li>
 </ul>
 <hr />
 
@@ -1121,7 +1121,7 @@ to use.</li>
               Bases: <code><a class="autorefs autorefs-internal" title="spamfilter.filters.Filter (spamfilter.filters.filter.Filter)" href="#spamfilter.filters.Filter">Filter</a></code></p>
 
 
-        <p>Check if a string contains too much capitals.</p>
+        <p>Check if a string contains too many capital letters.</p>
 <ul>
 <li><code>Capitals.percentage</code>: how many percent of the text need to be in capital
 for it to fail.</li>
@@ -1398,8 +1398,8 @@ response JSON against the provided</p>
 
 
 
-<h2 id="spamfilter.filters.PersonalInformation" class="doc doc-heading">
-            <code>spamfilter.filters.PersonalInformation</code>
+<h2 id="spamfilter.filters.Regex" class="doc doc-heading">
+            <code>spamfilter.filters.Regex</code>
 
 
 </h2>
@@ -1410,16 +1410,18 @@ response JSON against the provided</p>
               Bases: <code><a class="autorefs autorefs-internal" title="spamfilter.filters.Filter (spamfilter.filters.filter.Filter)" href="#spamfilter.filters.Filter">Filter</a></code></p>
 
 
-        <p>Check if a string contains personal information.</p>
+        <p>Check if a string matches a given regular expression.</p>
 <ul>
-<li><code>PersonalInformation.mode</code>: how to handle a failing string.<ul>
+<li><code>Regex.mode</code>: how to handle a failing string.<ul>
 <li><code>normal</code>: fail the string.</li>
-<li><code>censor</code>: censor the information.</li>
+<li><code>censor</code>: censor the match.</li>
 </ul>
 </li>
-<li><code>PersonalInformation.regex</code>: the regex used to check for info.</li>
-<li><code>PersonalInformation.replacement</code>: what regex to replace info with.</li>
+<li><code>Regex.regex</code>: the regex used to check for matches.</li>
+<li><code>Regex.replacement</code>: what regex to replace matches with.</li>
 </ul>
+<p><em>Was called "PersonalInformation" prior to v2.0.0, which was a breaking
+change.</em></p>
 
 
 
@@ -1461,7 +1463,7 @@ response JSON against the provided</p>
 
     <div class="doc doc-contents first">
             <p class="doc doc-class-bases">
-              Bases: <code><a class="autorefs autorefs-internal" title="spamfilter.filters.PersonalInformation (spamfilter.filters.personal_information.PersonalInformation)" href="#spamfilter.filters.PersonalInformation">PersonalInformation</a></code></p>
+              Bases: <code><a class="autorefs autorefs-internal" title="spamfilter.filters.Regex (spamfilter.filters.regex.Regex)" href="#spamfilter.filters.Regex">Regex</a></code></p>
 
 
         <p>Check if a string contains an email address.</p>
