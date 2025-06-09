@@ -8,7 +8,7 @@ Pipelines in `spamfilter` allow you to customize own models that periodically wo
 
 To import the class of a Pipeline, simply run:
 
-```
+```python
 from spamfilter.pipelines import Pipeline
 ```
 

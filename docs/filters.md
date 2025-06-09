@@ -11,7 +11,8 @@ you don't need to import them at all, they are going to be imported into the mod
 If you want to import the built-in filters into your script, do it using one of the following ways:
 
 *For one single filter:*
-```
+
+```python
 from spamfilter.filters import Filter
 ```
 
