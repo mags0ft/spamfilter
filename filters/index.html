@@ -943,9 +943,9 @@ or rather not. In this document, all of these filters will be listed.</p>
 <p>There are a lot of ways to import the filters you need. If you just want to use a pre-made model for filtering,
 you don't need to import them at all, they are going to be imported into the model by itself.</p>
 <p>If you want to import the built-in filters into your script, do it using one of the following ways:</p>
-<p><em>For one single filter:</em>
-<div class="highlight"><pre><span></span><code>from spamfilter.filters import Filter
-</code></pre></div></p>
+<p><em>For one single filter:</em></p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">spamfilter.filters</span><span class="w"> </span><span class="kn">import</span> <span class="n">Filter</span>
+</code></pre></div>
 <p><em>For several filters:</em></p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">spamfilter.filters</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
     <span class="n">Capitals</span><span class="p">,</span>

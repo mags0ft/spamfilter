@@ -767,7 +767,7 @@
 <p><strong>Please note</strong>: Prior to <code>spamfilter</code> v2.0.0, the pipelines were called "machines". This is no longer the case, as we figured the term "machine" is not fully accurate for the way they work. The term "pipeline" is the new standard, as it describes the process of passing data through a series of filters. Thus, <code>spamfilter</code> v2.0.0 is a <strong>breaking change</strong> and you will need to update your code if you used machines before.</p>
 <h2 id="how-to-import-the-pipeline-class">How to import the pipeline class</h2>
 <p>To import the class of a Pipeline, simply run:</p>
-<div class="highlight"><pre><span></span><code>from spamfilter.pipelines import Pipeline
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">spamfilter.pipelines</span><span class="w"> </span><span class="kn">import</span> <span class="n">Pipeline</span>
 </code></pre></div>
 <h2 id="pipelines-explained">Pipelines explained</h2>
 <p>Generally, all filters are stacked onto each other using a pipeline object which will then check them one after each other.</p>
