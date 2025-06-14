@@ -38,11 +38,15 @@ Define a [pipeline](https://mags0ft.github.io/spamfilter/pipelines/) using sever
 from spamfilter.filters import Length, Symbols
 from spamfilter.pipelines import Pipeline
 
+# create a new pipeline
 m = Pipeline([
+    # length of 10 to 200 chars, crop if needed
     Length(min_length=10, max_length=200, mode="crop"),
+    # limit use of special characters
     Symbols(mode="normal")
 ])
 
+# test a string against it
 TEST_STRING = "This is a test string."
 print(m.check(TEST_STRING).passed)
 ```
