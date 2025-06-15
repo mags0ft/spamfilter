@@ -467,9 +467,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#spamfilter.filters.Symbols" class="md-nav__link">
+  <a href="#spamfilter.filters.SpecialChars" class="md-nav__link">
     <span class="md-ellipsis">
-      Symbols
+      SpecialChars
     </span>
   </a>
   
@@ -816,9 +816,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#spamfilter.filters.Symbols" class="md-nav__link">
+  <a href="#spamfilter.filters.SpecialChars" class="md-nav__link">
     <span class="md-ellipsis">
-      Symbols
+      SpecialChars
     </span>
   </a>
   
@@ -950,7 +950,7 @@ you don't need to import them at all, they are going to be imported into the mod
 <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">spamfilter.filters</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
     <span class="n">Capitals</span><span class="p">,</span>
     <span class="n">Length</span><span class="p">,</span>
-    <span class="n">Symbols</span>
+    <span class="n">SpecialChars</span>
 <span class="p">)</span>
 </code></pre></div>
 <p><em>For </em><em>all</em><em> filters</em></p>
@@ -1047,8 +1047,8 @@ filtering logic.</p>
 
 
 
-<h2 id="spamfilter.filters.Symbols" class="doc doc-heading">
-            <code>spamfilter.filters.Symbols</code>
+<h2 id="spamfilter.filters.SpecialChars" class="doc doc-heading">
+            <code>spamfilter.filters.SpecialChars</code>
 
 
 </h2>
@@ -1059,24 +1059,25 @@ filtering logic.</p>
               Bases: <code><a class="autorefs autorefs-internal" title="spamfilter.filters.Filter (spamfilter.filters.filter.Filter)" href="#spamfilter.filters.Filter">Filter</a></code></p>
 
 
-        <p>Check if a string contains too many symbols.</p>
+        <p>Check if a string contains too many special characters.</p>
 <ul>
-<li><code>Symbols.percentage</code>: how many percent of the text need to be symbols for
-it to fail.</li>
-<li><code>Symbols.mode</code>: how to handle a failing string.<ul>
-<li><code>normal</code>: fail the string if it contains too many symbols</li>
-<li><code>crop</code>: remove all symbols from the string if it would fail, but then
-make the string pass.</li>
+<li><code>SpecialChars.percentage</code>: how many percent of the text need to be
+special characters for it to fail.</li>
+<li><code>SpecialChars.mode</code>: how to handle a failing string.<ul>
+<li><code>normal</code>: fail the string if it contains too many special characters</li>
+<li><code>crop</code>: remove all special characters from the string if it would
+fail, but then make the string pass.</li>
 </ul>
 </li>
-<li><code>Symbols.symboldef</code>: what to identify as a symbol<ul>
-<li><code>explicit</code>: everything that matches <code>Symbols.symbolset</code>.</li>
-<li><code>implicit</code>: everything that does not match <code>Symbols.charset</code>.</li>
+<li><code>SpecialChars.symboldef</code>: what to identify as a symbol<ul>
+<li><code>explicit</code>: everything that matches <code>SpecialChars.specialcharset</code>.</li>
+<li><code>implicit</code>: everything that does not match <code>SpecialChars.charset</code>.</li>
 </ul>
 </li>
-<li><code>Symbols.abs_safe_min</code>: absolute amount of symbols that are always okay
-to use.</li>
+<li><code>SpecialChars.abs_safe_min</code>: absolute amount of special characters that
+are always okay to use.</li>
 </ul>
+<p><em>Was called "Symbols" prior to v2.0.0, which was a breaking change.</em></p>
 
 
 
