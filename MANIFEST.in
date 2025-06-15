@@ -11,9 +11,9 @@ exclude .vscode/*
 exclude .pytest_cache/
 exclude .pytest_cache/*
 exclude .pytest_cache/*.*
-exclude TODO
-exclude .pylintrc
-exclude mkdocs.yml
 exclude .github/*.*
 exclude .github/*
 exclude .github/
+exclude TODO
+exclude .pylintrc
+exclude mkdocs.yml
