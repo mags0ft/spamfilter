@@ -31,7 +31,7 @@ Filters built in:
 
 - `Length`,
 - `WorldLength`,
-- `Symbols`,
+- `SpecialChars`,
 - `Capitals`,
 - `BypassDetector`,
 - `BlocklistFromJSON` (inactive by default)
@@ -57,7 +57,7 @@ c = chat.create_pipeline(
     capitals_filter: bool = True,
     capitals_percentage: float = 0.3,
     capitals_mode: str = "crop",
-    symbols_filter: bool = True,
+    specialchars_filter: bool = True,
     profanity_filter: bool = False,
     profanity_blocklist_filepath: str = ""
 )
@@ -94,7 +94,7 @@ c = article.create_pipeline(
     capitals_filter: bool = True,
     capitals_percentage: float = 0.4,
     capitals_mode: str = "normal",
-    symbols_filter: bool = True,
+    specialchars_filter: bool = True,
     profanity_filter: bool = False,
     profanity_blocklist_filepath: str = ""
 )

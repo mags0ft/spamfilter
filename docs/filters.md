@@ -22,7 +22,7 @@ from spamfilter.filters import Filter
 from spamfilter.filters import (
     Capitals,
     Length,
-    Symbols
+    SpecialChars
 )
 ```
 
@@ -56,7 +56,7 @@ The tuple is built as following:
 ---
 
 :::spamfilter.filters.Filter
-:::spamfilter.filters.Symbols
+:::spamfilter.filters.SpecialChars
 :::spamfilter.filters.Capitals
 :::spamfilter.filters.Length
 :::spamfilter.filters.Blocklist

@@ -8,7 +8,7 @@ from typing import Type
 from .filter import Filter
 from .length import Length
 from .blocklist import Blocklist
-from .symbols import Symbols
+from .specialchars import SpecialChars
 from .capitals import Capitals
 from .bypass_detection import BypassDetector
 from .blocklist_from_json import BlocklistFromJSON
@@ -21,7 +21,7 @@ from .ollama import Ollama
 FILTERS: "list[Type[Filter]]" = [
     Length,
     Blocklist,
-    Symbols,
+    SpecialChars,
     Capitals,
     BypassDetector,
     BlocklistFromJSON,

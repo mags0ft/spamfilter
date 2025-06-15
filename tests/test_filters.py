@@ -154,12 +154,12 @@ def test_length() -> None:
     assert r[1] == t[:15]
 
 
-def test_symbols() -> None:
+def test_specialchars() -> None:
     """
-    Tests the symbols filter.
+    Tests the specialchars filter.
     """
 
-    f = filters.Symbols()
+    f = filters.SpecialChars()
 
     assert f.check("Great video!!! Thanks (so much) for explaining this.")[0]
     assert not f.check("HAHA!!!!!!!!")[0]

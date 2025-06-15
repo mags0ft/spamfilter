@@ -8,7 +8,7 @@ from ..filters.filter import Filter
 from ..filters import (
     Length,
     WorldLength,
-    Symbols,
+    SpecialChars,
     Capitals,
     BypassDetector,
     BlocklistFromJSON,
@@ -26,7 +26,7 @@ def construct_filter_list(
     capitals_filter: bool,
     capitals_percentage: float,
     capitals_mode: str,
-    symbols_filter: bool,
+    specialchars_filter: bool,
     profanity_filter: bool,
     profanity_blocklist_filepath: str,
 ) -> "list[Type[Filter]]":
@@ -46,7 +46,7 @@ def construct_filter_list(
             (max_word_length, "absolute", max_num_too_long_words),
         ),
         (capitals_filter, Capitals, (capitals_percentage, capitals_mode)),
-        (symbols_filter, Symbols, ()),
+        (specialchars_filter, SpecialChars, ()),
         (profanity_filter, BlocklistFromJSON, (profanity_blocklist_filepath,)),
     ]
 

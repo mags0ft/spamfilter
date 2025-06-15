@@ -3,11 +3,12 @@ These tests cover the Pipeline class of the spamfilter package.
 """
 
 from spamfilter.pipelines import Pipeline
-from spamfilter.filters import Capitals, Filter, Length, Symbols
+from spamfilter.filters import Capitals, Filter, Length, SpecialChars
 
 
 # TODO: fix typing linter warnings by changing type definitions
 # (in the long run)
+
 
 def test_empty_pipeline():
     """
@@ -59,7 +60,7 @@ def test_normal_pipeline():
     """
 
     pipe = Pipeline(
-        [Length(), Symbols(), Capitals()]  # type: ignore -- types match
+        [Length(), SpecialChars(), Capitals()]  # type: ignore -- types match
     )
 
     res = pipe.check("This is a perfectly normal piece of text.")
@@ -79,8 +80,8 @@ def test_normal_pipeline():
     assert not res.passed
     assert any(isinstance(f, Length) for f in res.failed_filters)
 
-    res = pipe.check("Symbols /&(§)!(=!/=!/())")
+    res = pipe.check("SpecialChars /&(§)!(=!/=!/())")
 
     assert res.changes_made == 0
     assert not res.passed
-    assert any(isinstance(f, Symbols) for f in res.failed_filters)
+    assert any(isinstance(f, SpecialChars) for f in res.failed_filters)

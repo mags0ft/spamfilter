@@ -48,13 +48,13 @@ This is an example of how you could implement three filters into one pipeline, w
 from spamfilter.pipelines import Pipeline
 from spamfilter.filters import (
     Capitals,
-    Symbols,
+    SpecialChars,
     Length
 )
 
 m = Pipeline([
     Capitals(),
-    Symbols(mode = "crop"),
+    SpecialChars(mode = "crop"),
     Length(min_length = 20, max_length = 60)
 ])
 

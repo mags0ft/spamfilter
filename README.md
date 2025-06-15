@@ -35,7 +35,7 @@ pip install spamfilter
 Define a [pipeline](https://mags0ft.github.io/spamfilter/pipelines/) using several spam [filters](https://mags0ft.github.io/spamfilter/filters/) stacked onto each other.
 
 ```python
-from spamfilter.filters import Length, Symbols
+from spamfilter.filters import Length, SpecialChars
 from spamfilter.pipelines import Pipeline
 
 # create a new pipeline
@@ -43,7 +43,7 @@ m = Pipeline([
     # length of 10 to 200 chars, crop if needed
     Length(min_length=10, max_length=200, mode="crop"),
     # limit use of special characters
-    Symbols(mode="normal")
+    SpecialChars(mode="normal")
 ])
 
 # test a string against it
