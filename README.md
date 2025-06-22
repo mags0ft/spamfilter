@@ -17,14 +17,14 @@ It's object-oriented and makes a quick, concise approach to remove spam easy.
 ---
 
 **Important links**
-- [🌎 GitHub page](https://mags0ft.github.io/spamfilter/)
+- [🌎 Website and documentation](https://mags0ft.github.io/spamfilter/)
 - [🔓 Report a security vulnerability](https://github.com/mags0ft/spamfilter/security/advisories/new)
 - [🚩 Create a new issue](https://github.com/mags0ft/spamfilter/issues/new/choose)
 - [👩‍💻 How to contribute](https://mags0ft.github.io/spamfilter/contributing/)
 
 ## Installation
 
-You can [install spamfilter](https://mags0ft.github.io/spamfilter/installation/) by cloning the GitHub repository, downloading it from the GitHub page or using pip:
+You can [install spamfilter](https://mags0ft.github.io/spamfilter/installation/) by cloning the GitHub repository, downloading it from the GitHub page or using pip - which is the recommended approach:
 
 ```bash
 pip install spamfilter
@@ -59,7 +59,7 @@ True
 
 ## License
 
-This project is licensed under the MIT License as found in the [`LICENSE` file](./LICENSE).
+This project is licensed under the MIT License, as declared in the [`LICENSE` file](./LICENSE).
 
 ## Contributing
 
