@@ -20,7 +20,7 @@ POSSIBLE_MODES: "list[str]" = ["normal", "correcting"]
 
 STD_PROMPT = """You are a spam filter.
 Your task is to determine if the given text is spam or not. Give a definite \
-answer."""
+answer formatted as JSON."""
 
 JSON_SCHEMA_NORMAL: "dict[str, Any]" = {  # type: ignore
     "type": "object",
@@ -91,6 +91,9 @@ class Ollama(Filter):
     - `Ollama.json_schema`: the json schema to use for formatted outputs.
     - `Ollama.options`: the options to use for the Ollama API request.
     - `Ollama.thinking`: whether to enable thinking mode for the LLM.
+
+    It is highly recommended to adjust most of these paramters to your needs,
+    especially the `Ollama.model` and `Ollama.prompt` parameters.
     """
 
     def __init__(
