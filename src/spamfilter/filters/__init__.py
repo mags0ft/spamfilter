@@ -29,5 +29,5 @@ FILTERS: "list[Type[Filter]]" = [
     Regex,
     Email,
     API,
-    # Ollama, -- filter not implemented yet
+    Ollama,
 ]

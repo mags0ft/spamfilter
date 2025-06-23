@@ -10,11 +10,48 @@ try:
 except ImportError:
     ollama_available: bool = False
 
+import json
+from typing import Any, Union
 from .check_modes import perform_mode_check
 from .filter import Filter
 
 
-POSSIBLE_MODES: "list[str]" = ["normal"]
+POSSIBLE_MODES: "list[str]" = ["normal", "correcting"]
+
+STD_PROMPT = """You are a spam filter.
+Your task is to determine if the given text is spam or not. Give a definite \
+answer."""
+
+JSON_SCHEMA_NORMAL: "dict[str, Any]" = {  # type: ignore
+    "type": "object",
+    "properties": {
+        "is_spam": {
+            "type": "boolean",
+            "description": "Whether the given text is spam or not.",
+        },
+    },
+    "required": ["is_spam"],
+}
+
+JSON_SCHEMA_CORRECTING: "dict[str, Any]" = {
+    "type": "object",
+    "properties": {
+        "is_spam": {
+            "type": "boolean",
+            "description": "Whether the given text is spam or not.",
+        },
+        "corrected_text": {
+            "type": "string",
+            "description": "The corrected text if the input was spam.",
+        },
+    },
+    "required": ["is_spam", "corrected_text"],
+}
+
+STD_OPTIONS: "dict[str, Any]" = {
+    "temperature": 0.1,
+    "num_predict": 1024,
+}
 
 
 class MalformedResponseException(Exception):
@@ -45,16 +82,27 @@ class Ollama(Filter):
     This filter requires the `ollama` Python package to be installed, which can
     be done with `pip install spamfilter[ollama]`.
 
-    It is **NOT YET** implemented, so it will always return `True` and the
-    original string. The implementation will be added in a future version of
-    spamfilter.
+    - `Ollama.model`: the model to use for checking spam.
+    - `Ollama.mode`: how to handle a failing string.
+        - `normal`: fail the string.
+        - `correcting`: correct the string if it is spam, always allow it
+    - `Ollama.host`: the host of the Ollama API endpoint.
+    - `Ollama.prompt`: the prompt to use for the LLM.
+    - `Ollama.json_schema`: the json schema to use for formatted outputs.
+    - `Ollama.options`: the options to use for the Ollama API request.
+    - `Ollama.thinking`: whether to enable thinking mode for the LLM.
     """
 
     def __init__(
         self,
+        model: str,
         mode: str = "normal",
         host: str = "127.0.0.1",
         timeout: float = 3.0,
+        prompt: str = STD_PROMPT,
+        schema: "Union[dict[str, Any], None]" = None,
+        options: "Union[dict[str, Any], None]" = None,
+        thinking: bool = False,
     ) -> None:
         perform_mode_check(mode, POSSIBLE_MODES)
         check_ollama_availability()
@@ -62,7 +110,25 @@ class Ollama(Filter):
         self._client = ollama.Client(  # type: ignore
             host=host, timeout=timeout
         )
+
+        self.model = model
         self.mode = mode
+        self.prompt = prompt
+        self.options = options
+        self.thinking = thinking
+
+        self.json_schema: "Union[dict[str, Any], None]" = None
+
+        if schema is None:
+            if mode == "normal":
+                self.json_schema = JSON_SCHEMA_NORMAL
+            elif mode == "correcting":
+                self.json_schema = JSON_SCHEMA_CORRECTING
+        else:
+            self.json_schema = schema
+
+        if options is None:
+            self.options = STD_OPTIONS
 
     def check(self, string: str) -> "tuple[bool, str]":
         """
@@ -71,6 +137,29 @@ class Ollama(Filter):
         potentially corrected string.
         """
 
-        # TODO: Implement the actual API call to Ollama.
+        # pylint: disable=no-member
 
-        return (True, string)
+        response_raw = self._client.chat(  # type: ignore
+            model=self.model,
+            messages=[
+                {"role": "system", "content": self.prompt},
+                {"role": "user", "content": string},
+            ],
+            format=self.json_schema,
+            stream=False,
+            think=self.thinking,
+            options=self.options,
+        )
+
+        if response_raw.message:
+            raise MalformedResponseException(
+                "The response from the Ollama API was malformed."
+            )
+
+        response = json.loads(response_raw.message.content)
+        passed: bool = response["is_answer_correct"]
+
+        return (
+            passed,
+            string if self.mode == "normal" else response["corrected_text"],
+        )
