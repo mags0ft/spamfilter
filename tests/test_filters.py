@@ -1,8 +1,25 @@
 """
 Test cases for the filter classes.
+
+Accepts different environment variables to control the behavior of the tests:
+- `SPAMFILTER_TEST_OLLAMA`: If set to "true", tests the Ollama filter, which
+is expensive and requires an Ollama installation.
+
 """
 
+from os import getenv
+
+from dotenv import load_dotenv
+
 from spamfilter import filters
+
+
+load_dotenv()
+
+TEST_OLLAMA = getenv("SPAMFILTER_TEST_OLLAMA", "false").lower() == "true"
+TEST_OLLAMA_MODEL = getenv(
+    "SPAMFILTER_OLLAMA_MODEL",
+)
 
 
 def test_empty_inputs() -> None:
@@ -170,3 +187,23 @@ def test_specialchars() -> None:
 
     assert r[0]
     assert r[1] == t[:16]
+
+
+def test_ollama() -> None:
+    """
+    Tests the Ollama filter.
+    """
+
+    if not TEST_OLLAMA:
+        return
+
+    if not TEST_OLLAMA_MODEL:
+        raise ValueError(
+            "Please set the SPAMFILTER_OLLAMA_MODEL environment variable to a "
+            "valid Ollama model."
+        )
+
+    f = filters.Ollama(TEST_OLLAMA_MODEL, timeout=30)
+
+    assert f.check("Thanks for the great video, really liked it")[0]
+    assert not f.check("BUY THE BEST MAGAZINES TODAY AT NOON IN MY STORE!")[0]

@@ -1,4 +1,4 @@
-exclude TODO .pylintrc mkdocs.yml
+exclude TODO .pylintrc mkdocs.yml .env .env.example
 prune */__pycache__
 prune tests
 prune docs

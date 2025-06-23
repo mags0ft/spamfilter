@@ -154,13 +154,13 @@ class Ollama(Filter):
             options=self.options,
         )
 
-        if response_raw.message:
+        if response_raw.message.content is None:
             raise MalformedResponseException(
                 "The response from the Ollama API was malformed."
             )
 
         response = json.loads(response_raw.message.content)
-        passed: bool = response["is_answer_correct"]
+        passed: bool = not response["is_spam"]
 
         return (
             passed,
