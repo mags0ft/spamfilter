@@ -1526,9 +1526,21 @@ is spam or not. This might introduce <strong>significant latency</strong> in you
 pipeline, so use this with caution and only if necessary.</p>
 <p>This filter requires the <code>ollama</code> Python package to be installed, which can
 be done with <code>pip install spamfilter[ollama]</code>.</p>
-<p>It is <strong>NOT YET</strong> implemented, so it will always return <code>True</code> and the
-original string. The implementation will be added in a future version of
-spamfilter.</p>
+<ul>
+<li><code>Ollama.model</code>: the model to use for checking spam.</li>
+<li><code>Ollama.mode</code>: how to handle a failing string.<ul>
+<li><code>normal</code>: fail the string.</li>
+<li><code>correcting</code>: correct the string if it is spam, always allow it</li>
+</ul>
+</li>
+<li><code>Ollama.host</code>: the host of the Ollama API endpoint.</li>
+<li><code>Ollama.prompt</code>: the prompt to use for the LLM.</li>
+<li><code>Ollama.json_schema</code>: the json schema to use for formatted outputs.</li>
+<li><code>Ollama.options</code>: the options to use for the Ollama API request.</li>
+<li><code>Ollama.thinking</code>: whether to enable thinking mode for the LLM.</li>
+</ul>
+<p>It is highly recommended to adjust most of these paramters to your needs,
+especially the <code>Ollama.model</code> and <code>Ollama.prompt</code> parameters.</p>
 
 
 
