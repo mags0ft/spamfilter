@@ -10,9 +10,9 @@
     <img alt="PyPI - License" src="https://img.shields.io/pypi/l/spamfilter?style=for-the-badge&labelColor=%231e1e1e" />
 </p>
 
-The spamfilter module is a lightweight, fast and straightforward Python package that helps you to build your own [spam filtering pipelines](https://mags0ft.github.io/spamfilter/pipelines/) in order to keep your applications featuring user-generated content clean.
+The `spamfilter` module is a lightweight, fast and straightforward Python package that helps you to build your own [spam filtering pipelines](https://mags0ft.github.io/spamfilter/pipelines/) in order to keep your applications featuring user-generated content clean.
 
-It's object-oriented and makes a quick, concise approach to remove spam easy.
+It's object-oriented and makes a quick, concise approach to remove spam easy. `spamfilter` is highly configurable and ships with deep integrations for [third-party APIs](https://mags0ft.github.io/spamfilter/filters/#spamfilter.filters.API) and language models via [Ollama](https://mags0ft.github.io/spamfilter/filters/#spamfilter.filters.Ollama).
 
 ---
 
@@ -29,6 +29,8 @@ You can [install spamfilter](https://mags0ft.github.io/spamfilter/installation/)
 ```bash
 pip install spamfilter
 ```
+
+Please see the [installation guide](https://mags0ft.github.io/spamfilter/installation/) for more information on how to install `spamfilter` and its dependencies, especially if you plan to use API or Ollama functionality.
 
 ## Usage
 
