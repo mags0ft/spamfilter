@@ -32,15 +32,15 @@ theme:
         name: Switch to light mode
     - media: "(prefers-color-scheme: light)"
       scheme: default
-      primary: indigo
-      accent: indigo
+      primary: cyan
+      accent: light blue
       toggle:
         icon: material/brightness-2
         name: Switch to dark mode
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
-      primary: black
-      accent: indigo
+      primary: cyan
+      accent: light blue
       toggle:
         icon: material/brightness-6
         name: Switch to system preference
