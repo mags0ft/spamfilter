@@ -6,7 +6,7 @@ More information about this filter can be found in its Class docstring.
 
 from string import punctuation, ascii_letters
 
-from .check_modes import perform_mode_check
+from ._check_modes import perform_mode_check
 from .filter import Filter
 
 

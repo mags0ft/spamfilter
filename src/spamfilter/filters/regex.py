@@ -4,7 +4,7 @@ Base module for the Regex base filter class.
 
 import re
 
-from .check_modes import perform_mode_check
+from ._check_modes import perform_mode_check
 from .filter import Filter
 
 

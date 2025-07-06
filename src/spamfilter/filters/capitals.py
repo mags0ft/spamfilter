@@ -50,11 +50,8 @@ class Capitals(Filter):
                 if letter in ascii_uppercase:
                     letters += 1
                     capitals += 1
-                    continue
-
-                if letter in ascii_lowercase:
+                elif letter in ascii_lowercase:
                     letters += 1
-                    continue
 
             return (
                 (capitals / letters)

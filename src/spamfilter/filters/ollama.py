@@ -12,7 +12,7 @@ except ImportError:
 
 import json
 from typing import Any, Union
-from .check_modes import perform_mode_check
+from ._check_modes import perform_mode_check
 from .filter import Filter
 
 

@@ -15,7 +15,7 @@ from typing import Type, Union
 
 from ..result import Result
 from ..filters import Filter
-from ..filters.check_modes import perform_mode_check
+from ..filters._check_modes import perform_mode_check
 
 
 POSSIBLE_MODES = ["normal", "tolerant", "zero-tolerance", "normal-quick"]

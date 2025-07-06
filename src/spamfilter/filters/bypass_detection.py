@@ -37,7 +37,6 @@ class BypassDetector(Filter):
         self.max_findings = max_findings
 
     def check(self, string: str):
-        ln = len(string)
         adjacencies = 0
         iterations = 0
 
@@ -46,15 +45,19 @@ class BypassDetector(Filter):
                 continue
 
             adj_left = idx > 0 and not string[idx - 1] in self.isles
-            adj_right = idx < ln - 1 and not string[idx + 1] in self.isles
+            adj_right = (
+                idx < len(string) - 1 and not string[idx + 1] in self.isles
+            )
 
             if adj_left and adj_right:
                 adjacencies += 1
+
             iterations += 1
 
         passed = (
             (adjacencies / iterations) if iterations > 0 else 0
         ) <= self.percentage
+
         if (
             passed
             and self.max_findings > 0

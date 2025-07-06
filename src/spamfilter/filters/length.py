@@ -4,7 +4,7 @@ Module for the message length filter.
 More information about this filter can be found in its Class docstring.
 """
 
-from .check_modes import perform_mode_check
+from ._check_modes import perform_mode_check
 from .filter import Filter
 
 POSSIBLE_MODES = ["normal", "crop"]
