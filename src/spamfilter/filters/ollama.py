@@ -11,7 +11,7 @@ except ImportError:
     ollama_available: bool = False
 
 import json
-from typing import Any, Union
+from typing import Any, Callable, Union, Tuple
 from ._check_modes import perform_mode_check
 from .filter import Filter
 
@@ -53,6 +53,10 @@ STD_OPTIONS: "dict[str, Any]" = {
     "num_predict": 1024,
 }
 
+RespFuncType = Callable[
+    [dict[str, Union[bool, str]]], Tuple[bool, str]
+]
+
 
 class MalformedResponseException(Exception):
     """
@@ -91,10 +95,15 @@ class Ollama(Filter):
     - `Ollama.json_schema`: the json schema to use for formatted outputs.
     - `Ollama.options`: the options to use for the Ollama API request.
     - `Ollama.thinking`: whether to enable thinking mode for the LLM.
+    - `Ollama.response_parsing_function`: a function that takes the response
+      from the Ollama API and returns a tuple of a boolean (whether it is spam)
+      and the potentially corrected string.
 
     It is highly recommended to adjust most of these paramters to your needs,
     especially the `Ollama.model` and `Ollama.prompt` parameters.
     """
+
+    # pylint: disable=too-many-instance-attributes
 
     def __init__(
         self,
@@ -106,6 +115,14 @@ class Ollama(Filter):
         schema: "Union[dict[str, Any], None]" = None,
         options: "Union[dict[str, Any], None]" = None,
         thinking: bool = False,
+        response_parsing_function: RespFuncType = lambda resp: ( # type: ignore
+            not resp["is_spam"],
+            (
+                resp["corrected_text"]
+                if "corrected_text" in resp
+                else resp["text"]
+            ),
+        ),
     ) -> None:
         perform_mode_check(mode, POSSIBLE_MODES)
         check_ollama_availability()
@@ -119,6 +136,7 @@ class Ollama(Filter):
         self.prompt = prompt
         self.options = options
         self.thinking = thinking
+        self.response_parsing_function = response_parsing_function
 
         self.json_schema: "Union[dict[str, Any], None]" = None
 
@@ -160,9 +178,9 @@ class Ollama(Filter):
             )
 
         response = json.loads(response_raw.message.content)
-        passed: bool = not response["is_spam"]
+        result: "Tuple[bool, str]" = self.response_parsing_function(response)
 
         return (
-            passed,
-            string if self.mode == "normal" else response["corrected_text"],
+            result[0],
+            string if self.mode == "normal" else result[1],
         )
