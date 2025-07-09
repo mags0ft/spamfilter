@@ -120,7 +120,7 @@ class Ollama(Filter):
             (
                 resp["corrected_text"]
                 if "corrected_text" in resp
-                else resp["text"]
+                else ""
             ),
         ),
     ) -> None:
