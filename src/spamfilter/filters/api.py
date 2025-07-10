@@ -17,6 +17,8 @@ from .filter import Filter
 
 POSSIBLE_MODES: "list[str]" = ["normal"]
 
+InterpretationFuncType = Callable[[dict[str, Any]], tuple[bool, str]]
+
 
 class InvalidAPIInputParametersException(Exception):
     """
@@ -71,7 +73,7 @@ class API(Filter):
         headers: "dict[str, Any]",
         method: 'Literal["get", "post"]',
         payload_func: "Callable[[str], dict[str, Any]]",
-        interpretation_func: "Callable[[dict[str, Any]], tuple[bool, str]]",
+        interpretation_func: InterpretationFuncType,
         timeout: float = 3.0,
         mode: str = "normal",
     ) -> None:

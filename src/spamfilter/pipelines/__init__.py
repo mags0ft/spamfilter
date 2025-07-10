@@ -20,6 +20,8 @@ from ..filters._check_modes import perform_mode_check
 
 POSSIBLE_MODES = ["normal", "tolerant", "zero-tolerance", "normal-quick"]
 
+PipelineFilterType = Union[None, list[Type[Filter]]]
+
 
 class Pipeline:
     """
@@ -44,7 +46,7 @@ class Pipeline:
 
     def __init__(
         self,
-        filters: "Union[None, list[Type[Filter]]]" = None,
+        filters: PipelineFilterType = None,
         mode: str = "normal",
     ):
         """

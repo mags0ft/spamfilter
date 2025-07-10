@@ -3,7 +3,7 @@ The module containing a pre-made Pipeline class for spam filtering article-like
 texts.
 """
 
-from .construct_pipeline import construct_filter_list
+from ._construct_pipeline import construct_filter_list
 
 from ..pipelines import Pipeline
 

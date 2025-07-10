@@ -56,6 +56,16 @@ STD_OPTIONS: "dict[str, Any]" = {
 RespFuncType = Callable[
     [dict[str, Union[bool, str]]], Tuple[bool, str]
 ]
+JSONParameterType = Union[dict[str, Any], None]
+
+STD_RESP_FUNC: RespFuncType = lambda resp: (  # type: ignore
+    not resp["is_spam"],
+    (
+        resp["corrected_text"]
+        if "corrected_text" in resp
+        else ""
+    ),
+)
 
 
 class MalformedResponseException(Exception):
@@ -112,17 +122,10 @@ class Ollama(Filter):
         host: str = "127.0.0.1",
         timeout: float = 3.0,
         prompt: str = STD_PROMPT,
-        schema: "Union[dict[str, Any], None]" = None,
-        options: "Union[dict[str, Any], None]" = None,
+        schema: JSONParameterType = None,
+        options: JSONParameterType = None,
         thinking: bool = False,
-        response_parsing_function: RespFuncType = lambda resp: ( # type: ignore
-            not resp["is_spam"],
-            (
-                resp["corrected_text"]
-                if "corrected_text" in resp
-                else resp["text"]
-            ),
-        ),
+        response_parsing_function: RespFuncType = STD_RESP_FUNC,
     ) -> None:
         perform_mode_check(mode, POSSIBLE_MODES)
         check_ollama_availability()
