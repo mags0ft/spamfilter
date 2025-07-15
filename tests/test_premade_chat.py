@@ -40,6 +40,7 @@ def test_char_spam():
         "eifhbnipwseubvrierug0983745gt38704h2poirnf2pgivubo8q7waegfc",
         "03rhfeiubfwiolgvop984i",
         "pefjouwbnfviurghnnreb",
+        "riekfneeofeofoeieocjeo ekforoek ejeov",
     ]
 
     for string in spam:
