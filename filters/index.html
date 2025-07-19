@@ -1538,6 +1538,9 @@ be done with <code>pip install spamfilter[ollama]</code>.</p>
 <li><code>Ollama.json_schema</code>: the json schema to use for formatted outputs.</li>
 <li><code>Ollama.options</code>: the options to use for the Ollama API request.</li>
 <li><code>Ollama.thinking</code>: whether to enable thinking mode for the LLM.</li>
+<li><code>Ollama.response_parsing_function</code>: a function that takes the response
+  from the Ollama API and returns a tuple of a boolean (whether it is spam)
+  and the potentially corrected string.</li>
 </ul>
 <p>It is highly recommended to adjust most of these paramters to your needs,
 especially the <code>Ollama.model</code> and <code>Ollama.prompt</code> parameters.</p>
