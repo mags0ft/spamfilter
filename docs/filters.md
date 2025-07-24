@@ -65,6 +65,7 @@ The tuple is built as following:
 :::spamfilter.filters.Regex
 :::spamfilter.filters.Email
 :::spamfilter.filters.Ollama
+:::spamfilter.filters.MLTextClassifier
 
 ---
 

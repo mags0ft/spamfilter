@@ -17,9 +17,10 @@ from spamfilter import filters
 load_dotenv()
 
 TEST_OLLAMA = getenv("SPAMFILTER_TEST_OLLAMA", "false").lower() == "true"
-TEST_OLLAMA_MODEL = getenv(
-    "SPAMFILTER_OLLAMA_MODEL",
-)
+TEST_ML = getenv("SPAMFILTER_TEST_ML_CLASSIFIER", "false").lower() == "true"
+
+TEST_OLLAMA_MODEL = getenv("SPAMFILTER_OLLAMA_MODEL")
+TEST_ML_MODEL = getenv("SPAMFILTER_ML_CLASSIFIER_MODEL")
 
 
 def test_empty_inputs() -> None:
@@ -207,3 +208,23 @@ def test_ollama() -> None:
 
     assert f.check("Thanks for the great video, really liked it")[0]
     assert not f.check("BUY THE BEST MAGAZINES TODAY AT NOON IN MY STORE!")[0]
+
+
+def test_ml_classification() -> None:
+    """
+    Tests the ML text classification filter.
+    """
+
+    if not TEST_ML:
+        return
+
+    if not TEST_ML_MODEL:
+        raise ValueError(
+            "Please set the SPAMFILTER_ML_CLASSIFIER_MODEL environment " \
+            "variable to a valid ML model."
+        )
+
+    f = filters.MLTextClassifier(TEST_ML_MODEL)
+
+    assert f.check("Have you ever heard about dragonfruit?")[0]
+    assert not f.check("Go fuck yourself, you're so ugly, buah.")[0]
