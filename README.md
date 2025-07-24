@@ -12,7 +12,7 @@
 
 The `spamfilter` module is a lightweight, fast and straightforward Python package that helps you to build your own [spam filtering pipelines](https://mags0ft.github.io/spamfilter/pipelines/) in order to keep your applications featuring user-generated content clean.
 
-It's object-oriented and makes a quick, concise approach to remove spam easy. `spamfilter` is highly configurable and ships with deep integrations for [third-party APIs](https://mags0ft.github.io/spamfilter/filters/#spamfilter.filters.API) and language models via [Ollama](https://mags0ft.github.io/spamfilter/filters/#spamfilter.filters.Ollama).
+It's object-oriented and makes a quick, concise approach to remove spam easy. `spamfilter` is highly configurable and ships with deep integrations for [third-party APIs](https://mags0ft.github.io/spamfilter/filters/#spamfilter.filters.API), 🤗 [Transformers](https://mags0ft.github.io/spamfilter/filters/#spamfilter.filters.MLTextClassifier) text classifiers and language models via [Ollama](https://mags0ft.github.io/spamfilter/filters/#spamfilter.filters.Ollama).
 
 ---
 

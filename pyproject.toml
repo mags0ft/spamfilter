@@ -23,6 +23,7 @@ dev = ["pip-tools", "pytest", "mkdocs", "mkdocs-material", "mkdocstrings[python]
 docs = ["mkdocs", "mkdocs-material", "mkdocstrings[python]"]
 api = ["requests"]
 ollama = ["ollama"]
+transformers = ["transformers"]
 
 [project.urls]
 GitHub = "https://github.com/mags0ft/spamfilter"
