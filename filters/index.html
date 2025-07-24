@@ -563,6 +563,30 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#spamfilter.filters.MLTextClassifier" class="md-nav__link">
+    <span class="md-ellipsis">
+      MLTextClassifier
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="MLTextClassifier">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#spamfilter.filters.MLTextClassifier.check" class="md-nav__link">
+    <span class="md-ellipsis">
+      check
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#incorporating-these-filters" class="md-nav__link">
     <span class="md-ellipsis">
       Incorporating these filters
@@ -899,6 +923,30 @@
         
           <li class="md-nav__item">
   <a href="#spamfilter.filters.Ollama.check" class="md-nav__link">
+    <span class="md-ellipsis">
+      check
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#spamfilter.filters.MLTextClassifier" class="md-nav__link">
+    <span class="md-ellipsis">
+      MLTextClassifier
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="MLTextClassifier">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#spamfilter.filters.MLTextClassifier.check" class="md-nav__link">
     <span class="md-ellipsis">
       check
     </span>
@@ -1578,6 +1626,89 @@ especially the <code>Ollama.model</code> and <code>Ollama.prompt</code> paramete
         <p>Sends the given string to the Ollama API and checks if it is spam or
 not. Returns a tuple of a boolean (whether it is spam) and the
 potentially corrected string.</p>
+
+
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="spamfilter.filters.MLTextClassifier" class="doc doc-heading">
+            <code>spamfilter.filters.MLTextClassifier</code>
+
+
+</h2>
+
+
+    <div class="doc doc-contents first">
+            <p class="doc doc-class-bases">
+              Bases: <code><a class="autorefs autorefs-internal" title="spamfilter.filters.Filter (spamfilter.filters.filter.Filter)" href="#spamfilter.filters.Filter">Filter</a></code></p>
+
+
+        <p>A filter that instantiates a 🤗 Transformers text classification pipeline
+and uses it to classify text as spam or not. Note that machine learning is
+never 100% accurate, so this filter may not always return the correct
+result and let harmful content through.</p>
+<p>This filter requires the <code>transformers</code> Python package to be installed,
+which can be done with <code>pip install spamfilter[transformers]</code>.</p>
+<ul>
+<li><code>MLTextClassifier.__init__.model</code>: the model to use for checking spam.</li>
+<li><code>MLTextClassifier.mode</code>: how to handle a failing string.<ul>
+<li><code>normal</code>: fail the string.</li>
+</ul>
+</li>
+<li><code>MLTextClassifier.response_parsing_function</code>: a function that
+  parses the response from the model and returns a boolean indicating
+  whether the string is spam or not.</li>
+</ul>
+<p><strong>WARNING</strong>: The standard model is a hate detection model which will be
+automatically pulled from Hugging Face (~ 500 MB). You may want to use a
+more suitable model for your use case, such as a custom spam detection
+model for email spam detection.</p>
+
+
+
+
+
+
+
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="spamfilter.filters.MLTextClassifier.check" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">check</span><span class="p">(</span><span class="n">string</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">bool</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span></code>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Checks if the given string is spam or not using the text classification
+model specified in <code>self.model</code>.</p>
 
 
     </div>
