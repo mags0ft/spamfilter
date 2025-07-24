@@ -36,6 +36,7 @@ def test_empty_inputs() -> None:
             filters.Regex,
             filters.API,
             filters.Ollama,
+            filters.MLTextClassifier,
         ]:
             continue
         print(filter_)
