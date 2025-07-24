@@ -37,6 +37,12 @@ If you want to use the Ollama integration, run
 pip install spamfilter[ollama]
 ```
 
+If you want to take advantage of machine learning text classification using 🤗 Transformers, run
+
+```bash
+pip install spamfilter[transformers]
+```
+
 If you want to install development dependencies, run
 
 ```bash
