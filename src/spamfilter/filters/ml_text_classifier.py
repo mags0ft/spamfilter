@@ -53,6 +53,9 @@ class MLTextClassifier(Filter):
     and uses it to classify text as spam or not. Note that machine learning is
     never 100% accurate, so this filter may not always return the correct
     result and let harmful content through.
+    
+    Please make sure to have read the warnings in the
+    [documentation](https://mags0ft.github.io/spamfilter/ai_and_ml/).
 
     This filter requires the `transformers` Python package to be installed,
     which can be done with `pip install spamfilter[transformers]`.

@@ -50,6 +50,9 @@ class API(Filter):
     JSON API-based, synchronous spam filter. Requires installation with the
     optional API dependencies: `pip install spamfilter[api]`.
 
+    If using AI/ML, please make sure to have read the warnings in the
+    [documentation](https://mags0ft.github.io/spamfilter/ai_and_ml/).
+
     - `API.url`: API URL to call.
     - `API.headers`: dictionary of headers to pass to the API
     - `API.method`: whether to use GET (`get`) or POST (`post`)

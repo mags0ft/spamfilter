@@ -93,6 +93,9 @@ class Ollama(Filter):
     is spam or not. This might introduce **significant latency** in your
     pipeline, so use this with caution and only if necessary.
 
+    Please make sure to have read the warnings in the
+    [documentation](https://mags0ft.github.io/spamfilter/ai_and_ml/).
+
     This filter requires the `ollama` Python package to be installed, which can
     be done with `pip install spamfilter[ollama]`.
 
