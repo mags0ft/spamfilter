@@ -95,6 +95,9 @@ class MLTextClassifier(Filter):
         """
         Checks if the given string is spam or not using the text classification
         model specified in `self.model`.
+        
+        It will not alter the string in any way - if you need corrections, use
+        the `Ollama` filter instead.
         """
 
         return (self.response_parsing_function(self._pipeline(string)), string)
