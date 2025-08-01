@@ -989,7 +989,7 @@
 or rather not. In this document, all of these filters will be listed.</p>
 <h2 id="how-to-import-filters">How to import filters</h2>
 <p>There are a lot of ways to import the filters you need. If you just want to use a pre-made model for filtering,
-you don't need to import them at all, they are going to be imported into the model by itself.</p>
+you don't need to import them at all, they are going to be imported into the module by itself - just use <code>spamfilter.premade</code>.</p>
 <p>If you want to import the built-in filters into your script, do it using one of the following ways:</p>
 <p><em>For one single filter:</em></p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">spamfilter.filters</span><span class="w"> </span><span class="kn">import</span> <span class="n">Filter</span>
@@ -1004,6 +1004,7 @@ you don't need to import them at all, they are going to be imported into the mod
 <p><em>For </em><em>all</em><em> filters</em></p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">spamfilter.filters</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
 </code></pre></div>
+<p>Please note that wildcard imports are generally not recommended and may raise linter warnings.</p>
 <h2 id="all-filters-explained">All filters explained</h2>
 <p>Generally, all filters are stacked onto each other using a pipeline object which will then check them one after each other.</p>
 <p>You construct a filter like this:</p>
@@ -1715,6 +1716,8 @@ model for email spam detection.</p>
 
         <p>Checks if the given string is spam or not using the text classification
 model specified in <code>self.model</code>.</p>
+<p>It will not alter the string in any way - if you need corrections, use
+the <code>Ollama</code> filter instead.</p>
 
 
     </div>
