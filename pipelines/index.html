@@ -771,8 +771,8 @@
 </code></pre></div>
 <h2 id="pipelines-explained">Pipelines explained</h2>
 <p>Generally, all filters are stacked onto each other using a pipeline object which will then check them one after each other.</p>
-<p>A pipeline also has a <code>check(string: str)</code> method which accepts a string as an input and will return a <a href="../results/"><code>results.Result</code></a> object. This object contains info about the filtering run.</p>
-<p>Check the <a href="../results/">documentation for <code>results.Result</code></a> for more information.</p>
+<p>A pipeline implements a <code>check(string: str)</code> method which accepts a string as an input and will return a <a href="../results/"><code>results.Result</code></a> object. This object contains info about the filtering run, a.e. whether the string passed all tests and how it has been altered.</p>
+<p>Check the <a href="../results/">documentation for <code>results.Result</code></a> for more information about the Result object.</p>
 <hr />
 
 
@@ -875,7 +875,7 @@ a <code>Result</code> object.</p>
 
     </div>
 
-</div><p><strong>Filters may modify the strings they get as input. The pipeline will pass the modified strings from one filter to the next ones:</strong></p>
+</div><p><strong>Filters may modify the strings they get as input, depending on the filter and pipeline mode. The pipeline will pass the modified strings from one filter to the next ones:</strong></p>
 <p>[<strong>THIS IS A CAPITAL STRING</strong>]</p>
 <p>⬇</p>
 <p>[<code>Capitals</code> filter]</p>
