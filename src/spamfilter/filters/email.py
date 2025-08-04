@@ -7,6 +7,7 @@ More information about this filter can be found in its Class docstring.
 from .regex import Regex
 
 POSSIBLE_MODES = ["normal", "censor"]
+STD_EMAIL_REGEX = r"([a-zA-Z0-9+._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9_-]+)"
 
 
 class Email(Regex):
@@ -22,7 +23,7 @@ class Email(Regex):
 
     def __init__(
         self,
-        regex: str = r"([a-zA-Z0-9+._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9_-]+)",
+        regex: str = STD_EMAIL_REGEX,
         mode: str = "normal",
         replacement: str = r"***",
     ):
