@@ -66,6 +66,9 @@ The tuple is built as following:
 :::spamfilter.filters.API
 :::spamfilter.filters.Regex
 :::spamfilter.filters.Email
+
+**Note**: The default regex used by the `Email` filter is `([a-zA-Z0-9+._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9_-]+)`.
+
 :::spamfilter.filters.Ollama
 :::spamfilter.filters.MLTextClassifier
 
