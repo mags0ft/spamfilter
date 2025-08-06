@@ -51,7 +51,9 @@ def construct_filter_list(
     ]
 
     for val, obj, args in p:
-        if val:
-            f.append(obj(*args))  # type: ignore
+        if not val:
+            continue
+
+        f.append(obj(*args))  # type: ignore
 
     return f

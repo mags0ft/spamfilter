@@ -6,7 +6,7 @@ or rather not. In this document, all of these filters will be listed.
 ## How to import filters
 
 There are a lot of ways to import the filters you need. If you just want to use a pre-made model for filtering,
-you don't need to import them at all, they are going to be imported into the model by itself.
+you don't need to import them at all, they are going to be imported into the module by itself - just use `spamfilter.premade`.
 
 If you want to import the built-in filters into your script, do it using one of the following ways:
 
@@ -31,6 +31,8 @@ from spamfilter.filters import (
 ```python
 from spamfilter.filters import *
 ```
+
+Please note that wildcard imports are generally not recommended and may raise linter warnings.
 
 ## All filters explained
 
@@ -64,6 +66,9 @@ The tuple is built as following:
 :::spamfilter.filters.API
 :::spamfilter.filters.Regex
 :::spamfilter.filters.Email
+
+**Note**: The default regex used by the `Email` filter is `([a-zA-Z0-9+._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9_-]+)`.
+
 :::spamfilter.filters.Ollama
 :::spamfilter.filters.MLTextClassifier
 

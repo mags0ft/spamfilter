@@ -15,15 +15,15 @@ from spamfilter.pipelines import Pipeline
 ## Pipelines explained
 Generally, all filters are stacked onto each other using a pipeline object which will then check them one after each other.
 
-A pipeline also has a `check(string: str)` method which accepts a string as an input and will return a [`results.Result`](./results.md) object. This object contains info about the filtering run.
+A pipeline implements a `check(string: str)` method which accepts a string as an input and will return a [`results.Result`](./results.md) object. This object contains info about the filtering run, a.e. whether the string passed all tests and how it has been altered.
 
-Check the [documentation for `results.Result`](./results.md) for more information.
+Check the [documentation for `results.Result`](./results.md) for more information about the Result object.
 
 ---
 
 :::spamfilter.pipelines.Pipeline
 
-**Filters may modify the strings they get as input. The pipeline will pass the modified strings from one filter to the next ones:**
+**Filters may modify the strings they get as input, depending on the filter and pipeline mode. The pipeline will pass the modified strings from one filter to the next ones:**
 
 [**THIS IS A CAPITAL STRING**]
 
@@ -40,6 +40,7 @@ Check the [documentation for `results.Result`](./results.md) for more informatio
 [other filters...]
 
 ---
+
 ### An example
 
 This is an example of how you could implement three filters into one pipeline, which will check the string of them through each of the given filters.
