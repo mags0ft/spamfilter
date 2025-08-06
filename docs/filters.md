@@ -72,6 +72,23 @@ The tuple is built as following:
 :::spamfilter.filters.Ollama
 :::spamfilter.filters.MLTextClassifier
 
+**Note**: The default response parsing function is the following:
+
+```python
+def _default_response_parsing_function(
+    result: list[dict[str, Union[str, float]]],
+) -> bool:
+    """
+    Default response parsing function that checks if the label
+    is 'spam' or 'toxic'.
+    """
+
+    sorted_result = sorted(result, key=lambda x: x["score"], reverse=True)
+    top_label: str = str(sorted_result[0]["label"]).lower()
+
+    return top_label not in ["spam", "toxic", "hate", "abusive"]
+```
+
 ---
 
 ## Incorporating these filters
