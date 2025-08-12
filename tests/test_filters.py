@@ -4,6 +4,12 @@ Test cases for the filter classes.
 Accepts different environment variables to control the behavior of the tests:
 - `SPAMFILTER_TEST_OLLAMA`: If set to "true", tests the Ollama filter, which
 is expensive and requires an Ollama installation.
+- `SPAMFILTER_OLLAMA_MODEL`: If set to "true", tests the Ollama filter, which
+is expensive and requires an Ollama installation.
+- `SPAMFILTER_TEST_ML_CLASSIFIER`: If set to "true", tests the MLClassifier
+filter, which is slightly less expensive and requires a transformers
+installation.
+- `SPAMFILTER_ML_CLASSIFIER_MODEL`: The model to use for the ML Text Classifier.
 
 """
 
