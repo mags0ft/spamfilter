@@ -9,7 +9,8 @@ is expensive and requires an Ollama installation.
 - `SPAMFILTER_TEST_ML_CLASSIFIER`: If set to "true", tests the MLClassifier
 filter, which is slightly less expensive and requires a transformers
 installation.
-- `SPAMFILTER_ML_CLASSIFIER_MODEL`: The model to use for the ML Text Classifier.
+- `SPAMFILTER_ML_CLASSIFIER_MODEL`: The model to use for the ML Text
+Classifier.
 
 """
 
