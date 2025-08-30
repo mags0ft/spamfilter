@@ -5,7 +5,7 @@
 <h1 align="center">spamfilter</h1>
 
 <p align="center">
-    <img alt="PyPI - Downloads" src="https://img.shields.io/pypi/dm/spamfilter?style=for-the-badge&logo=pypi&labelColor=%231e1e1e" />
+    <!-- <img alt="PyPI - Downloads" src="https://img.shields.io/pypi/dm/spamfilter?style=for-the-badge&logo=pypi&labelColor=%231e1e1e" /> -->
     <img alt="GitHub Actions Workflow Status" src="https://img.shields.io/github/actions/workflow/status/mags0ft/spamfilter/python-package.yml?style=for-the-badge&logo=python&labelColor=%231e1e1e" />
     <img alt="PyPI - License" src="https://img.shields.io/pypi/l/spamfilter?style=for-the-badge&labelColor=%231e1e1e" />
 </p>

@@ -99,11 +99,8 @@ class Pipeline:
                 if self.mode in ["normal-quick", "zero-tolerance"]:
                     break
 
-        if self.mode == "tolerant":
-            passed = True
-
         return Result(
-            passed=passed,
+            passed=(passed or self.mode == "tolerant"),
             result=changed_string,  # type: ignore
             original=string,
             changes_made=changes,

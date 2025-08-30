@@ -42,7 +42,8 @@ JSON_SCHEMA_CORRECTING: "dict[str, Any]" = {
         },
         "corrected_text": {
             "type": "string",
-            "description": "The corrected text if the input was spam.",
+            "description": "The cleaned version of the text - in case the \
+input contained spam.",
         },
     },
     "required": ["is_spam", "corrected_text"],

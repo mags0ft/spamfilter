@@ -4,8 +4,8 @@ build-backend = "hatchling.build"
 
 [project]
 name = "spamfilter"
-version = "2.1.0"
-description = "Create spam mitigation pipelines with ease using fully-customizable, object oriented components."
+version = "2.1.1"
+description = "Create spam filtering and mitigation pipelines with ease using fully-customizable, object oriented components."
 readme = "README.md"
 authors = [{ name = "Magnus Schlinsog", email = "magnusschlinsog@gmail.com" }]
 license = { file = "LICENSE" }
@@ -14,7 +14,7 @@ classifiers = [
     "Programming Language :: Python",
     "Programming Language :: Python :: 3",
 ]
-keywords = ["spam", "spam protection", "spam filter", "spam mitigation", "anti spam"]
+keywords = ["spam", "spam protection", "spam filter", "spam mitigation", "anti spam", "classification"]
 dependencies = []
 requires-python = ">=3.9"
 

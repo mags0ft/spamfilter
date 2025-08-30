@@ -6,6 +6,7 @@ on:
       - "**.py"
       - "**.pyi"
       - ".github/workflows/pylint.yml"
+      - ".pylintrc"
 
 jobs:
   build:
