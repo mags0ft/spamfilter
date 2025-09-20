@@ -51,10 +51,10 @@ class MLTextClassifier(Filter):
     """
     A filter that instantiates a 🤗 Transformers text classification pipeline
     and uses it to classify text as spam or not. Note that machine learning is
-    never 100% accurate, so this filter may not always return the correct
-    result and let harmful content through.
+    almost never 100% accurate, so this filter may not always return the
+    correct result and let harmful content pass through it on occasion.
     
-    Please make sure to have read the warnings in the
+    Thus, please make sure to have read the warnings in the
     [documentation](https://mags0ft.github.io/spamfilter/ai_and_ml/).
 
     This filter requires the `transformers` Python package to be installed,
@@ -97,7 +97,7 @@ class MLTextClassifier(Filter):
         model specified in `self.model`.
         
         It will not alter the string in any way - if you need corrections, use
-        the `Ollama` filter instead.
+        the `Ollama` filter in `correcting` mode instead.
         """
 
         return (self.response_parsing_function(self._pipeline(string)), string)
