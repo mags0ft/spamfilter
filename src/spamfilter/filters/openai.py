@@ -165,7 +165,7 @@ class OpenAI(Filter):
 
         # pylint: disable=no-member
 
-        response_raw: openai.ChatCompletion = self._client.chat.completions.create(  # type: ignore
+        response_raw = self._client.chat.completions.create(  # type: ignore
             model=self.model,
             messages=[
                 {"role": "system", "content": self.prompt},

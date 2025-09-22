@@ -1,7 +1,8 @@
 [MASTER]
 
 [MESSAGES CONTROL]
-disable=too-few-public-methods,super-init-not-called,too-many-arguments,too-many-positional-arguments,too-many-locals,fixme
+disable=too-few-public-methods,super-init-not-called,too-many-arguments,too-many-positional-arguments,too-many-locals,fixme,R0801
+# R0801: Similar lines in 2 files -- only disabled temporarily while the OpenAI filter is being phased in and the Ollama filter is being phased out.
 
 [FORMAT]
 max-line-length=79
