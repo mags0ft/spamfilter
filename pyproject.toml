@@ -23,6 +23,7 @@ dev = ["pip-tools", "pytest", "mkdocs", "mkdocs-material", "mkdocstrings[python]
 docs = ["mkdocs", "mkdocs-material", "mkdocstrings[python]"]
 api = ["requests"]
 ollama = ["ollama"]
+openai = ["openai"]
 transformers = ["transformers", "torch"]
 
 [project.urls]
