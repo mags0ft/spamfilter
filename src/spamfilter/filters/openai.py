@@ -93,6 +93,8 @@ class OpenAI(Filter):
     is spam or not. This might introduce **significant latency** in your
     pipeline, so use this with caution and only if necessary.
 
+    For connecting to remote instances, this may require an API key.
+
     Please make sure to have read the warnings in the
     [documentation](https://mags0ft.github.io/spamfilter/ai_and_ml/).
 
@@ -104,6 +106,7 @@ class OpenAI(Filter):
         - `normal`: fail the string.
         - `correcting`: correct the string if it is spam, always allow it
     - `OpenAI.base_url`: the base URL of the OpenAI API endpoint.
+    - `OpenAI.api_key`: API key to use for authentication.
     - `OpenAI.prompt`: the prompt to use for the LLM.
     - `OpenAI.json_schema`: the json schema to use for formatted outputs.
     - `OpenAI.options`: the options to use for the OpenAI API request.
