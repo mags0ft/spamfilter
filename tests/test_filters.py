@@ -23,11 +23,20 @@ from spamfilter import filters
 
 load_dotenv()
 
-TEST_OLLAMA = getenv("SPAMFILTER_TEST_OLLAMA", "false").lower() == "true"
-TEST_ML = getenv("SPAMFILTER_TEST_ML_CLASSIFIER", "false").lower() == "true"
 
-TEST_OLLAMA_MODEL = getenv("SPAMFILTER_OLLAMA_MODEL")
-TEST_ML_MODEL = getenv("SPAMFILTER_ML_CLASSIFIER_MODEL")
+class TestSetup:
+    _PREFIX = "SPAMFILTER_"
+
+    TEST_OLLAMA = getenv(_PREFIX + "TEST_OLLAMA", "false").lower() == "true"
+    TEST_OPENAI = getenv(_PREFIX + "TEST_OPENAI", "false").lower() == "true"
+    TEST_ML = getenv(_PREFIX + "TEST_ML_CLASSIFIER", "false").lower() == "true"
+
+    TEST_OLLAMA_MODEL = getenv(_PREFIX + "OLLAMA_MODEL")
+    TEST_OPENAI_MODEL = getenv(_PREFIX + "OPENAI_MODEL")
+    TEST_ML_MODEL = getenv(_PREFIX + "ML_CLASSIFIER_MODEL")
+
+    TEST_OPENAI_BASE_URL = getenv(_PREFIX + "OPENAI_API_BASE")
+    TEST_OPENAI_API_KEY = getenv(_PREFIX + "OPENAI_API_KEY")
 
 
 def test_empty_inputs() -> None:
@@ -43,6 +52,7 @@ def test_empty_inputs() -> None:
             filters.Regex,
             filters.API,
             filters.Ollama,
+            filters.OpenAI,
             filters.MLTextClassifier,
         ]:
             continue
@@ -203,19 +213,47 @@ def test_ollama() -> None:
     Tests the Ollama filter.
     """
 
-    if not TEST_OLLAMA:
+    if not TestSetup.TEST_OLLAMA:
         return
 
-    if not TEST_OLLAMA_MODEL:
+    if not TestSetup.TEST_OLLAMA_MODEL:
         raise ValueError(
             "Please set the SPAMFILTER_OLLAMA_MODEL environment variable to a "
             "valid Ollama model."
         )
 
-    f = filters.Ollama(TEST_OLLAMA_MODEL, timeout=30)
+    f = filters.Ollama(TestSetup.TEST_OLLAMA_MODEL, timeout=30)
 
     assert f.check("Thanks for the great video, really liked it")[0]
     assert not f.check("BUY THE BEST MAGAZINES TODAY AT NOON IN MY STORE!")[0]
+
+
+def test_openai() -> None:
+    """
+    Tests the OpenAI API compatible filter.
+    """
+
+    if not TestSetup.TEST_OPENAI:
+        return
+
+    if not TestSetup.TEST_OPENAI_MODEL:
+        raise ValueError(
+            "Please set the SPAMFILTER_OPENAI_MODEL environment variable to a "
+            "valid OpenAI model."
+        )
+    
+    assert TestSetup.TEST_OPENAI_BASE_URL != None
+
+    f = filters.OpenAI(
+        TestSetup.TEST_OPENAI_MODEL,
+        base_url=TestSetup.TEST_OPENAI_BASE_URL,
+        api_key=TestSetup.TEST_OPENAI_API_KEY,
+        timeout=30
+    )
+
+    assert f.check("Thanks for the great video, really liked it")[0]
+    assert not f.check("BUY THE BEST MAGAZINES TODAY AT NOON IN MY STORE!")[0]
+
 
 
 def test_ml_classification() -> None:
@@ -223,16 +261,16 @@ def test_ml_classification() -> None:
     Tests the ML text classification filter.
     """
 
-    if not TEST_ML:
+    if not TestSetup.TEST_ML:
         return
 
-    if not TEST_ML_MODEL:
+    if not TestSetup.TEST_ML_MODEL:
         raise ValueError(
             "Please set the SPAMFILTER_ML_CLASSIFIER_MODEL environment " \
             "variable to a valid ML model."
         )
 
-    f = filters.MLTextClassifier(TEST_ML_MODEL)
+    f = filters.MLTextClassifier(TestSetup.TEST_ML_MODEL)
 
     assert f.check("Have you ever heard about dragonfruit?")[0]
     assert not f.check("Go fuck yourself, you're so ugly, buah.")[0]

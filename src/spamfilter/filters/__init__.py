@@ -17,6 +17,7 @@ from .regex import Regex
 from .email import Email
 from .api import API
 from .ollama import Ollama
+from .openai import OpenAI
 from .ml_text_classifier import MLTextClassifier
 
 FILTERS: "list[Type[Filter]]" = [
@@ -31,5 +32,6 @@ FILTERS: "list[Type[Filter]]" = [
     Email,
     API,
     Ollama,
+    OpenAI,
     MLTextClassifier
 ]

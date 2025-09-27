@@ -90,6 +90,9 @@ def check_ollama_availability():
 
 class Ollama(Filter):
     """
+    **Warning**: This filter will soon be deprecated in favor of the universal
+    OpenAI filter. Please consider switching in time.
+
     A filter that connects to an Ollama API endpoint to check if a given string
     is spam or not. This might introduce **significant latency** in your
     pipeline, so use this with caution and only if necessary.
