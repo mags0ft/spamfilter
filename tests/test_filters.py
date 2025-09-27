@@ -25,6 +25,10 @@ load_dotenv()
 
 
 class TestSetup:
+    """
+    Test setup class with meta information for running the test suite.
+    """
+
     _PREFIX = "SPAMFILTER_"
 
     TEST_OLLAMA = getenv(_PREFIX + "TEST_OLLAMA", "false").lower() == "true"
@@ -242,7 +246,7 @@ def test_openai() -> None:
             "valid OpenAI model."
         )
 
-    assert TestSetup.TEST_OPENAI_BASE_URL != None
+    assert TestSetup.TEST_OPENAI_BASE_URL is not None
 
     f = filters.OpenAI(
         TestSetup.TEST_OPENAI_MODEL,
