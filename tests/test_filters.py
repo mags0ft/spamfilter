@@ -241,19 +241,18 @@ def test_openai() -> None:
             "Please set the SPAMFILTER_OPENAI_MODEL environment variable to a "
             "valid OpenAI model."
         )
-    
+
     assert TestSetup.TEST_OPENAI_BASE_URL != None
 
     f = filters.OpenAI(
         TestSetup.TEST_OPENAI_MODEL,
         base_url=TestSetup.TEST_OPENAI_BASE_URL,
         api_key=TestSetup.TEST_OPENAI_API_KEY,
-        timeout=30
+        timeout=30,
     )
 
     assert f.check("Thanks for the great video, really liked it")[0]
     assert not f.check("BUY THE BEST MAGAZINES TODAY AT NOON IN MY STORE!")[0]
-
 
 
 def test_ml_classification() -> None:
@@ -266,7 +265,7 @@ def test_ml_classification() -> None:
 
     if not TestSetup.TEST_ML_MODEL:
         raise ValueError(
-            "Please set the SPAMFILTER_ML_CLASSIFIER_MODEL environment " \
+            "Please set the SPAMFILTER_ML_CLASSIFIER_MODEL environment "
             "variable to a valid ML model."
         )
 

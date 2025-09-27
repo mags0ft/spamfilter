@@ -33,5 +33,5 @@ FILTERS: "list[Type[Filter]]" = [
     API,
     Ollama,
     OpenAI,
-    MLTextClassifier
+    MLTextClassifier,
 ]

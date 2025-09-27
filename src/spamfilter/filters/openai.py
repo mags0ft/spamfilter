@@ -10,6 +10,8 @@ try:
 except ImportError:
     openai_available: bool = False
 
+import json
+
 from typing import Any, Callable, Union, Tuple
 from ._check_modes import perform_mode_check
 from .filter import Filter
@@ -53,18 +55,12 @@ STD_OPTIONS: "dict[str, Any]" = {
     "max_tokens": 1024,
 }
 
-RespFuncType = Callable[
-    [dict[str, Union[bool, str]]], Tuple[bool, str]
-]
+RespFuncType = Callable[[dict[str, Union[bool, str]]], Tuple[bool, str]]
 JSONParameterType = Union[dict[str, Any], None]
 
 STD_RESP_FUNC: RespFuncType = lambda resp: (  # type: ignore
     not resp["is_spam"],
-    (
-        resp["corrected_text"]
-        if "corrected_text" in resp
-        else ""
-    ),
+    (resp["corrected_text"] if "corrected_text" in resp else ""),
 )
 
 
@@ -136,8 +132,7 @@ class OpenAI(Filter):
         check_openai_availability()
 
         self._client = openai.OpenAI(  # type: ignore
-            base_url=f"http://{base_url}/v1", timeout=timeout,
-            api_key=api_key
+            base_url=base_url, timeout=timeout, api_key=api_key
         )
 
         self.model = model
@@ -185,9 +180,14 @@ class OpenAI(Filter):
             **self.options,
         )
 
-        resp_dict: "Union[dict[str, Any], None]" = dict(
-            response_raw.choices[0].message.parsed # type: ignore
+        resp_dict: "Union[dict[str, Any], None]" = json.loads(
+            response_raw.choices[0].message.content  # type: ignore
         )
+
+        if resp_dict is None:
+            raise MalformedResponseException(
+                "OpenAI response is None or malformed."
+            )
 
         result: "Tuple[bool, str]" = self.response_parsing_function(resp_dict)
 

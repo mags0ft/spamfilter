@@ -54,18 +54,12 @@ STD_OPTIONS: "dict[str, Any]" = {
     "num_predict": 1024,
 }
 
-RespFuncType = Callable[
-    [dict[str, Union[bool, str]]], Tuple[bool, str]
-]
+RespFuncType = Callable[[dict[str, Union[bool, str]]], Tuple[bool, str]]
 JSONParameterType = Union[dict[str, Any], None]
 
 STD_RESP_FUNC: RespFuncType = lambda resp: (  # type: ignore
     not resp["is_spam"],
-    (
-        resp["corrected_text"]
-        if "corrected_text" in resp
-        else ""
-    ),
+    (resp["corrected_text"] if "corrected_text" in resp else ""),
 )
 
 
