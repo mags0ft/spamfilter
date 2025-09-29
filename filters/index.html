@@ -20,7 +20,7 @@
       
       
       <link rel="icon" href="../assets/icon-material.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.18">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.20">
     
     
       
@@ -28,7 +28,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.7e37652d.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.e53b48f4.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
@@ -563,6 +563,30 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#spamfilter.filters.OpenAI" class="md-nav__link">
+    <span class="md-ellipsis">
+      OpenAI
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="OpenAI">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#spamfilter.filters.OpenAI.check" class="md-nav__link">
+    <span class="md-ellipsis">
+      check
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#spamfilter.filters.MLTextClassifier" class="md-nav__link">
     <span class="md-ellipsis">
       MLTextClassifier
@@ -923,6 +947,30 @@
         
           <li class="md-nav__item">
   <a href="#spamfilter.filters.Ollama.check" class="md-nav__link">
+    <span class="md-ellipsis">
+      check
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#spamfilter.filters.OpenAI" class="md-nav__link">
+    <span class="md-ellipsis">
+      OpenAI
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="OpenAI">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#spamfilter.filters.OpenAI.check" class="md-nav__link">
     <span class="md-ellipsis">
       check
     </span>
@@ -1591,7 +1639,9 @@ change.</em></p>
               Bases: <code><a class="autorefs autorefs-internal" title="spamfilter.filters.Filter (spamfilter.filters.filter.Filter)" href="#spamfilter.filters.Filter">Filter</a></code></p>
 
 
-        <p>A filter that connects to an Ollama API endpoint to check if a given string
+        <p><strong>Warning</strong>: This filter will soon be deprecated in favor of the universal
+OpenAI filter. Please consider switching in time.</p>
+<p>A filter that connects to an Ollama API endpoint to check if a given string
 is spam or not. This might introduce <strong>significant latency</strong> in your
 pipeline, so use this with caution and only if necessary.</p>
 <p>Please make sure to have read the warnings in the
@@ -1670,6 +1720,98 @@ potentially corrected string.</p>
 
 
 
+<h2 id="spamfilter.filters.OpenAI" class="doc doc-heading">
+            <code>spamfilter.filters.OpenAI</code>
+
+
+</h2>
+
+
+    <div class="doc doc-contents first">
+            <p class="doc doc-class-bases">
+              Bases: <code><a class="autorefs autorefs-internal" title="spamfilter.filters.Filter (spamfilter.filters.filter.Filter)" href="#spamfilter.filters.Filter">Filter</a></code></p>
+
+
+        <p>A filter that connects to an OpenAI API endpoint to check if a given string
+is spam or not. This might introduce <strong>significant latency</strong> in your
+pipeline, so use this with caution and only if necessary.</p>
+<p>For connecting to remote instances, this may require an API key.</p>
+<p>Please make sure to have read the warnings in the
+<a href="https://mags0ft.github.io/spamfilter/ai_and_ml/">documentation</a>.</p>
+<p>This filter requires the <code>openai</code> Python package to be installed, which can
+be done with <code>pip install spamfilter[openai]</code>.</p>
+<ul>
+<li><code>OpenAI.model</code>: the model to use for checking spam.</li>
+<li><code>OpenAI.mode</code>: how to handle a failing string.<ul>
+<li><code>normal</code>: fail the string.</li>
+<li><code>correcting</code>: correct the string if it is spam, always allow it</li>
+</ul>
+</li>
+<li><code>OpenAI.base_url</code>: the base URL of the OpenAI API endpoint.</li>
+<li><code>OpenAI.api_key</code>: API key to use for authentication.</li>
+<li><code>OpenAI.prompt</code>: the prompt to use for the LLM.</li>
+<li><code>OpenAI.json_schema</code>: the json schema to use for formatted outputs.</li>
+<li><code>OpenAI.options</code>: the options to use for the OpenAI API request.</li>
+<li><code>OpenAI.response_parsing_function</code>: a function that takes the response
+  from the OpenAI API and returns a tuple of a boolean (whether it is spam)
+  and the potentially corrected string.</li>
+</ul>
+<p>It is highly recommended to adjust most of these paramters to your needs,
+especially the <code>OpenAI.model</code> and <code>OpenAI.prompt</code> parameters.</p>
+
+
+
+
+
+
+
+
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="spamfilter.filters.OpenAI.check" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">check</span><span class="p">(</span><span class="n">string</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">bool</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span></code>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Sends the given string to the OpenAI API and checks if it is spam or
+not. Returns a tuple of a boolean (whether it is spam) and the
+potentially corrected string.</p>
+
+
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-class">
+
+
+
 <h2 id="spamfilter.filters.MLTextClassifier" class="doc doc-heading">
             <code>spamfilter.filters.MLTextClassifier</code>
 
@@ -1684,9 +1826,9 @@ potentially corrected string.</p>
 
         <p>A filter that instantiates a 🤗 Transformers text classification pipeline
 and uses it to classify text as spam or not. Note that machine learning is
-never 100% accurate, so this filter may not always return the correct
-result and let harmful content through.</p>
-<p>Please make sure to have read the warnings in the
+almost never 100% accurate, so this filter may not always return the
+correct result and let harmful content pass through it on occasion.</p>
+<p>Thus, please make sure to have read the warnings in the
 <a href="https://mags0ft.github.io/spamfilter/ai_and_ml/">documentation</a>.</p>
 <p>This filter requires the <code>transformers</code> Python package to be installed,
 which can be done with <code>pip install spamfilter[transformers]</code>.</p>
@@ -1740,7 +1882,7 @@ model for email spam detection.</p>
         <p>Checks if the given string is spam or not using the text classification
 model specified in <code>self.model</code>.</p>
 <p>It will not alter the string in any way - if you need corrections, use
-the <code>Ollama</code> filter instead.</p>
+the <code>Ollama</code> filter in <code>correcting</code> mode instead.</p>
 
 
     </div>
@@ -1825,7 +1967,7 @@ the <code>Ollama</code> filter instead.</p>
       <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../assets/javascripts/bundle.92b07e13.min.js"></script>
+      <script src="../assets/javascripts/bundle.f55a23d4.min.js"></script>
       
     
   </body>
