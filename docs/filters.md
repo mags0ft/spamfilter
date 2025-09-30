@@ -70,6 +70,7 @@ The tuple is built as following:
 **Note**: The default regex used by the `Email` filter is `([a-zA-Z0-9+._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9_-]+)`.
 
 :::spamfilter.filters.Ollama
+:::spamfilter.filters.OpenAI
 :::spamfilter.filters.MLTextClassifier
 
 **Note**: The default response parsing function is the following:
