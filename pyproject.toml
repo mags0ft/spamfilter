@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "spamfilter"
-version = "2.1.1"
+version = "2.2.0"
 description = "Create spam filtering and mitigation pipelines with ease using fully-customizable, object oriented components."
 readme = "README.md"
 authors = [{ name = "Magnus Schlinsog", email = "magnusschlinsog@gmail.com" }]

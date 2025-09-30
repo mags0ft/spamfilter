@@ -84,8 +84,9 @@ def check_ollama_availability():
 
 class Ollama(Filter):
     """
-    **Warning**: This filter will soon be deprecated in favor of the universal
-    OpenAI filter. Please consider switching in time.
+    **This filter will be deprecated in the next major release. Please switch
+    to the OpenAI API compatible filter. Ollama exposes an endpoint on
+    `http://127.0.0.1:11434/v1`.**
 
     A filter that connects to an Ollama API endpoint to check if a given string
     is spam or not. This might introduce **significant latency** in your

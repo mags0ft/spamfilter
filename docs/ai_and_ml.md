@@ -19,6 +19,7 @@ Don't just add the `MLTextClassifier` into your pipeline and call it a day. AI m
 - big to download, slowing down spin-up time of your application when frequently re-deployed
 - expensive to run, especially if you use a large model or a lot of data
 - bad for the environment if run for several hundreds of thousand times per day
+- subject to prompt injection
 
 You can use techniques like making use of the `normal-quick` mode in pipelines to stop evaluation as soon as any filter detects a problem, which would eliminate the need to call any more expensive filters (like the ones using AI).
 
@@ -29,5 +30,6 @@ You should also make sure that the models used in your filters are well-trained,
 There are three main filters that you may want to use in order to integrate AI into your spam filtering pipeline:
 
 - `MLTextClassifier`: A text classifier that uses a pre-trained model to classify text as spam or not spam. It is based on the `transformers` library and requires a model to be downloaded.
-- `Ollama`: A filter that uses the Ollama API to classify text as spam or not spam. It requires an Ollama server to be running and accessible, is even more expensive than the `MLTextClassifier` and should only be used if you have a good reason to do so, for example, correcting harmful text to non-harmful text.
+- `Ollama`: A filter that uses the Ollama API to classify text as spam or not spam. It requires an Ollama server to be running and accessible, is even more expensive than the `MLTextClassifier` and should only be used if you have a good reason to do so, for example, correcting harmful text to non-harmful text. **This filter will be deprecated in the next major release. Please switch to the OpenAI API compatible filter. Ollama exposes an endpoint on `http://127.0.0.1:11434/v1`.**
+- `OpenAI`: A filter that connects to an OpenAI API endpoint to classify content. It is even more expensive than the `MLTextClassifier` and should only be used if you have a good reason to do so, for example, correcting harmful text to non-harmful text.
 - `API`: A general-purpose filter you may want to use in order to call third-party APIs to classify text as spam or not spam. This is a very flexible filter that can be used to integrate any API that returns a classification result.
