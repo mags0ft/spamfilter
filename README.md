@@ -30,7 +30,7 @@ You can [install spamfilter](https://mags0ft.github.io/spamfilter/installation/)
 pip install spamfilter
 ```
 
-Please see the [installation guide](https://mags0ft.github.io/spamfilter/installation/) for more information and methods on how to install `spamfilter` and its dependencies, especially if you plan to use API or Ollama functionality.
+Please see the [installation guide](https://mags0ft.github.io/spamfilter/installation/) for more information and methods on how to install `spamfilter` and its dependencies, especially if you plan to use API or OpenAI functionality.
 
 ## Usage
 

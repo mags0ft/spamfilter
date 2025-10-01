@@ -97,7 +97,7 @@ class MLTextClassifier(Filter):
         model specified in `self.model`.
         
         It will not alter the string in any way - if you need corrections, use
-        the `Ollama` filter in `correcting` mode instead.
+        the `OpenAI` filter in `correcting` mode instead.
         """
 
         return (self.response_parsing_function(self._pipeline(string)), string)

@@ -25,17 +25,21 @@ instead.
 
 ## Extra dependencies
 
+The base installation of `spamfilter` comes with a few built-in filters that do not require any extra dependencies. However, if you want to use additional features, you may install extra dependencies using the following tags.
+
 If you plan to use spamfilter with third-party API calling support, run
 
 ```bash
 pip install spamfilter[api]
 ```
 
-If you want to use the Ollama integration, run
+If you want to use the OpenAI integration, run
 
 ```bash
-pip install spamfilter[ollama]
+pip install spamfilter[openai]
 ```
+
+**Warning:** Please do no longer spin up installations with the `ollama` tag, as this filter has been deprecated in favor of the more generic `OpenAI` filter.
 
 If you want to take advantage of machine learning text classification using 🤗 Transformers, run
 
