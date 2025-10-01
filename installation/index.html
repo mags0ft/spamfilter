@@ -20,7 +20,7 @@
       
       
       <link rel="icon" href="../assets/icon-material.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.20">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.21">
     
     
       
@@ -28,7 +28,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.e53b48f4.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.2a3383ac.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
@@ -708,12 +708,14 @@ get started.</p>
 </code></pre></div>
 <p>instead.</p>
 <h2 id="extra-dependencies">Extra dependencies</h2>
+<p>The base installation of <code>spamfilter</code> comes with a few built-in filters that do not require any extra dependencies. However, if you want to use additional features, you may install extra dependencies using the following tags.</p>
 <p>If you plan to use spamfilter with third-party API calling support, run</p>
 <div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>spamfilter<span class="o">[</span>api<span class="o">]</span>
 </code></pre></div>
-<p>If you want to use the Ollama integration, run</p>
-<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>spamfilter<span class="o">[</span>ollama<span class="o">]</span>
+<p>If you want to use the OpenAI integration, run</p>
+<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>spamfilter<span class="o">[</span>openai<span class="o">]</span>
 </code></pre></div>
+<p><strong>Warning:</strong> Please do no longer spin up installations with the <code>ollama</code> tag, as this filter has been deprecated in favor of the more generic <code>OpenAI</code> filter.</p>
 <p>If you want to take advantage of machine learning text classification using 🤗 Transformers, run</p>
 <div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>spamfilter<span class="o">[</span>transformers<span class="o">]</span>
 </code></pre></div>
