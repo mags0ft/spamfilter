@@ -7,4 +7,4 @@ concise approach to remove spam easy.
 See https://mags0ft.github.io/spamfilter/ for more details and documentation.
 """
 
-__version__ = "v2.2.0"
+__version__ = "v3.0.0"

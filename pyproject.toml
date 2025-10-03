@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "spamfilter"
-version = "2.2.0"
+version = "3.0.0"
 description = "Create spam filtering and mitigation pipelines with ease using fully-customizable, object oriented components."
 readme = "README.md"
 authors = [{ name = "Magnus Schlinsog", email = "magnusschlinsog@gmail.com" }]
@@ -22,7 +22,6 @@ requires-python = ">=3.9"
 dev = ["pip-tools", "pytest", "mkdocs", "mkdocs-material", "mkdocstrings[python]", "python-dotenv"]
 docs = ["mkdocs", "mkdocs-material", "mkdocstrings[python]"]
 api = ["requests"]
-ollama = ["ollama"]
 openai = ["openai"]
 transformers = ["transformers", "torch"]
 

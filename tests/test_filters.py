@@ -2,16 +2,14 @@
 Test cases for the filter classes.
 
 Accepts different environment variables to control the behavior of the tests:
-- `SPAMFILTER_TEST_OLLAMA`: If set to "true", tests the Ollama filter, which
-is expensive and requires an Ollama installation.
-- `SPAMFILTER_OLLAMA_MODEL`: If set to "true", tests the Ollama filter, which
-is expensive and requires an Ollama installation.
+- `SPAMFILTER_TEST_OPENAI`: If set to "true", tests the OpenAI filter, which
+is expensive and requires a ready endpoint.
+- `SPAMFILTER_OPENAI_MODEL`: Specifies the model to use.
 - `SPAMFILTER_TEST_ML_CLASSIFIER`: If set to "true", tests the MLClassifier
 filter, which is slightly less expensive and requires a transformers
 installation.
 - `SPAMFILTER_ML_CLASSIFIER_MODEL`: The model to use for the ML Text
 Classifier.
-
 """
 
 from os import getenv
@@ -31,11 +29,9 @@ class TestSetup:
 
     _PREFIX = "SPAMFILTER_"
 
-    TEST_OLLAMA = getenv(_PREFIX + "TEST_OLLAMA", "false").lower() == "true"
     TEST_OPENAI = getenv(_PREFIX + "TEST_OPENAI", "false").lower() == "true"
     TEST_ML = getenv(_PREFIX + "TEST_ML_CLASSIFIER", "false").lower() == "true"
 
-    TEST_OLLAMA_MODEL = getenv(_PREFIX + "OLLAMA_MODEL")
     TEST_OPENAI_MODEL = getenv(_PREFIX + "OPENAI_MODEL")
     TEST_ML_MODEL = getenv(_PREFIX + "ML_CLASSIFIER_MODEL")
 
@@ -55,7 +51,6 @@ def test_empty_inputs() -> None:
             filters.BlocklistFromJSON,
             filters.Regex,
             filters.API,
-            filters.Ollama,
             filters.OpenAI,
             filters.MLTextClassifier,
         ]:
@@ -210,26 +205,6 @@ def test_specialchars() -> None:
 
     assert r[0]
     assert r[1] == t[:16]
-
-
-def test_ollama() -> None:
-    """
-    Tests the Ollama filter.
-    """
-
-    if not TestSetup.TEST_OLLAMA:
-        return
-
-    if not TestSetup.TEST_OLLAMA_MODEL:
-        raise ValueError(
-            "Please set the SPAMFILTER_OLLAMA_MODEL environment variable to a "
-            "valid Ollama model."
-        )
-
-    f = filters.Ollama(TestSetup.TEST_OLLAMA_MODEL, timeout=30)
-
-    assert f.check("Thanks for the great video, really liked it")[0]
-    assert not f.check("BUY THE BEST MAGAZINES TODAY AT NOON IN MY STORE!")[0]
 
 
 def test_openai() -> None:

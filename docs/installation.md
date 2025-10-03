@@ -39,8 +39,6 @@ If you want to use the OpenAI integration, run
 pip install spamfilter[openai]
 ```
 
-**Warning:** Please do no longer spin up installations with the `ollama` tag, as this filter has been deprecated in favor of the more generic `OpenAI` filter.
-
 If you want to take advantage of machine learning text classification using 🤗 Transformers, run
 
 ```bash

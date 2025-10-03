@@ -30,6 +30,5 @@ You should also make sure that the models used in your filters are well-trained,
 There are three main filters that you may want to use in order to integrate AI into your spam filtering pipeline:
 
 - `MLTextClassifier`: A text classifier that uses a pre-trained model to classify text as spam or not spam. It is based on the `transformers` library and requires a model to be downloaded.
-- `Ollama`: A filter that uses the Ollama API to classify text as spam or not spam. It requires an Ollama server to be running and accessible, is even more expensive than the `MLTextClassifier` and should only be used if you have a good reason to do so, for example, correcting harmful text to non-harmful text. **This filter will be deprecated in the next major release. Please switch to the OpenAI API compatible filter. Ollama exposes an endpoint on `http://127.0.0.1:11434/v1`.**
 - `OpenAI`: A filter that connects to an OpenAI API endpoint to classify content. It is even more expensive than the `MLTextClassifier` and should only be used if you have a good reason to do so, for example, correcting harmful text to non-harmful text.
 - `API`: A general-purpose filter you may want to use in order to call third-party APIs to classify text as spam or not spam. This is a very flexible filter that can be used to integrate any API that returns a classification result.
