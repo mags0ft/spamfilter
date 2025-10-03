@@ -539,30 +539,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#spamfilter.filters.Ollama" class="md-nav__link">
-    <span class="md-ellipsis">
-      Ollama
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Ollama">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#spamfilter.filters.Ollama.check" class="md-nav__link">
-    <span class="md-ellipsis">
-      check
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#spamfilter.filters.OpenAI" class="md-nav__link">
     <span class="md-ellipsis">
       OpenAI
@@ -932,30 +908,6 @@
       Email
     </span>
   </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#spamfilter.filters.Ollama" class="md-nav__link">
-    <span class="md-ellipsis">
-      Ollama
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Ollama">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#spamfilter.filters.Ollama.check" class="md-nav__link">
-    <span class="md-ellipsis">
-      check
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1622,100 +1574,6 @@ change.</em></p>
 
 </div><p><strong>Note</strong>: The default regex used by the <code>Email</code> filter is <code>([a-zA-Z0-9+._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9_-]+)</code>.</p>
 
-
-<div class="doc doc-object doc-class">
-
-
-
-<h2 id="spamfilter.filters.Ollama" class="doc doc-heading">
-            <code>spamfilter.filters.Ollama</code>
-
-
-</h2>
-
-
-    <div class="doc doc-contents first">
-            <p class="doc doc-class-bases">
-              Bases: <code><a class="autorefs autorefs-internal" title="spamfilter.filters.Filter (spamfilter.filters.filter.Filter)" href="#spamfilter.filters.Filter">Filter</a></code></p>
-
-
-        <p><strong>This filter will be deprecated in the next major release. Please switch
-to the OpenAI API compatible filter. Ollama exposes an endpoint on
-<code>http://127.0.0.1:11434/v1</code>.</strong></p>
-<p>A filter that connects to an Ollama API endpoint to check if a given string
-is spam or not. This might introduce <strong>significant latency</strong> in your
-pipeline, so use this with caution and only if necessary.</p>
-<p>Please make sure to have read the warnings in the
-<a href="https://mags0ft.github.io/spamfilter/ai_and_ml/">documentation</a>.</p>
-<p>This filter requires the <code>ollama</code> Python package to be installed, which can
-be done with <code>pip install spamfilter[ollama]</code>.</p>
-<ul>
-<li><code>Ollama.model</code>: the model to use for checking spam.</li>
-<li><code>Ollama.mode</code>: how to handle a failing string.<ul>
-<li><code>normal</code>: fail the string.</li>
-<li><code>correcting</code>: correct the string if it is spam, always allow it</li>
-</ul>
-</li>
-<li><code>Ollama.host</code>: the host of the Ollama API endpoint.</li>
-<li><code>Ollama.prompt</code>: the prompt to use for the LLM.</li>
-<li><code>Ollama.json_schema</code>: the json schema to use for formatted outputs.</li>
-<li><code>Ollama.options</code>: the options to use for the Ollama API request.</li>
-<li><code>Ollama.thinking</code>: whether to enable thinking mode for the LLM.</li>
-<li><code>Ollama.response_parsing_function</code>: a function that takes the response
-  from the Ollama API and returns a tuple of a boolean (whether it is spam)
-  and the potentially corrected string.</li>
-</ul>
-<p>It is highly recommended to adjust most of these paramters to your needs,
-especially the <code>Ollama.model</code> and <code>Ollama.prompt</code> parameters.</p>
-
-
-
-
-
-
-
-
-
-
-
-  <div class="doc doc-children">
-
-
-
-
-
-
-
-
-
-
-<div class="doc doc-object doc-function">
-
-
-<h3 id="spamfilter.filters.Ollama.check" class="doc doc-heading">
-            <code class="highlight language-python"><span class="n">check</span><span class="p">(</span><span class="n">string</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">bool</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span></code>
-
-</h3>
-
-
-    <div class="doc doc-contents ">
-
-        <p>Sends the given string to the Ollama API and checks if it is spam or
-not. Returns a tuple of a boolean (whether it is spam) and the
-potentially corrected string.</p>
-
-
-    </div>
-
-</div>
-
-
-
-  </div>
-
-    </div>
-
-</div>
 
 <div class="doc doc-object doc-class">
 
