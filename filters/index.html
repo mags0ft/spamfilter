@@ -1665,7 +1665,17 @@ potentially corrected string.</p>
 
     </div>
 
-</div>
+</div><p><strong>Note</strong>: The default response parsing function is the following:</p>
+<div class="highlight"><pre><span></span><code><span class="n">RespFuncType</span> <span class="o">=</span> <span class="n">Callable</span><span class="p">[[</span><span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Union</span><span class="p">[</span><span class="nb">bool</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]],</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">bool</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]</span>
+
+<span class="n">STD_RESP_FUNC</span><span class="p">:</span> <span class="n">RespFuncType</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">resp</span><span class="p">:</span> <span class="p">(</span>  <span class="c1"># type: ignore</span>
+    <span class="ow">not</span> <span class="n">resp</span><span class="p">[</span><span class="s2">&quot;is_spam&quot;</span><span class="p">],</span>
+    <span class="p">(</span><span class="n">resp</span><span class="p">[</span><span class="s2">&quot;corrected_text&quot;</span><span class="p">]</span> <span class="k">if</span> <span class="s2">&quot;corrected_text&quot;</span> <span class="ow">in</span> <span class="n">resp</span> <span class="k">else</span> <span class="s2">&quot;&quot;</span><span class="p">),</span>
+<span class="p">)</span>
+</code></pre></div>
+<p><strong>Note</strong>: The <code>Ollama</code> filter has been deprecated in favor of the <code>OpenAI</code> filter.
+<a href="https://ollama.com/blog/openai-compatibility">Ollama exposes an OpenAI-compatible API</a>, so you can use the <code>OpenAI</code> filter with it.</p>
+
 
 <div class="doc doc-object doc-class">
 
