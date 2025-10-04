@@ -70,6 +70,21 @@ The tuple is built as following:
 **Note**: The default regex used by the `Email` filter is `([a-zA-Z0-9+._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9_-]+)`.
 
 :::spamfilter.filters.OpenAI
+
+**Note**: The default response parsing function is the following:
+
+```python
+RespFuncType = Callable[[dict[str, Union[bool, str]]], Tuple[bool, str]]
+
+STD_RESP_FUNC: RespFuncType = lambda resp: (  # type: ignore
+    not resp["is_spam"],
+    (resp["corrected_text"] if "corrected_text" in resp else ""),
+)
+```
+
+**Note**: The `Ollama` filter has been deprecated in favor of the `OpenAI` filter.
+[Ollama exposes an OpenAI-compatible API](https://ollama.com/blog/openai-compatibility), so you can use the `OpenAI` filter with it.
+
 :::spamfilter.filters.MLTextClassifier
 
 **Note**: The default response parsing function is the following:
