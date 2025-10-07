@@ -10,7 +10,7 @@
     <img alt="PyPI - License" src="https://img.shields.io/pypi/l/spamfilter?style=for-the-badge&labelColor=%231e1e1e" />
 </p>
 
-The `spamfilter` module is a lightweight, fast and straightforward Python package that helps you to build your own [spam filtering pipelines](https://mags0ft.github.io/spamfilter/pipelines/) in order to keep your applications featuring user-generated content clean.
+`spamfilter` is a lightweight, fast and straightforward Python library that helps you to build your own [spam filtering pipelines](https://mags0ft.github.io/spamfilter/pipelines/) in order to keep your applications featuring user-generated content clean.
 
 It's object-oriented and makes a quick, concise approach to remove spam easy. `spamfilter` is highly configurable and ships with deep integrations for [third-party APIs](https://mags0ft.github.io/spamfilter/filters/#spamfilter.filters.API), 🤗 Transformers [AI/ML text classifiers](https://mags0ft.github.io/spamfilter/filters/#spamfilter.filters.MLTextClassifier) and language models via [OpenAI](https://mags0ft.github.io/spamfilter/filters/#spamfilter.filters.OpenAI).
 
@@ -61,7 +61,7 @@ True
 
 ## License
 
-This project is licensed under the MIT License, as declared in the [`LICENSE` file](./LICENSE).
+This project is published under the [MIT License](./LICENSE).
 
 ## Contributing
 
