@@ -175,9 +175,9 @@ class OpenAI(Filter):
                     "name": "SpamSchema",
                     "schema": self.json_schema,
                 },
-            },
+            }, # type: ignore
             stream=False,
-            **self.options,
+            **(self.options if self.options is not None else {}),
         )
 
         resp_dict: "Union[dict[str, Any], None]" = json.loads(
