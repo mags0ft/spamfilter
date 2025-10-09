@@ -41,22 +41,17 @@ class Blocklist(Filter):
         found: "set[str]" = set()
         passed: bool = True
 
-        if self.mode != "strict":
-            to_check = set(split(self.ignore_regex, string))
-
-            for word in to_check:
-                if word in self.blocklist:
-                    found.add(word)
+        if self.mode == "strict":
+            found = {w for w in self.blocklist if w in string}
         else:
-            for profane_word in self.blocklist:
-                if profane_word in string:
-                    found.add(profane_word)
+            tokens = {t for t in split(self.ignore_regex, string) if t}
+            found = tokens & self.blocklist
 
-        if found:
-            passed = False
+        passed = not found
 
         if self.mode == "tolerant":
             passed = True
+
             for word in found:
                 string = string.replace(word, self.profanity_replacement)
 
