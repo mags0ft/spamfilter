@@ -65,6 +65,13 @@ class Pipeline:
         self.filters: "list[Type[Filter]]" = filters
         self.mode: str = mode
 
+    def __len__(self):
+        """
+        Gets the length of the pipeline's internal filter list.
+        """
+
+        return len(self.filters)
+
     def check(self, string: str) -> Result:
         """
         Checks a given string against the filters inside the Pipeline. Returns
