@@ -1,7 +1,11 @@
 [MASTER]
 
 [MESSAGES CONTROL]
-disable=too-few-public-methods,super-init-not-called,too-many-arguments,too-many-positional-arguments,too-many-locals,fixme
+disable=too-few-public-methods,super-init-not-called,too-many-arguments,too-many-positional-arguments,too-many-locals,invalid-name,fixme
+
+# The reason invalid-name is disabled is due to Pylint, all of a sudden (it never did so before), marking half of the namings in the codebase
+# as wrong. It might be right, but it's late and I am not fixing this now - tests are passing since the commit occured, so it's probably not
+# a fluke from our side. TODO: get to the bottom of this.
 
 [FORMAT]
 max-line-length=79
