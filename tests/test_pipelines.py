@@ -17,6 +17,8 @@ def test_empty_pipeline():
 
     pipe = Pipeline([])
 
+    assert len(pipe) == 0
+
     for text in ["", "A text", "Long text, " * 100]:
         res = pipe.check(text)
 
