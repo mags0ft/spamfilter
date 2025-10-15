@@ -3,15 +3,16 @@ Module for using the OpenAI API as a spam filter by leveraging LLMs to
 determine if a string is spam or not.
 """
 
+openai_available: bool = False
+
 try:
     import openai
 
     openai_available: bool = True
 except ImportError:
-    openai_available: bool = False
+    pass
 
 import json
-
 from typing import Any, Callable, Union, Tuple
 from ._check_modes import perform_mode_check
 from .filter import Filter
@@ -58,7 +59,7 @@ STD_OPTIONS: "dict[str, Any]" = {
 RespFuncType = Callable[[dict[str, Union[bool, str]]], Tuple[bool, str]]
 JSONParameterType = Union[dict[str, Any], None]
 
-STD_RESP_FUNC: RespFuncType = lambda resp: (  # type: ignore
+std_resp_func: RespFuncType = lambda resp: (  # type: ignore
     not resp["is_spam"],
     (resp["corrected_text"] if "corrected_text" in resp else ""),
 )
@@ -126,7 +127,7 @@ class OpenAI(Filter):
         prompt: str = STD_PROMPT,
         schema: JSONParameterType = None,
         options: JSONParameterType = None,
-        response_parsing_function: RespFuncType = STD_RESP_FUNC,
+        response_parsing_function: RespFuncType = std_resp_func,
     ) -> None:
         perform_mode_check(mode, POSSIBLE_MODES)
         check_openai_availability()
@@ -175,7 +176,7 @@ class OpenAI(Filter):
                     "name": "SpamSchema",
                     "schema": self.json_schema,
                 },
-            }, # type: ignore
+            },  # type: ignore
             stream=False,
             **(self.options if self.options is not None else {}),
         )

@@ -36,4 +36,4 @@ def create_pipeline(
     )
 
 
-articlePipeline = create_pipeline()
+articlePipeline = create_pipeline()  # pylint: disable=invalid-name

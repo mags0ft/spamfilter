@@ -34,4 +34,4 @@ def create_pipeline(
     )
 
 
-chatPipeline = create_pipeline()
+chatPipeline = create_pipeline()  # pylint: disable=invalid-name

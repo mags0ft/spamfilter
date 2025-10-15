@@ -2,15 +2,16 @@
 Module for the API-based spam filter class.
 """
 
-from typing import Any, Callable, Literal, Union
+requests_available: bool = False
 
 try:
     import requests
 
     requests_available: bool = True
 except ImportError:
-    requests_available: bool = False
+    pass
 
+from typing import Any, Callable, Literal, Union
 from ._check_modes import perform_mode_check
 from .filter import Filter
 

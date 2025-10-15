@@ -3,12 +3,14 @@ Uses text classification models from platforms like Hugging Face to detect spam
 and harmful content.
 """
 
+transformers_available: bool = False
+
 try:
     import transformers
 
     transformers_available: bool = True
 except ImportError:
-    transformers_available: bool = False
+    pass
 
 
 from typing import Callable, Union
@@ -53,7 +55,7 @@ class MLTextClassifier(Filter):
     and uses it to classify text as spam or not. Note that machine learning is
     almost never 100% accurate, so this filter may not always return the
     correct result and let harmful content pass through it on occasion.
-    
+
     Thus, please make sure to have read the warnings in the
     [documentation](https://mags0ft.github.io/spamfilter/ai_and_ml/).
 
@@ -66,7 +68,7 @@ class MLTextClassifier(Filter):
     - `MLTextClassifier.response_parsing_function`: a function that
       parses the response from the model and returns a boolean indicating
       whether the string is spam or not.
-    
+
     **WARNING**: The standard model is a hate detection model which will be
     automatically pulled from Hugging Face (~ 500 MB). You may want to use a
     more suitable model for your use case, such as a custom spam detection
@@ -95,7 +97,7 @@ class MLTextClassifier(Filter):
         """
         Checks if the given string is spam or not using the text classification
         model specified in `self.model`.
-        
+
         It will not alter the string in any way - if you need corrections, use
         the `OpenAI` filter in `correcting` mode instead.
         """
