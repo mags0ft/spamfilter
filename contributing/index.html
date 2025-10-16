@@ -18,7 +18,7 @@
       
       
       <link rel="icon" href="../assets/icon-material.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.21">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.22">
     
     
       
@@ -26,7 +26,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.2a3383ac.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.84d31ad4.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
@@ -568,6 +568,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#submitting-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      Submitting code
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -642,6 +651,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#submitting-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      Submitting code
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -661,22 +679,23 @@
 <h1 id="contributing">👩‍💻 Contributing</h1>
 <p>No matter whether you're an active contibutor at <code>spamfilter</code> or just browsing around, we're happy to see everyone engage and could really use some help!</p>
 <ul>
-<li>
-<p>💡 <strong>Do you have ideas for new features?</strong> <a href="https://github.com/mags0ft/spamfilter/issues/new?template=feature_request.md">Go here!</a></p>
-</li>
-<li>
-<p>🐞 <strong>Found any bugs?</strong> <a href="https://github.com/mags0ft/spamfilter/issues/new?template=bug_report.md">Go here!</a></p>
-</li>
-<li>
-<p>🔓 <strong>Do you want to disclose a security vulnerability?</strong> <a href="https://github.com/mags0ft/spamfilter/security/advisories/new">Click here.</a></p>
-</li>
-<li>
-<p>⚡ <strong>Write your own code for the module?</strong> Feel free to do so and please continue to read to the next section!</p>
-</li>
+<li><strong>Do you have ideas for new features?</strong> <a href="https://github.com/mags0ft/spamfilter/issues/new?template=feature_request.md">Go here!</a></li>
+<li><strong>Found any bugs?</strong> <a href="https://github.com/mags0ft/spamfilter/issues/new?template=bug_report.md">Go here!</a></li>
+<li><strong>Do you want to disclose a security vulnerability?</strong> <a href="https://github.com/mags0ft/spamfilter/security/advisories/new">Click here.</a></li>
+<li><strong>Write your own code for the module?</strong> Feel free to do so and please continue to read to the next section!</li>
 </ul>
 <h2 id="contribute-own-code">Contribute own code</h2>
-<p>You're always welcome to build new features, filters and options into the <code>spamfilter</code> module! We love to see what
-you got to contribute to the package. Please follow these few rules of thumb:</p>
+<p>You're always welcome to build new features, filters and options into the <code>spamfilter</code> module! We love to see what you got to contribute to the package.</p>
+<p>To get started, please first make sure you have a working git, Python 3.9+ and pip installation. You can set up a dev environment like so:</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/mags0ft/spamfilter.git
+<span class="nb">cd</span><span class="w"> </span>spamfilter
+python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>.venv
+<span class="nb">source</span><span class="w"> </span>.venv/bin/activate<span class="w">  </span><span class="c1"># On Windows use `.venv\Scripts\activate</span>
+pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>.<span class="o">[</span>dev<span class="o">]</span>
+</code></pre></div>
+<p>That's it! You can now start coding. One last tip: Please consider adding test cases to your code if it's reasonable to do so. It really does make a difference!</p>
+<h2 id="submitting-code">Submitting code</h2>
+<p>After you've made your desired changes - and if wish to get them merged - please follow these few rules of thumb:</p>
 <ul>
 <li><strong>run <code>pytest</code></strong> and <strong><code>pylint $(git ls-files *.py)</code></strong> once you like to publish your changes.</li>
 <li><strong>create a custom fork</strong> to push your changes to, then <a href="https://github.com/mags0ft/spamfilter/pulls">create a pull request</a> on GitHub!</li>
