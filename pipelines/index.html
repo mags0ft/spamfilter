@@ -788,7 +788,7 @@
 <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">spamfilter.pipelines</span><span class="w"> </span><span class="kn">import</span> <span class="n">Pipeline</span>
 </code></pre></div>
 <h2 id="pipelines-explained">Pipelines explained</h2>
-<p>Generally, all filters are stacked onto each other using a pipeline object which will then check them one after each other.</p>
+<p>Generally, all filters are stacked onto each other using a pipeline object which will then check them one after each other. An empty Pipeline will default to letting the input string pass without modifications.</p>
 <p>A pipeline implements a <code>check(string: str)</code> method which accepts a string as an input and will return a <a href="../results/"><code>results.Result</code></a> object. This object contains info about the filtering run, a.e. whether the string passed all tests and how it has been altered.</p>
 <p>Check the <a href="../results/">documentation for <code>results.Result</code></a> for more information about the Result object.</p>
 <hr />
