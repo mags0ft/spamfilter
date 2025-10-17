@@ -1,8 +1,8 @@
 # 📕 Documentation
 
-Welcome to the `spamfilter` module's documentation!
+Welcome to the `spamfilter` library's documentation!
 
-Here you will find classes, concepts and methods explained hat high-level detail for your next use of the package.
+Here you will find classes, concepts and methods explained hat high-level detail for your next use of the library.
 
 ## Links
 

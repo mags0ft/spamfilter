@@ -1,12 +1,12 @@
 # 📢 filters
 
-The spamfilter module comes with many built-in filtering algorithms that can determine whether a string is spam
+The spamfilter library comes with many built-in filtering algorithms that can determine whether a string is spam
 or rather not. In this document, all of these filters will be listed.
 
 ## How to import filters
 
 There are a lot of ways to import the filters you need. If you just want to use a pre-made model for filtering,
-you don't need to import them at all, they are going to be imported into the module by itself - just use `spamfilter.premade`.
+you don't need to import them at all, they are going to be imported into the library by itself - just use `spamfilter.premade`.
 
 If you want to import the built-in filters into your script, do it using one of the following ways:
 

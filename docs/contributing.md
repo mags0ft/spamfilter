@@ -5,11 +5,11 @@ No matter whether you're an active contibutor at `spamfilter` or just browsing a
 - **Do you have ideas for new features?** [Go here!](https://github.com/mags0ft/spamfilter/issues/new?template=feature_request.md)
 - **Found any bugs?** [Go here!](https://github.com/mags0ft/spamfilter/issues/new?template=bug_report.md)
 - **Do you want to disclose a security vulnerability?** [Click here.](https://github.com/mags0ft/spamfilter/security/advisories/new)
-- **Write your own code for the module?** Feel free to do so and please continue to read to the next section!
+- **Write your own code for the library?** Feel free to do so and please continue to read to the next section!
 
 ## Contribute own code
 
-You're always welcome to build new features, filters and options into the `spamfilter` module! We love to see what you got to contribute to the package.
+You're always welcome to build new features, filters and options into the `spamfilter` library! We love to see what you got to contribute to the library.
 
 To get started, please first make sure you have a working git, Python 3.9+ and pip installation. You can set up a dev environment like so:
 

@@ -1,13 +1,13 @@
 # Installation
 
-In this document, you will learn how to install the `spamfilter` module. There are generally three options to
+In this document, you will learn how to install the `spamfilter` library. There are generally three options to
 get started.
 
 ---
 
 ## 👉 How to install
 
-You may install the module using `pip`, which is the easiest way to do it as `spamfilter` is in the PyPI index.
+You may install the library using `pip`, which is the easiest way to do it as `spamfilter` is in the PyPI index.
 
 To achieve this, run
 

@@ -1,5 +1,5 @@
 site_name: spamfilter
-site_description: Documentation for the python spamfilter package
+site_description: Documentation for the python spamfilter library
 site_author: Magnus Schlinsog and contributors
 
 nav:

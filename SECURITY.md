@@ -1,6 +1,6 @@
 # Security Policy
 
-As a module and PyPI package to filter spam reliably, spamfilter tries to comply to its user's security needs as good as possible.
+As a library and PyPI package to filter spam reliably, spamfilter tries to comply to its user's security needs as good as possible.
 If you should find any concerning security issue, please do not hesitate to contact us.
 
 **DO NOT** disclose this critical info in a publicly available location like issues, pull requests, gists or comments.

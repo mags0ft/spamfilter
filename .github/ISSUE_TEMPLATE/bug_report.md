@@ -22,7 +22,7 @@ Feel free to add images in order to explain the phenomenon.
 **Please complete the following information:**
 - spamfilter version (can be acquired by printing `spamfilter.__version__`)
 - operating system
-- if related to optional feature sets of the spamfilter package, any other packages you have installed in your environment (can be acquired using `pip freeze`)
+- if related to optional feature sets of the spamfilter library, any other libraries you have installed in your environment (can be acquired using `pip freeze`)
 
 **Additional context**
 Add any other context about the problem here.

@@ -8,7 +8,7 @@ assignees: ''
 ---
 
 **Is your feature request related to a problem? Please describe.**
-Have you faced problems with the `spamfilter` package due to your requested feature missing before?
+Have you faced problems with the `spamfilter` library due to your requested feature missing before?
 
 **Describe the solution you'd like.**
 What do you want to happen, and how could the solution look like in detail?

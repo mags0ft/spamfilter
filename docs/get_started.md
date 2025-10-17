@@ -2,7 +2,7 @@
 
 You can easily get started with `spamfilter` as it's quick to pick up and easy to understand.
 
-🔥 **First of all, you should install the module by following [these steps](./installation.md).**
+🔥 **First of all, you should install the library by following [these steps](./installation.md).**
 
 You can then validate if the install was successful by running the Python console and typing:
 

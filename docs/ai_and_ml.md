@@ -1,6 +1,6 @@
 # Artificial Intelligence (AI) and Machine Learning (ML) in spam filtering
 
-The `spamfilter` package provides several methods to integrate Artificial Intelligence (AI), more specifically, Machine Learning (ML) into the spam filtering process. This allows for more accurate and modern spam filtering techniques to be used in your pipelines.
+The `spamfilter` library provides several methods to integrate Artificial Intelligence (AI), more specifically, Machine Learning (ML) into the spam filtering process. This allows for more accurate and modern spam filtering techniques to be used in your pipelines.
 
 However, these do not come without risk; please make sure to have read the following disclaimer before using any of these features.
 
