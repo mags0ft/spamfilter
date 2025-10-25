@@ -90,6 +90,9 @@ class OpenAI(Filter):
     is spam or not. This might introduce **significant latency** in your
     pipeline, so use this with caution and only if necessary.
 
+    The endpoint is not required to literally be by OpenAI; it should merely be
+    an OpenAI API-compatible one (one that meets the specification of the API).
+
     For connecting to remote instances, this may require an API key.
 
     Please make sure to have read the warnings in the
