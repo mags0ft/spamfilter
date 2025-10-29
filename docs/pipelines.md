@@ -63,3 +63,11 @@ print(
     m.check("Test string!").passed
 )
 ```
+
+Output:
+
+```
+False
+```
+
+**Why?** Because even though the string passes the first two filters, it does not meet the minimum length requirement of the `Length` filter.
