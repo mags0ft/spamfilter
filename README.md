@@ -30,11 +30,11 @@ You can [install spamfilter](https://mags0ft.github.io/spamfilter/installation/)
 pip install spamfilter
 ```
 
-Please see the [installation guide](https://mags0ft.github.io/spamfilter/installation/) for more information and methods on how to install `spamfilter` and its dependencies, especially if you plan to use API or OpenAI functionality.
+Please see the [installation guide](https://mags0ft.github.io/spamfilter/installation/) for more information and methods on how to install `spamfilter` and its dependencies, especially if you plan to use API or machine learning functionality as this requires additional dependencies.
 
 ## Usage
 
-The most basic primer into the `spamfilter` library is to define a [pipeline](https://mags0ft.github.io/spamfilter/pipelines/) using several spam [filters](https://mags0ft.github.io/spamfilter/filters/) stacked onto each other.
+The most basic primer into the `spamfilter` library is defining a [pipeline](https://mags0ft.github.io/spamfilter/pipelines/) using several [filters](https://mags0ft.github.io/spamfilter/filters/) stacked on top of each other.
 
 ```python
 from spamfilter.filters import Length, SpecialChars
