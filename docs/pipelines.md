@@ -13,7 +13,7 @@ from spamfilter.pipelines import Pipeline
 ```
 
 ## Pipelines explained
-Generally, all filters are stacked onto each other using a pipeline object which will then check them one after each other.
+Generally, all filters are stacked onto each other using a pipeline object which will then check them one after each other. An empty Pipeline will default to letting the input string pass without modifications.
 
 A pipeline implements a `check(string: str)` method which accepts a string as an input and will return a [`results.Result`](./results.md) object. This object contains info about the filtering run, a.e. whether the string passed all tests and how it has been altered.
 
@@ -63,3 +63,11 @@ print(
     m.check("Test string!").passed
 )
 ```
+
+Output:
+
+```
+False
+```
+
+**Why?** Because even though the string passes the first two filters, it does not meet the minimum length requirement of the `Length` filter.
