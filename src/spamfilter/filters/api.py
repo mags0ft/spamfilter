@@ -121,6 +121,7 @@ class API(Filter):
             return self.interpretation_func(resp_json)
         except requests.exceptions.JSONDecodeError:  # type: ignore
             # pylint: disable=raise-missing-from
+
             raise InvalidAPIResponseException(
                 "The API did not return a valid response (response object is \
 not valid JSON)."
