@@ -18,23 +18,41 @@ class Regex(Filter):
     - `Regex.mode`: how to handle a failing string.
         - `normal`: fail the string.
         - `censor`: censor the match.
-    - `Regex.regex`: the regex used to check for matches.
+    - `Regex.expression`: the regular expression used to check for matches.
     - `Regex.replacement`: what regex to replace matches with.
+    - `Regex.flags`: any optional regex flags to use when compiling the
+      expression.
+
+    **Warning**: Changing flags after initialization will not automatically
+    recompile the regex. Call `Regex.compile_regex()` to do so.
 
     _Was called "PersonalInformation" prior to v2.0.0, which was a breaking
     change._
     """
 
     def __init__(
-        self, regex: str, mode: str = "normal", replacement: str = r"***"
+        self,
+        expression: str,
+        mode: str = "normal",
+        replacement: str = r"***",
+        flags: int = 0,
     ):
         perform_mode_check(mode, POSSIBLE_MODES)
 
-        self.regex = regex
+        self.expression = expression
         self.mode = mode
         self.replacement = replacement
+        self.flags = flags
 
-        self._regex_compiled = re.compile(self.regex)
+        self.compile_regex()
+
+    def compile_regex(self):
+        """
+        Recompiles the internal regex. Useful if the expression or flags have
+        been modified.
+        """
+
+        self._regex_compiled = re.compile(self.expression, self.flags)
 
     def check(self, string: str):
         passed = not self._regex_compiled.search(string)
@@ -42,7 +60,7 @@ class Regex(Filter):
         return (
             (True if self.mode == "censor" else passed),
             (
-                re.sub(self.regex, self.replacement, string)
+                re.sub(self.expression, self.replacement, string)
                 if self.mode == "censor"
                 else string
             ),
