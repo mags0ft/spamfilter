@@ -28,4 +28,4 @@ class Result:
     result: str = ""
     original: str = ""
     changes_made: int = 0
-    failed_filters: "list[Type[Filter]]" = field(default_factory=list)
+    failed_filters: "list[Filter]" = field(default_factory=list)

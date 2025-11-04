@@ -103,7 +103,7 @@ class Pipeline:
 
             if passed and not temp_passed:
                 passed = False
-                
+
                 if self.mode in ["normal-quick", "zero-tolerance"]:
                     break
 
