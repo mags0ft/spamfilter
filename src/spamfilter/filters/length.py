@@ -7,7 +7,7 @@ More information about this filter can be found in its Class docstring.
 from ._check_modes import perform_mode_check
 from .filter import Filter
 
-POSSIBLE_MODES = ["normal", "crop"]
+POSSIBLE_MODES = ["normal", "crop", "shorten-only", "fill-only"]
 
 
 class Length(Filter):
@@ -17,11 +17,15 @@ class Length(Filter):
     - `Length.min`: The inclusive minimum length.
     - `Length.max`: The inclusive maximum length.
     - `Length.padding`: A character used to fill up strings that are too short
-    in the `crop` mode.
+    in the `crop` and `fill-only` modes.
     - `Length.mode`: How to handle failing strings.
         - `normal`: Fail too short or too long strings.
         - `crop`: Shorten too long strings and fill too short strings up using
         `Length.padding`.
+        - `shorten-only`: Only shorten too long strings, do not fill up too
+        short strings.
+        - `fill-only`: Only fill up too short strings, do not shorten too long
+        strings.
     """
 
     def __init__(
@@ -46,13 +50,15 @@ character long."
 
     def check(self, string: str):
         ln = len(string)
-        passes = (self.min <= ln <= self.max) or (self.mode == "crop")
+        passes = (self.min <= ln <= self.max) or (
+            self.mode in ["crop", "fill-only", "crop-only"]
+        )
         res = string
 
-        if self.mode == "crop":
-            if ln < self.min:
-                res = string + self.padding * (self.min - ln)
-            elif ln > self.max:
-                res = string[: self.max]
+        if self.mode in ["crop", "fill-only"] and ln < self.min:
+            res = string + self.padding * (self.min - ln)
+
+        if self.mode in ["crop", "shorten-only"] and ln > self.max:
+            res = string[: self.max]
 
         return (passes, res)

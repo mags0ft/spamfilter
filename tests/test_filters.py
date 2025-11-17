@@ -189,6 +189,46 @@ def test_length() -> None:
     assert r[1] == t[:15]
 
 
+def test_length_fillonly() -> None:
+    """
+    Tests the length filter in fill-only mode.
+    """
+
+    f = filters.Length(min_length=20, mode="fill-only", padding="_")
+
+    t = "Short string"
+    r = f.check(t)
+
+    assert r[0]
+    assert r[1] == t + "_" * (20 - len(t))
+
+    t2 = "This string is definitely long enough."
+    r2 = f.check(t2)
+
+    assert r2[0]
+    assert r2[1] == t2
+
+
+def test_length_shortenonly() -> None:
+    """
+    Tests the length filter in shorten-only mode.
+    """
+
+    f = filters.Length(max_length=25, mode="shorten-only")
+
+    t = "This string is definitely way too long to be accepted."
+    r = f.check(t)
+
+    assert not r[0]
+    assert r[1] == t[:25]
+
+    t2 = "Short enough."
+    r2 = f.check(t2)
+
+    assert r2[0]
+    assert r2[1] == t2
+
+
 def test_specialchars() -> None:
     """
     Tests the specialchars filter.
