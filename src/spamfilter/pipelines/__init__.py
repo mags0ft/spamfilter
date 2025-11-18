@@ -11,7 +11,7 @@ is a breaking change and you will need to update your code if you used machines
 before.
 """
 
-from typing import Type, Union
+from typing import Union
 
 from ..result import Result
 from ..filters import Filter
@@ -20,7 +20,7 @@ from ..filters._check_modes import perform_mode_check
 
 POSSIBLE_MODES = ["normal", "tolerant", "zero-tolerance", "normal-quick"]
 
-PipelineFilterType = Union[None, list[Type[Filter]]]
+PipelineFilterType = Union[None, list[Filter]]
 
 
 class Pipeline:
@@ -62,7 +62,7 @@ class Pipeline:
 
         perform_mode_check(mode, POSSIBLE_MODES)
 
-        self.filters: "list[Type[Filter]]" = filters
+        self.filters: "list[Filter]" = filters
         self.mode: str = mode
 
     def __len__(self):
@@ -81,7 +81,7 @@ class Pipeline:
         changed_string: str = string
         passed: bool = True
         changes: int = 0
-        failed: "list[Type[Filter]]" = []
+        failed: "list[Filter]" = []
 
         for filter_ in self.filters:
             temp_changed_string: str = ""

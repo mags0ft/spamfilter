@@ -4,7 +4,6 @@ of Pipelines.
 """
 
 from dataclasses import dataclass, field
-from typing import Type
 
 from ..filters.filter import Filter
 

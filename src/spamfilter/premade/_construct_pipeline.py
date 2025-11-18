@@ -29,12 +29,12 @@ def construct_filter_list(
     specialchars_filter: bool,
     profanity_filter: bool,
     profanity_blocklist_filepath: str,
-) -> "list[Type[Filter]]":
+) -> "list[Filter]":
     """
     Constructs a list of filters out of the arguments.
     """
 
-    f: "list[Type[Filter]]" = []
+    f: "list[Filter]" = []
     p: (
         "list[tuple[bool, Type[Filter], tuple[Union[int, str, float], ...]]]"
     ) = [

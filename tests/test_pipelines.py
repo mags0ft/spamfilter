@@ -6,10 +6,6 @@ from spamfilter.pipelines import Pipeline
 from spamfilter.filters import Capitals, Filter, Length, SpecialChars
 
 
-# TODO: fix typing linter warnings by changing type definitions
-# (in the long run)
-
-
 def test_empty_pipeline():
     """
     Tests the library's behavior when there is an empty pipeline.
@@ -36,7 +32,7 @@ def test_doubled_filters_in_pipeline():
         [
             Capitals(),
             Capitals(),
-        ]  # type: ignore -- the types match as-is, but not formally.
+        ]
     )
 
     assert pipe.check("valid").passed
@@ -51,7 +47,7 @@ def test_full_pipeline():
     pipe = Pipeline()
 
     for _ in range(10_000):
-        pipe.filters.append(Filter())  # type: ignore
+        pipe.filters.append(Filter())
 
     assert pipe.check("").passed
 
@@ -61,9 +57,7 @@ def test_normal_pipeline():
     A normal test case for a pipeline.
     """
 
-    pipe = Pipeline(
-        [Length(), SpecialChars(), Capitals()]  # type: ignore -- types match
-    )
+    pipe = Pipeline([Length(), SpecialChars(), Capitals()])
 
     res = pipe.check("This is a perfectly normal piece of text.")
 
