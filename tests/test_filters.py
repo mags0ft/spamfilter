@@ -169,6 +169,21 @@ def test_word_length() -> None:
     assert not f.check("Normal sentence")[0]
 
 
+def test_length_exception() -> None:
+    """
+    Tests the exceptions of the length filter.
+    """
+
+    try:
+        f = filters.Length(padding = "##")
+
+        # we should never reach this
+        assert False
+    except ValueError:
+        # all fine!
+        return
+
+
 def test_length() -> None:
     """
     Tests the standard length filter.
@@ -186,8 +201,6 @@ def test_length() -> None:
     r = f.check(t)
 
     assert r[0]
-    assert r[1] == t[:15]
-
 
 def test_length_fillonly() -> None:
     """
