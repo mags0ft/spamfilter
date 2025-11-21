@@ -175,7 +175,7 @@ def test_length_exception() -> None:
     """
 
     try:
-        f = filters.Length(padding = "##")
+        filters.Length(padding = "##")
 
         # we should never reach this
         assert False
