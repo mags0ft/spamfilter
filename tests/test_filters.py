@@ -175,13 +175,13 @@ def test_length_exception() -> None:
     """
 
     try:
-        filters.Length(padding = "##")
+        filters.Length(padding="##")
 
         # we should never reach this
         assert False
     except ValueError:
         # all fine!
-        return
+        pass
 
 
 def test_length() -> None:
@@ -201,6 +201,7 @@ def test_length() -> None:
     r = f.check(t)
 
     assert r[0]
+
 
 def test_length_fillonly() -> None:
     """
