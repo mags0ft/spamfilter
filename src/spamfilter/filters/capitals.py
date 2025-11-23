@@ -1,7 +1,7 @@
 """
 Module for the excessive capital letters filter.
 
-More information about this filter can be found in its Class docstring.
+More information about this filter can be found in its class docstring.
 """
 
 from string import ascii_lowercase, ascii_uppercase

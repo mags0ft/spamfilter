@@ -39,8 +39,9 @@ def _default_response_parsing_function(
     result: list[dict[str, Union[str, float]]],
 ) -> bool:
     """
-    Default response parsing function that checks if the label
-    is 'spam' or 'toxic'.
+    Default response parsing function that checks if the label is "spam",
+    "toxic", "hate" or "abusive" (case insensitive) and returns `False` if so,
+    otherwise `True`.
     """
 
     sorted_result = sorted(result, key=lambda x: x["score"], reverse=True)
@@ -73,6 +74,8 @@ class MLTextClassifier(Filter):
     automatically pulled from Hugging Face (~ 500 MB). You may want to use a
     more suitable model for your use case, such as a custom spam detection
     model for email spam detection.
+
+    Default model: `facebook/roberta-hate-speech-dynabench-r4-target`
     """
 
     def __init__(

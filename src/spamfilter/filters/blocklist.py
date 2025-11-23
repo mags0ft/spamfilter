@@ -1,7 +1,7 @@
 """
 Module for the blocklist filter.
 
-More information about this filter can be found in its Class docstring.
+More information about this filter can be found in its class docstring.
 """
 
 from re import split
@@ -35,7 +35,7 @@ class Blocklist(Filter):
         self.mode: str = mode
         self.blocklist: "set[str]" = blocklist
         self.ignore_regex: str = r""";|:|!|\?|\*|\[|\(|\)|\.| |\||"|'|\$|\+"""
-        self.profanity_replacement: str = "#@!"
+        self.profanity_replacement: str = "***"
 
     def check(self, string: str):
         found: "set[str]" = set()

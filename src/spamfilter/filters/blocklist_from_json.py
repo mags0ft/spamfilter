@@ -1,7 +1,7 @@
 """
 Module for the JSON blocklist filter.
 
-More information about this filter can be found in its Class docstring.
+More information about this filter can be found in its class docstring.
 """
 
 from json import load, JSONDecodeError
