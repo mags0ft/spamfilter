@@ -115,7 +115,9 @@ class OpenAI(Filter):
       and the potentially corrected string.
 
     It is highly recommended to adjust most of these paramters to your needs,
-    especially the `OpenAI.model` and `OpenAI.prompt` parameters.
+    especially the `OpenAI.model` and `OpenAI.prompt` parameters. Please also
+    be aware that the maximum amount of tokens is 1024 by default, which may
+    need to be adjusted based on your use case (like correcting long texts).
     """
 
     # pylint: disable=too-many-instance-attributes
