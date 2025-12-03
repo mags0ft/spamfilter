@@ -27,16 +27,16 @@ class TestSetup:
     Test setup class with meta information for running the test suite.
     """
 
-    _PREFIX = "SPAMFILTER_"
+    _prefix = "SPAMFILTER_"
 
-    TEST_OPENAI = getenv(_PREFIX + "TEST_OPENAI", "false").lower() == "true"
-    TEST_ML = getenv(_PREFIX + "TEST_ML_CLASSIFIER", "false").lower() == "true"
+    test_openai = getenv(f"{_prefix}TEST_OPENAI", "false").lower() == "true"
+    test_ml = getenv(f"{_prefix}TEST_ML_CLASSIFIER", "false").lower() == "true"
 
-    TEST_OPENAI_MODEL = getenv(_PREFIX + "OPENAI_MODEL")
-    TEST_ML_MODEL = getenv(_PREFIX + "ML_CLASSIFIER_MODEL")
+    test_openai_model = getenv(f"{_prefix}OPENAI_MODEL")
+    test_ml_model = getenv(f"{_prefix}ML_CLASSIFIER_MODEL")
 
-    TEST_OPENAI_BASE_URL = getenv(_PREFIX + "OPENAI_API_BASE")
-    TEST_OPENAI_API_KEY = getenv(_PREFIX + "OPENAI_API_KEY")
+    test_openai_base_url = getenv(f"{_prefix}OPENAI_API_BASE")
+    test_openai_api_key = getenv(f"{_prefix}OPENAI_API_KEY")
 
 
 def test_empty_inputs() -> None:
@@ -266,21 +266,21 @@ def test_openai() -> None:
     Tests the OpenAI API compatible filter.
     """
 
-    if not TestSetup.TEST_OPENAI:
+    if not TestSetup.test_openai:
         return
 
-    if not TestSetup.TEST_OPENAI_MODEL:
+    if not TestSetup.test_openai_model:
         raise ValueError(
             "Please set the SPAMFILTER_OPENAI_MODEL environment variable to a "
             "valid OpenAI model."
         )
 
-    assert TestSetup.TEST_OPENAI_BASE_URL is not None
+    assert TestSetup.test_openai_base_url is not None
 
     f = filters.OpenAI(
-        TestSetup.TEST_OPENAI_MODEL,
-        base_url=TestSetup.TEST_OPENAI_BASE_URL,
-        api_key=TestSetup.TEST_OPENAI_API_KEY,
+        TestSetup.test_openai_model,
+        base_url=TestSetup.test_openai_base_url,
+        api_key=TestSetup.test_openai_api_key,
         timeout=30,
     )
 
@@ -293,16 +293,16 @@ def test_ml_classification() -> None:
     Tests the ML text classification filter.
     """
 
-    if not TestSetup.TEST_ML:
+    if not TestSetup.test_ml:
         return
 
-    if not TestSetup.TEST_ML_MODEL:
+    if not TestSetup.test_ml_model:
         raise ValueError(
             "Please set the SPAMFILTER_ML_CLASSIFIER_MODEL environment "
             "variable to a valid ML model."
         )
 
-    f = filters.MLTextClassifier(TestSetup.TEST_ML_MODEL)
+    f = filters.MLTextClassifier(TestSetup.test_ml_model)
 
     assert f.check("Have you ever heard about dragonfruit?")[0]
     assert not f.check("Go fuck yourself, you're so ugly, buah.")[0]
