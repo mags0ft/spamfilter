@@ -163,7 +163,7 @@ def test_word_length() -> None:
         "Haha wiebcfierdjnwoidhiruerilh certainly wudciuewbifwubwieb weiudcber"
     )[0]
 
-    f.max_length = 2
+    f.max_ = 2
 
     assert f.check("A!a.a:b;c d")[0]
     assert not f.check("Normal sentence")[0]
@@ -195,7 +195,7 @@ def test_length() -> None:
     assert not f.check("Perfectly green apples." * 10)[0]
 
     f.mode = "crop"
-    f.max = 15
+    f.max_ = 15
 
     t = "This is a test string - technically too long."
     r = f.check(t)
@@ -208,7 +208,7 @@ def test_length_fillonly() -> None:
     Tests the length filter in fill-only mode.
     """
 
-    f = filters.Length(min_length=20, mode="fill-only", padding="_")
+    f = filters.Length(min_=20, mode="fill-only", padding="_")
 
     t = "Short string"
     r = f.check(t)
@@ -228,7 +228,7 @@ def test_length_shortenonly() -> None:
     Tests the length filter in shorten-only mode.
     """
 
-    f = filters.Length(max_length=25, mode="shorten-only")
+    f = filters.Length(max_=25, mode="shorten-only")
 
     t = "This string is definitely way too long to be accepted."
     r = f.check(t)

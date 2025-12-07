@@ -56,7 +56,7 @@ from spamfilter.filters import (
 m = Pipeline([
     Capitals(),
     SpecialChars(mode = "crop"),
-    Length(min_length = 20, max_length = 60)
+    Length(min_ = 20, max_ = 60)
 ])
 
 print(

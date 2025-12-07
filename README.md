@@ -43,7 +43,7 @@ from spamfilter.pipelines import Pipeline
 # create a new pipeline
 m = Pipeline([
     # length of 10 to 200 chars, crop if needed
-    Length(min_length=10, max_length=200, mode="crop"),
+    Length(min_=10, max_=200, mode="crop"),
     # limit use of special characters
     SpecialChars(mode="normal")
 ])

@@ -17,12 +17,12 @@ class Capitals(Filter):
 
     - `Capitals.percentage`: how many percent of the text need to be in capital
     for it to fail.
-    - `Capitals.abs_safe_min`: the absolute amound of capital characters that
-    are always okay. Set to -1 to deactivate.
     - `Capitals.mode`: how to handle a failing string.
         - `normal`: fail the string
         - `crop`: crop all letters to lowercase if the string is too capital,
         makes it always pass
+    - `Capitals.abs_safe_min`: the absolute amound of capital characters that
+    are always okay. Set to -1 to deactivate.
     """
 
     def __init__(

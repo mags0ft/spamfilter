@@ -15,10 +15,10 @@ class Regex(Filter):
     """
     Check if a string matches a given regular expression.
 
+    - `Regex.expression`: the regular expression used to check for matches.
     - `Regex.mode`: how to handle a failing string.
         - `normal`: fail the string.
         - `censor`: censor the match.
-    - `Regex.expression`: the regular expression used to check for matches.
     - `Regex.replacement`: what regex to replace matches with.
     - `Regex.flags`: any optional regex flags to use when compiling the
       expression.

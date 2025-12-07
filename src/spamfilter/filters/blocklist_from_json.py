@@ -17,6 +17,10 @@ class BlocklistFromJSON(Blocklist):
     content into the `Blocklist.blocklist` property.
 
     - `BlocklistFromJSON.file`: filename or path of the JSON file.
+    - `BlocklistFromJSON.mode`: how to handle a failing string.
+        - `normal`: fail the string.
+        - `censor`: censor the blocked words.
+    - `BlocklistFromJSON.encoding`: the encoding used to read the JSON file.
 
     Raises `FileNotFoundError` if the file does not exist and `JSONDecodeError`
     if the file does not contain valid JSON data. Also raises `ValueError` if

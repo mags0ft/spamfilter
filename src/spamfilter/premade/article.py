@@ -11,8 +11,8 @@ from ..pipelines import Pipeline
 def create_pipeline(
     bypass_protection: bool = True,
     length_filter: bool = True,
-    min_length: int = 400,
-    max_length: int = 300_000,
+    min_: int = 400,
+    max_: int = 300_000,
     wordlength_filter: bool = True,
     max_word_length: int = 50,
     max_num_too_long_words: int = 3,

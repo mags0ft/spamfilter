@@ -16,11 +16,7 @@ class WorldLength(Filter):
     """
     Checks if the words in a string match given length requirements.
 
-    - `WordLength.max`: The inclusive maximum length of a single word.
-    - `WordLength.max_abs_population`: The maximum amount of too long words to
-    make the string fail.
-    - `WordLength.max_perc_population`: The maximum percentage of too long
-    words to make the string fail.
+    - `WordLength.max_`: The inclusive maximum length of a single word.
     - `WordLength.mode`: How to detect failing strings.
         - `absolute`: Fail the string if there are too many words that are too
         long, specified in `max_abs_population` as a max int.
@@ -28,21 +24,26 @@ class WorldLength(Filter):
         specified percentage in `max_perc_population` as a percentage float.
         - `hybrid`: Fail the string if not both of the above conditions are
         met.
+    - `WordLength.max_abs_population`: The maximum amount of too long words to
+    make the string fail.
+    - `WordLength.max_perc_population`: The maximum percentage of too long
+    words to make the string fail.
     - `WordLength.split_regex`: The regex used to split into standalone words.
     """
 
     def __init__(
         self,
-        max_length: int = 20,
+        max_: int = 20,
         mode: str = "absolute",
         max_abs_population: int = 1,
         max_perc_population: float = 0.1,
+        split_regex: str = r",|;|\.| |:|-|_|\!|\?|\(|\)",
     ):
         perform_mode_check(mode, POSSIBLE_MODES)
 
-        self.max_length = max_length
+        self.max_ = max_
         self.mode = mode
-        self.split_regex = r",|;|\.| |:|-|_|\!|\?|\(|\)"
+        self.split_regex = split_regex
         self.max_abs_population = max_abs_population
         self.max_perc_population = max_perc_population
 
@@ -51,7 +52,7 @@ class WorldLength(Filter):
 
         fails = 0
         for word in split_string:
-            if len(word) > self.max_length:
+            if len(word) > self.max_:
                 fails += 1
 
         passes_abs = fails < self.max_abs_population

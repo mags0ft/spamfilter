@@ -63,7 +63,8 @@ class MLTextClassifier(Filter):
     This filter requires the `transformers` Python package to be installed,
     which can be done with `pip install spamfilter[transformers]`.
 
-    - `MLTextClassifier.__init__.model`: the model to use for checking spam.
+    - `MLTextClassifier.model`: the model to use for checking spam (when
+      calling `MLTextClassifier.__init__` only).
     - `MLTextClassifier.mode`: how to handle a failing string.
         - `normal`: fail the string.
     - `MLTextClassifier.response_parsing_function`: a function that

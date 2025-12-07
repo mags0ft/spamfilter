@@ -9,8 +9,8 @@ from ..pipelines import Pipeline
 def create_pipeline(
     bypass_protection: bool = True,
     length_filter: bool = True,
-    min_length: int = 1,
-    max_length: int = 200,
+    min_: int = 1,
+    max_: int = 200,
     wordlength_filter: bool = True,
     max_word_length: int = 20,
     max_num_too_long_words: int = 1,

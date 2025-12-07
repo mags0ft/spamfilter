@@ -130,7 +130,7 @@ class OpenAI(Filter):
         api_key: "Union[str, None]" = None,
         timeout: float = 3.0,
         prompt: str = STD_PROMPT,
-        schema: JSONParameterType = None,
+        json_schema: JSONParameterType = None,
         options: JSONParameterType = None,
         response_parsing_function: RespFuncType = std_resp_func,
     ) -> None:
@@ -149,13 +149,13 @@ class OpenAI(Filter):
 
         self.json_schema: "Union[dict[str, Any], None]" = None
 
-        if schema is None:
+        if json_schema is None:
             if mode == "normal":
                 self.json_schema = JSON_SCHEMA_NORMAL
             elif mode == "correcting":
                 self.json_schema = JSON_SCHEMA_CORRECTING
         else:
-            self.json_schema = schema
+            self.json_schema = json_schema
 
         if options is None:
             self.options = STD_OPTIONS

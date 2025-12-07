@@ -18,8 +18,8 @@ from ..filters import (
 def construct_filter_list(
     bypass_protection: bool,
     length_filter: bool,
-    min_length: int,
-    max_length: int,
+    min_: int,
+    max_: int,
     wordlength_filter: bool,
     max_word_length: int,
     max_num_too_long_words: int,
@@ -39,7 +39,7 @@ def construct_filter_list(
         "list[tuple[bool, Type[Filter], tuple[Union[int, str, float], ...]]]"
     ) = [
         (bypass_protection, BypassDetector, ()),
-        (length_filter, Length, (min_length, max_length)),
+        (length_filter, Length, (min_, max_)),
         (
             wordlength_filter,
             WorldLength,
