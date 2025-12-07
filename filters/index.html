@@ -1229,7 +1229,7 @@ you don't need to import them at all, they are going to be imported into the lib
 
 
 
-  <div class="doc doc-children">
+<div class="doc doc-children">
 
 
 
@@ -1320,7 +1320,7 @@ are always okay to use.</li>
 
 
 
-  <div class="doc doc-children">
+<div class="doc doc-children">
 
 
 
@@ -1360,14 +1360,14 @@ are always okay to use.</li>
 <ul>
 <li><code>Capitals.percentage</code>: how many percent of the text need to be in capital
 for it to fail.</li>
-<li><code>Capitals.abs_safe_min</code>: the absolute amound of capital characters that
-are always okay. Set to -1 to deactivate.</li>
 <li><code>Capitals.mode</code>: how to handle a failing string.<ul>
 <li><code>normal</code>: fail the string</li>
 <li><code>crop</code>: crop all letters to lowercase if the string is too capital,
 makes it always pass</li>
 </ul>
 </li>
+<li><code>Capitals.abs_safe_min</code>: the absolute amound of capital characters that
+are always okay. Set to -1 to deactivate.</li>
 </ul>
 
 
@@ -1380,7 +1380,7 @@ makes it always pass</li>
 
 
 
-  <div class="doc doc-children">
+<div class="doc doc-children">
 
 
 
@@ -1418,14 +1418,18 @@ makes it always pass</li>
 
         <p>Checks if a string matches given length requirements.</p>
 <ul>
-<li><code>Length.min</code>: The inclusive minimum length.</li>
-<li><code>Length.max</code>: The inclusive maximum length.</li>
+<li><code>Length.min_</code>: The inclusive minimum length.</li>
+<li><code>Length.max_</code>: The inclusive maximum length.</li>
 <li><code>Length.padding</code>: A character used to fill up strings that are too short
-in the <code>crop</code> mode.</li>
+in the <code>crop</code> and <code>fill-only</code> modes.</li>
 <li><code>Length.mode</code>: How to handle failing strings.<ul>
 <li><code>normal</code>: Fail too short or too long strings.</li>
 <li><code>crop</code>: Shorten too long strings and fill too short strings up using
 <code>Length.padding</code>.</li>
+<li><code>shorten-only</code>: Only shorten too long strings, do not fill up too
+short strings.</li>
+<li><code>fill-only</code>: Only fill up too short strings, do not shorten too long
+strings.</li>
 </ul>
 </li>
 </ul>
@@ -1440,7 +1444,7 @@ in the <code>crop</code> mode.</li>
 
 
 
-  <div class="doc doc-children">
+<div class="doc doc-children">
 
 
 
@@ -1503,7 +1507,7 @@ characters for splitting the string in non-strict mode.</li>
 
 
 
-  <div class="doc doc-children">
+<div class="doc doc-children">
 
 
 
@@ -1543,6 +1547,12 @@ characters for splitting the string in non-strict mode.</li>
 content into the <code>Blocklist.blocklist</code> property.</p>
 <ul>
 <li><code>BlocklistFromJSON.file</code>: filename or path of the JSON file.</li>
+<li><code>BlocklistFromJSON.mode</code>: how to handle a failing string.<ul>
+<li><code>normal</code>: fail the string.</li>
+<li><code>censor</code>: censor the blocked words.</li>
+</ul>
+</li>
+<li><code>BlocklistFromJSON.encoding</code>: the encoding used to read the JSON file.</li>
 </ul>
 <p>Raises <code>FileNotFoundError</code> if the file does not exist and <code>JSONDecodeError</code>
 if the file does not contain valid JSON data. Also raises <code>ValueError</code> if
@@ -1558,7 +1568,7 @@ the JSON data is not a list.</p>
 
 
 
-  <div class="doc doc-children">
+<div class="doc doc-children">
 
 
 
@@ -1629,7 +1639,7 @@ response JSON against the provided</p>
 
 
 
-  <div class="doc doc-children">
+<div class="doc doc-children">
 
 
 
@@ -1667,12 +1677,12 @@ response JSON against the provided</p>
 
         <p>Check if a string matches a given regular expression.</p>
 <ul>
+<li><code>Regex.expression</code>: the regular expression used to check for matches.</li>
 <li><code>Regex.mode</code>: how to handle a failing string.<ul>
 <li><code>normal</code>: fail the string.</li>
 <li><code>censor</code>: censor the match.</li>
 </ul>
 </li>
-<li><code>Regex.expression</code>: the regular expression used to check for matches.</li>
 <li><code>Regex.replacement</code>: what regex to replace matches with.</li>
 <li><code>Regex.flags</code>: any optional regex flags to use when compiling the
   expression.</li>
@@ -1692,7 +1702,7 @@ change.</em></p>
 
 
 
-  <div class="doc doc-children">
+<div class="doc doc-children">
 
 
 
@@ -1749,12 +1759,12 @@ been modified.</p>
 
         <p>Check if a string contains an email address.</p>
 <ul>
+<li><code>Email.regex</code>: the regex used to check for email addresses.</li>
 <li><code>Email.mode</code>: how to handle a failing string.<ul>
 <li><code>normal</code>: fail the string.</li>
 <li><code>censor</code>: censor the information.</li>
 </ul>
 </li>
-<li><code>Email.regex</code>: the regex used to check for email addresses.</li>
 <li><code>Email.replacement</code>: what regex to replace email addresses with.</li>
 </ul>
 
@@ -1768,7 +1778,7 @@ been modified.</p>
 
 
 
-  <div class="doc doc-children">
+<div class="doc doc-children">
 
 
 
@@ -1832,7 +1842,9 @@ be done with <code>pip install spamfilter[openai]</code>.</p>
   and the potentially corrected string.</li>
 </ul>
 <p>It is highly recommended to adjust most of these paramters to your needs,
-especially the <code>OpenAI.model</code> and <code>OpenAI.prompt</code> parameters.</p>
+especially the <code>OpenAI.model</code> and <code>OpenAI.prompt</code> parameters. Please also
+be aware that the maximum amount of tokens is 1024 by default, which may
+need to be adjusted based on your use case (like correcting long texts).</p>
 
 
 
@@ -1844,7 +1856,7 @@ especially the <code>OpenAI.model</code> and <code>OpenAI.prompt</code> paramete
 
 
 
-  <div class="doc doc-children">
+<div class="doc doc-children">
 
 
 
@@ -1919,7 +1931,8 @@ correct result and let harmful content pass through it on occasion.</p>
 <p>This filter requires the <code>transformers</code> Python package to be installed,
 which can be done with <code>pip install spamfilter[transformers]</code>.</p>
 <ul>
-<li><code>MLTextClassifier.__init__.model</code>: the model to use for checking spam.</li>
+<li><code>MLTextClassifier.model</code>: the model to use for checking spam (when
+  calling <code>MLTextClassifier.__init__</code> only).</li>
 <li><code>MLTextClassifier.mode</code>: how to handle a failing string.<ul>
 <li><code>normal</code>: fail the string.</li>
 </ul>
@@ -1932,6 +1945,7 @@ which can be done with <code>pip install spamfilter[transformers]</code>.</p>
 automatically pulled from Hugging Face (~ 500 MB). You may want to use a
 more suitable model for your use case, such as a custom spam detection
 model for email spam detection.</p>
+<p>Default model: <code>facebook/roberta-hate-speech-dynabench-r4-target</code></p>
 
 
 
@@ -1943,7 +1957,7 @@ model for email spam detection.</p>
 
 
 
-  <div class="doc doc-children">
+<div class="doc doc-children">
 
 
 
