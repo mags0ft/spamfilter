@@ -53,12 +53,11 @@ character long."
         passes = (self.min_ <= ln <= self.max_) or (
             self.mode in ["crop", "fill-only", "crop-only"]
         )
-        res = string
 
         if self.mode in ["crop", "fill-only"] and ln < self.min_:
-            res = string + self.padding * (self.min_ - ln)
+            return (passes, string + self.padding * (self.min_ - ln))
 
         if self.mode in ["crop", "shorten-only"] and ln > self.max_:
-            res = string[: self.max_]
+            return (passes, string[: self.max_])
 
-        return (passes, res)
+        return (passes, string)
