@@ -8,6 +8,14 @@ from dataclasses import dataclass, field
 from ..filters.filter import Filter
 
 
+def _filter_list_factory() -> list[Filter]:
+    """
+    Return a typed list used by the Result dataclass.
+    """
+
+    return []
+
+
 @dataclass
 class Result:
     """
@@ -27,4 +35,4 @@ class Result:
     result: str = ""
     original: str = ""
     changes_made: int = 0
-    failed_filters: "list[Filter]" = field(default_factory=list)
+    failed_filters: list[Filter] = field(default_factory=_filter_list_factory)
