@@ -20,7 +20,7 @@ def test_empty_pipeline():
 
         assert res.passed
         assert res.changes_made == 0
-        assert res.failed_filters == []
+        assert not res.failed_filters
 
 
 def test_doubled_filters_in_pipeline():
