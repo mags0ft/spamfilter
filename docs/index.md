@@ -10,7 +10,7 @@ The spamfilter library is a lightweight, concise way to protect applications aga
 
 ---
 
-[**👉 Get started**](./get_started.md) | [**📕 Documentation**](./documentation.md) | [**👩‍💻 Install**](./installation.md) | [**😸 GitHub**](https://github.com/mags0ft/spamfilter)
+[**Get started**](./get_started.md) &middot; [**Documentation**](./documentation.md) &middot; [**Install**](./installation.md) &middot; [**GitHub**](https://github.com/mags0ft/spamfilter)
 
 ---
 
