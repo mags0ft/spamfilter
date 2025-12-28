@@ -17,10 +17,10 @@ It's object-oriented and makes a quick, concise approach to remove spam easy. `s
 ---
 
 **Important links**
-- 🌎 [Website and documentation](https://mags0ft.github.io/spamfilter/)
-- 🔓 [Report a security vulnerability](https://github.com/mags0ft/spamfilter/security/advisories/new)
-- 🚩 [Create a new issue](https://github.com/mags0ft/spamfilter/issues/new/choose)
-- 👩‍💻 [How to contribute](https://mags0ft.github.io/spamfilter/contributing/)
+- [Website and documentation](https://mags0ft.github.io/spamfilter/)
+- [Report a security vulnerability](https://github.com/mags0ft/spamfilter/security/advisories/new)
+- [Create a new issue](https://github.com/mags0ft/spamfilter/issues/new/choose)
+- [How to contribute](https://mags0ft.github.io/spamfilter/contributing/)
 
 ## Installation
 
