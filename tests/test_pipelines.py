@@ -19,7 +19,7 @@ def test_empty_pipeline():
         res = pipe.check(text)
 
         assert res.passed
-        assert res.changes_made == 0
+        assert not res.changes_made
         assert not res.failed_filters
 
 
@@ -61,23 +61,23 @@ def test_normal_pipeline():
 
     res = pipe.check("This is a perfectly normal piece of text.")
 
-    assert res.changes_made == 0
+    assert not res.changes_made
     assert res.passed
 
     res = pipe.check("RANDOM PIECE OF TEXT")
 
-    assert res.changes_made == 0
+    assert not res.changes_made
     assert not res.passed
     assert any(isinstance(f, Capitals) for f in res.failed_filters)
 
     res = pipe.check("A long piece of text" * 100)
 
-    assert res.changes_made == 0
+    assert not res.changes_made
     assert not res.passed
     assert any(isinstance(f, Length) for f in res.failed_filters)
 
     res = pipe.check("SpecialChars /&(§)!(=!/=!/())")
 
-    assert res.changes_made == 0
+    assert not res.changes_made
     assert not res.passed
     assert any(isinstance(f, SpecialChars) for f in res.failed_filters)
