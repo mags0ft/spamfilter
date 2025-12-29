@@ -71,9 +71,9 @@ class MLTextClassifier(Filter):
       parses the response from the model and returns a boolean indicating
       whether the string is spam or not.
 
-    **WARNING**: The standard model is a hate detection model which will be
-    automatically pulled from Hugging Face (~ 500 MB). You may want to use a
-    more suitable model for your use case, such as a custom spam detection
+    **WARNING**: The standard model is a hate speech detection model which will
+    be automatically pulled from Hugging Face (~ 500 MB). You may want to use
+    a more suitable model for your use case, such as a custom spam detection
     model for email spam detection.
 
     Default model: `facebook/roberta-hate-speech-dynabench-r4-target`
